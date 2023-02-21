@@ -1,0 +1,4496 @@
+{
+    "http://json-schema.org/draft-00/hyper-schema#": {
+        "extends": {
+            "ref": "http://json-schema.org/draft-00/schema#"
+        },
+        "fragmentResolution": "dot-delimited",
+        "links": [
+            {
+                "href": "{$ref}",
+                "rel": "full"
+            },
+            {
+                "href": "{$schema}",
+                "rel": "describedby"
+            },
+            {
+                "href": "{id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "alternate": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-00/hyper-schema#"
+                },
+                "optional": true,
+                "type": "array"
+            },
+            "fragmentResolution": {
+                "default": "dot-delimited",
+                "optional": true,
+                "type": "string"
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-00/links#"
+                },
+                "optional": true,
+                "type": "array"
+            },
+            "mediaType": {
+                "format": "media-type",
+                "optional": true,
+                "type": "string"
+            },
+            "pathStart": {
+                "format": "uri",
+                "optional": true,
+                "type": "string"
+            },
+            "readonly": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            },
+            "root": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            }
+        }
+    },
+    "http://json-schema.org/draft-00/links#": {
+        "properties": {
+            "enctype": {
+                "optional": true,
+                "requires": "method",
+                "type": "string"
+            },
+            "href": {
+                "type": "string"
+            },
+            "method": {
+                "default": "GET",
+                "optional": true,
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-00/hyper-schema#"
+                },
+                "optional": true,
+                "type": "object"
+            },
+            "rel": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-00/schema#": {
+        "default": {},
+        "optional": true,
+        "properties": {
+            "additionalProperties": {
+                "default": {},
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-00/schema#"
+                    },
+                    "boolean"
+                ]
+            },
+            "contentEncoding": {
+                "optional": true,
+                "type": "string"
+            },
+            "default": {
+                "optional": true,
+                "type": "any"
+            },
+            "description": {
+                "optional": true,
+                "type": "string"
+            },
+            "disallow": {
+                "items": {
+                    "type": "string"
+                },
+                "optional": true,
+                "type": [
+                    "string",
+                    "array"
+                ]
+            },
+            "enum": {
+                "minItems": 1,
+                "optional": true,
+                "type": "array"
+            },
+            "extends": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-00/schema#"
+                },
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-00/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "format": {
+                "optional": true,
+                "type": "string"
+            },
+            "items": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-00/schema#"
+                },
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-00/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "maxDecimal": {
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "maxItems": {
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "maxLength": {
+                "optional": true,
+                "type": "integer"
+            },
+            "maximum": {
+                "optional": true,
+                "type": "number"
+            },
+            "maximumCanEqual": {
+                "default": true,
+                "optional": true,
+                "requires": "maximum",
+                "type": "boolean"
+            },
+            "minItems": {
+                "default": 0,
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "minLength": {
+                "default": 0,
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "minimum": {
+                "optional": true,
+                "type": "number"
+            },
+            "minimumCanEqual": {
+                "default": true,
+                "optional": true,
+                "requires": "minimum",
+                "type": "boolean"
+            },
+            "optional": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            },
+            "pattern": {
+                "format": "regex",
+                "optional": true,
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-00/schema#"
+                },
+                "default": {},
+                "optional": true,
+                "type": "object"
+            },
+            "requires": {
+                "optional": true,
+                "type": [
+                    "string",
+                    {
+                        "ref": "http://json-schema.org/draft-00/schema#"
+                    }
+                ]
+            },
+            "title": {
+                "optional": true,
+                "type": "string"
+            },
+            "type": {
+                "default": "any",
+                "items": {
+                    "type": [
+                        "string",
+                        {
+                            "ref": "http://json-schema.org/draft-00/schema#"
+                        }
+                    ]
+                },
+                "optional": true,
+                "type": [
+                    "string",
+                    "array"
+                ]
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-01/hyper-schema#": {
+        "extends": {
+            "ref": "http://json-schema.org/draft-01/schema#"
+        },
+        "fragmentResolution": "dot-delimited",
+        "links": [
+            {
+                "href": "{$ref}",
+                "rel": "full"
+            },
+            {
+                "href": "{$schema}",
+                "rel": "describedby"
+            },
+            {
+                "href": "{id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "alternate": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-01/hyper-schema#"
+                },
+                "optional": true,
+                "type": "array"
+            },
+            "fragmentResolution": {
+                "default": "dot-delimited",
+                "optional": true,
+                "type": "string"
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-01/links#"
+                },
+                "optional": true,
+                "type": "array"
+            },
+            "mediaType": {
+                "format": "media-type",
+                "optional": true,
+                "type": "string"
+            },
+            "pathStart": {
+                "format": "uri",
+                "optional": true,
+                "type": "string"
+            },
+            "readonly": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            },
+            "root": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            }
+        }
+    },
+    "http://json-schema.org/draft-01/links#": {
+        "properties": {
+            "enctype": {
+                "optional": true,
+                "requires": "method",
+                "type": "string"
+            },
+            "href": {
+                "type": "string"
+            },
+            "method": {
+                "default": "GET",
+                "optional": true,
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-01/hyper-schema#"
+                },
+                "optional": true,
+                "type": "object"
+            },
+            "rel": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-01/schema#": {
+        "default": {},
+        "optional": true,
+        "properties": {
+            "additionalProperties": {
+                "default": {},
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-01/schema#"
+                    },
+                    "boolean"
+                ]
+            },
+            "contentEncoding": {
+                "optional": true,
+                "type": "string"
+            },
+            "default": {
+                "optional": true,
+                "type": "any"
+            },
+            "description": {
+                "optional": true,
+                "type": "string"
+            },
+            "disallow": {
+                "items": {
+                    "type": "string"
+                },
+                "optional": true,
+                "type": [
+                    "string",
+                    "array"
+                ]
+            },
+            "enum": {
+                "minItems": 1,
+                "optional": true,
+                "type": "array"
+            },
+            "extends": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-01/schema#"
+                },
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-01/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "format": {
+                "optional": true,
+                "type": "string"
+            },
+            "items": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-01/schema#"
+                },
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-01/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "maxDecimal": {
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "maxItems": {
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "maxLength": {
+                "optional": true,
+                "type": "integer"
+            },
+            "maximum": {
+                "optional": true,
+                "type": "number"
+            },
+            "maximumCanEqual": {
+                "default": true,
+                "optional": true,
+                "requires": "maximum",
+                "type": "boolean"
+            },
+            "minItems": {
+                "default": 0,
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "minLength": {
+                "default": 0,
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "minimum": {
+                "optional": true,
+                "type": "number"
+            },
+            "minimumCanEqual": {
+                "default": true,
+                "optional": true,
+                "requires": "minimum",
+                "type": "boolean"
+            },
+            "optional": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            },
+            "pattern": {
+                "format": "regex",
+                "optional": true,
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-01/schema#"
+                },
+                "default": {},
+                "optional": true,
+                "type": "object"
+            },
+            "requires": {
+                "optional": true,
+                "type": [
+                    "string",
+                    {
+                        "ref": "http://json-schema.org/draft-01/schema#"
+                    }
+                ]
+            },
+            "title": {
+                "optional": true,
+                "type": "string"
+            },
+            "type": {
+                "default": "any",
+                "items": {
+                    "type": [
+                        "string",
+                        {
+                            "ref": "http://json-schema.org/draft-01/schema#"
+                        }
+                    ]
+                },
+                "optional": true,
+                "type": [
+                    "string",
+                    "array"
+                ]
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-02/hyper-schema#": {
+        "extends": {
+            "ref": "http://json-schema.org/draft-02/schema#"
+        },
+        "fragmentResolution": "slash-delimited",
+        "links": [
+            {
+                "href": "{$ref}",
+                "rel": "full"
+            },
+            {
+                "href": "{$schema}",
+                "rel": "describedby"
+            },
+            {
+                "href": "{id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "alternate": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-02/hyper-schema#"
+                },
+                "optional": true,
+                "type": "array"
+            },
+            "fragmentResolution": {
+                "default": "slash-delimited",
+                "optional": true,
+                "type": "string"
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-02/links#"
+                },
+                "optional": true,
+                "type": "array"
+            },
+            "mediaType": {
+                "format": "media-type",
+                "optional": true,
+                "type": "string"
+            },
+            "pathStart": {
+                "format": "uri",
+                "optional": true,
+                "type": "string"
+            },
+            "readonly": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            },
+            "root": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            }
+        }
+    },
+    "http://json-schema.org/draft-02/links#": {
+        "properties": {
+            "enctype": {
+                "optional": true,
+                "requires": "method",
+                "type": "string"
+            },
+            "href": {
+                "type": "string"
+            },
+            "method": {
+                "default": "GET",
+                "optional": true,
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-02/hyper-schema#"
+                },
+                "optional": true,
+                "type": "object"
+            },
+            "rel": {
+                "type": "string"
+            },
+            "targetSchema": {
+                "ref": "http://json-schema.org/draft-02/hyper-schema#"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-02/schema#": {
+        "default": {},
+        "optional": true,
+        "properties": {
+            "additionalProperties": {
+                "default": {},
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-02/schema#"
+                    },
+                    "boolean"
+                ]
+            },
+            "contentEncoding": {
+                "optional": true,
+                "type": "string"
+            },
+            "default": {
+                "optional": true,
+                "type": "any"
+            },
+            "description": {
+                "optional": true,
+                "type": "string"
+            },
+            "disallow": {
+                "items": {
+                    "type": "string"
+                },
+                "optional": true,
+                "type": [
+                    "string",
+                    "array"
+                ],
+                "uniqueItems": true
+            },
+            "divisibleBy": {
+                "default": 1,
+                "minimum": 0,
+                "minimumCanEqual": false,
+                "optional": true,
+                "type": "number"
+            },
+            "enum": {
+                "minItems": 1,
+                "optional": true,
+                "type": "array",
+                "uniqueItems": true
+            },
+            "extends": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-02/schema#"
+                },
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-02/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "format": {
+                "optional": true,
+                "type": "string"
+            },
+            "items": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-02/schema#"
+                },
+                "optional": true,
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-02/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "maxItems": {
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "maxLength": {
+                "optional": true,
+                "type": "integer"
+            },
+            "maximum": {
+                "optional": true,
+                "type": "number"
+            },
+            "maximumCanEqual": {
+                "default": true,
+                "optional": true,
+                "requires": "maximum",
+                "type": "boolean"
+            },
+            "minItems": {
+                "default": 0,
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "minLength": {
+                "default": 0,
+                "minimum": 0,
+                "optional": true,
+                "type": "integer"
+            },
+            "minimum": {
+                "optional": true,
+                "type": "number"
+            },
+            "minimumCanEqual": {
+                "default": true,
+                "optional": true,
+                "requires": "minimum",
+                "type": "boolean"
+            },
+            "optional": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            },
+            "pattern": {
+                "format": "regex",
+                "optional": true,
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-02/schema#"
+                },
+                "default": {},
+                "optional": true,
+                "type": "object"
+            },
+            "requires": {
+                "optional": true,
+                "type": [
+                    "string",
+                    {
+                        "ref": "http://json-schema.org/draft-02/schema#"
+                    }
+                ]
+            },
+            "title": {
+                "optional": true,
+                "type": "string"
+            },
+            "type": {
+                "default": "any",
+                "items": {
+                    "type": [
+                        "string",
+                        {
+                            "ref": "http://json-schema.org/draft-02/schema#"
+                        }
+                    ]
+                },
+                "optional": true,
+                "type": [
+                    "string",
+                    "array"
+                ],
+                "uniqueItems": true
+            },
+            "uniqueItems": {
+                "default": false,
+                "optional": true,
+                "type": "boolean"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-03/hyper-schema#": {
+        "extends": {
+            "ref": "http://json-schema.org/draft-03/schema#"
+        },
+        "fragmentResolution": "slash-delimited",
+        "links": [
+            {
+                "href": "{id}",
+                "rel": "self"
+            },
+            {
+                "href": "{$ref}",
+                "rel": "full"
+            },
+            {
+                "href": "{$schema}",
+                "rel": "describedby"
+            }
+        ],
+        "properties": {
+            "contentEncoding": {
+                "type": "string"
+            },
+            "fragmentResolution": {
+                "default": "slash-delimited",
+                "type": "string"
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-03/links#"
+                },
+                "type": "array"
+            },
+            "mediaType": {
+                "format": "media-type",
+                "type": "string"
+            },
+            "pathStart": {
+                "format": "uri",
+                "type": "string"
+            },
+            "readonly": {
+                "default": false,
+                "type": "boolean"
+            },
+            "root": {
+                "default": false,
+                "type": "boolean"
+            }
+        }
+    },
+    "http://json-schema.org/draft-03/links#": {
+        "properties": {
+            "enctype": {
+                "requires": "method",
+                "type": "string"
+            },
+            "href": {
+                "format": "link-description-object-template",
+                "required": true,
+                "type": "string"
+            },
+            "method": {
+                "default": "GET",
+                "type": "string"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-03/hyper-schema#"
+                },
+                "type": "object"
+            },
+            "rel": {
+                "required": true,
+                "type": "string"
+            },
+            "targetSchema": {
+                "ref": "http://json-schema.org/draft-03/hyper-schema#"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-03/schema#": {
+        "default": {},
+        "dependencies": {
+            "exclusiveMaximum": "maximum",
+            "exclusiveMinimum": "minimum"
+        },
+        "properties": {
+            "additionalItems": {
+                "default": {},
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-03/schema#"
+                    },
+                    "boolean"
+                ]
+            },
+            "additionalProperties": {
+                "default": {},
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-03/schema#"
+                    },
+                    "boolean"
+                ]
+            },
+            "default": {
+                "type": "any"
+            },
+            "dependencies": {
+                "additionalProperties": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "string",
+                        "array",
+                        {
+                            "ref": "http://json-schema.org/draft-03/schema#"
+                        }
+                    ]
+                },
+                "default": {},
+                "type": "object"
+            },
+            "description": {
+                "type": "string"
+            },
+            "disallow": {
+                "items": {
+                    "type": [
+                        "string",
+                        {
+                            "ref": "http://json-schema.org/draft-03/schema#"
+                        }
+                    ]
+                },
+                "type": [
+                    "string",
+                    "array"
+                ],
+                "uniqueItems": true
+            },
+            "divisibleBy": {
+                "default": 1,
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+            },
+            "enum": {
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+            },
+            "exclusiveMaximum": {
+                "default": false,
+                "type": "boolean"
+            },
+            "exclusiveMinimum": {
+                "default": false,
+                "type": "boolean"
+            },
+            "extends": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-03/schema#"
+                },
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-03/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "format": {
+                "type": "string"
+            },
+            "items": {
+                "default": {},
+                "items": {
+                    "ref": "http://json-schema.org/draft-03/schema#"
+                },
+                "type": [
+                    {
+                        "ref": "http://json-schema.org/draft-03/schema#"
+                    },
+                    "array"
+                ]
+            },
+            "maxItems": {
+                "minimum": 0,
+                "type": "integer"
+            },
+            "maxLength": {
+                "type": "integer"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minItems": {
+                "default": 0,
+                "minimum": 0,
+                "type": "integer"
+            },
+            "minLength": {
+                "default": 0,
+                "minimum": 0,
+                "type": "integer"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-03/schema#"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-03/schema#"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "ref": {
+                "format": "uri",
+                "type": "string"
+            },
+            "required": {
+                "default": false,
+                "type": "boolean"
+            },
+            "title": {
+                "type": "string"
+            },
+            "type": {
+                "default": "any",
+                "items": {
+                    "type": [
+                        "string",
+                        {
+                            "ref": "http://json-schema.org/draft-03/schema#"
+                        }
+                    ]
+                },
+                "type": [
+                    "string",
+                    "array"
+                ],
+                "uniqueItems": true
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-04/hyper-schema#": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-04/schema#"
+            }
+        ],
+        "links": [
+            {
+                "href": "{+id}",
+                "rel": "self"
+            },
+            {
+                "href": "{+($ref)}",
+                "rel": "full"
+            }
+        ],
+        "properties": {
+            "additionalItems": {
+                "anyOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-04/hyper-schema#"
+                    }
+                ]
+            },
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-04/hyper-schema#"
+                    }
+                ]
+            },
+            "allOf": {
+                "ref": "http://json-schema.org/draft-04/hyper-schema#/definitions/schemaArray"
+            },
+            "anyOf": {
+                "ref": "http://json-schema.org/draft-04/hyper-schema#/definitions/schemaArray"
+            },
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "http://json-schema.org/draft-04/hyper-schema#"
+                        },
+                        {
+                            "type": "array"
+                        }
+                    ]
+                }
+            },
+            "fragmentResolution": {
+                "type": "string"
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-04/hyper-schema#"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-04/hyper-schema#/definitions/schemaArray"
+                    }
+                ]
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-04/hyper-schema#/definitions/linkDescription"
+                },
+                "type": "array"
+            },
+            "media": {
+                "properties": {
+                    "binaryEncoding": {
+                        "description": "A content encoding scheme, as described in RFC 2045",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "A media type, as described in RFC 2046",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "not": {
+                "ref": "http://json-schema.org/draft-04/hyper-schema#"
+            },
+            "oneOf": {
+                "ref": "http://json-schema.org/draft-04/hyper-schema#/definitions/schemaArray"
+            },
+            "pathStart": {
+                "description": "Instances' URIs must start with this value for this schema to apply to them",
+                "format": "uri",
+                "type": "string"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-04/hyper-schema#"
+                }
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-04/hyper-schema#"
+                }
+            }
+        },
+        "title": "JSON Hyper-Schema"
+    },
+    "http://json-schema.org/draft-04/hyper-schema#/definitions/linkDescription": {
+        "properties": {
+            "encType": {
+                "default": "application/json",
+                "description": "The media type in which to submit data along with the request",
+                "type": "string"
+            },
+            "href": {
+                "description": "a URI template, as defined by RFC 6570, with the addition of the $, ( and ) characters for pre-processing",
+                "type": "string"
+            },
+            "mediaType": {
+                "description": "media type (as defined by RFC 2046) describing the link target",
+                "type": "string"
+            },
+            "method": {
+                "description": "method for requesting the target of the link (e.g. for HTTP this might be \"GET\" or \"DELETE\")",
+                "type": "string"
+            },
+            "rel": {
+                "description": "relation to the target resource of the link",
+                "type": "string"
+            },
+            "schema": {
+                "description": "Schema describing the data to submit along with the request",
+                "ref": "http://json-schema.org/draft-04/hyper-schema#"
+            },
+            "targetSchema": {
+                "description": "JSON Schema describing the link target",
+                "ref": "http://json-schema.org/draft-04/hyper-schema#"
+            },
+            "title": {
+                "description": "a title for the link",
+                "type": "string"
+            }
+        },
+        "required": [
+            "href",
+            "rel"
+        ],
+        "title": "Link Description Object",
+        "type": "object"
+    },
+    "http://json-schema.org/draft-04/hyper-schema#/definitions/readOnly": {
+        "default": false,
+        "description": "If true, indicates that the value of this property is controlled by the server.",
+        "type": "boolean"
+    },
+    "http://json-schema.org/draft-04/hyper-schema#/definitions/schemaArray": {
+        "items": {
+            "ref": "http://json-schema.org/draft-04/hyper-schema#"
+        },
+        "type": "array"
+    },
+    "http://json-schema.org/draft-04/schema#": {
+        "default": {},
+        "dependencies": {
+            "exclusiveMaximum": [
+                "maximum"
+            ],
+            "exclusiveMinimum": [
+                "minimum"
+            ]
+        },
+        "description": "Core schema meta-schema",
+        "properties": {
+            "additionalItems": {
+                "anyOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-04/schema#"
+                    }
+                ],
+                "default": {}
+            },
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-04/schema#"
+                    }
+                ],
+                "default": {}
+            },
+            "allOf": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/schemaArray"
+            },
+            "anyOf": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/schemaArray"
+            },
+            "default": {},
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "http://json-schema.org/draft-04/schema#"
+                        },
+                        {
+                            "ref": "http://json-schema.org/draft-04/schema#/definitions/stringArray"
+                        }
+                    ]
+                },
+                "type": "object"
+            },
+            "description": {
+                "type": "string"
+            },
+            "enum": {
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+            },
+            "exclusiveMaximum": {
+                "default": false,
+                "type": "boolean"
+            },
+            "exclusiveMinimum": {
+                "default": false,
+                "type": "boolean"
+            },
+            "format": {
+                "type": "string"
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-04/schema#"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-04/schema#/definitions/schemaArray"
+                    }
+                ],
+                "default": {}
+            },
+            "maxItems": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+            },
+            "maxLength": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+            },
+            "maxProperties": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minItems": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": true,
+                "minimum": 0,
+                "type": "number"
+            },
+            "not": {
+                "ref": "http://json-schema.org/draft-04/schema#"
+            },
+            "oneOf": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/schemaArray"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-04/schema#"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-04/schema#"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "required": {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/stringArray"
+            },
+            "title": {
+                "type": "string"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-04/schema#/definitions/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "http://json-schema.org/draft-04/schema#/definitions/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-04/schema#/definitions/positiveInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "http://json-schema.org/draft-04/schema#/definitions/positiveIntegerDefault0": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-04/schema#/definitions/positiveInteger"
+            },
+            {
+                "default": 0
+            }
+        ]
+    },
+    "http://json-schema.org/draft-04/schema#/definitions/schemaArray": {
+        "items": {
+            "ref": "http://json-schema.org/draft-04/schema#"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "http://json-schema.org/draft-04/schema#/definitions/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "http://json-schema.org/draft-04/schema#/definitions/stringArray": {
+        "items": {
+            "type": "string"
+        },
+        "minItems": 1,
+        "type": "array",
+        "uniqueItems": true
+    },
+    "http://json-schema.org/draft-06/hyper-schema#": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-06/schema#"
+            }
+        ],
+        "links": [
+            {
+                "href": "{+%24id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "additionalItems": {
+                "anyOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                    }
+                ]
+            },
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "type": "boolean"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                    }
+                ]
+            },
+            "allOf": {
+                "ref": "http://json-schema.org/draft-06/hyper-schema#/definitions/schemaArray"
+            },
+            "anyOf": {
+                "ref": "http://json-schema.org/draft-06/hyper-schema#/definitions/schemaArray"
+            },
+            "base": {
+                "description": "URI Template resolved as for the 'href' keyword in the Link Description Object.  The resulting URI Reference is resolved against the current URI base and sets the new URI base for URI references within the instance.",
+                "type": "string"
+            },
+            "contains": {
+                "ref": "http://json-schema.org/draft-06/hyper-schema#"
+            },
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                        },
+                        {
+                            "type": "array"
+                        }
+                    ]
+                }
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#/definitions/schemaArray"
+                    }
+                ]
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-06/hyper-schema#/definitions/linkDescription"
+                },
+                "type": "array"
+            },
+            "media": {
+                "properties": {
+                    "binaryEncoding": {
+                        "description": "A content encoding scheme, as described in RFC 2045",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "A media type, as described in RFC 2046",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "not": {
+                "ref": "http://json-schema.org/draft-06/hyper-schema#"
+            },
+            "oneOf": {
+                "ref": "http://json-schema.org/draft-06/hyper-schema#/definitions/schemaArray"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                }
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                }
+            },
+            "propertyNames": {
+                "ref": "http://json-schema.org/draft-06/hyper-schema#"
+            },
+            "readOnly": {
+                "default": false,
+                "description": "If true, indicates that the value of this property is controlled by the server.",
+                "type": "boolean"
+            }
+        },
+        "title": "JSON Hyper-Schema"
+    },
+    "http://json-schema.org/draft-06/hyper-schema#/definitions/linkDescription": {
+        "properties": {
+            "href": {
+                "description": "a URI template, as defined by RFC 6570",
+                "format": "uri-template",
+                "type": "string"
+            },
+            "hrefSchema": {
+                "allOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                    }
+                ],
+                "description": "a schema for validating user input to the URI template, where the input is in the form of a JSON object with property names matching variable names in \"href\""
+            },
+            "mediaType": {
+                "description": "media type (as defined by RFC 2046) describing the link target",
+                "type": "string"
+            },
+            "rel": {
+                "description": "relation to the target resource of the link",
+                "type": "string"
+            },
+            "submissionEncType": {
+                "default": "application/json",
+                "description": "The media type in which to submit data along with the request",
+                "type": "string"
+            },
+            "submissionSchema": {
+                "allOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                    }
+                ],
+                "description": "Schema describing the data to submit along with the request"
+            },
+            "targetSchema": {
+                "allOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                    }
+                ],
+                "description": "JSON Schema describing the link target"
+            },
+            "title": {
+                "description": "a title for the link",
+                "type": "string"
+            }
+        },
+        "required": [
+            "href"
+        ],
+        "title": "Link Description Object",
+        "type": "object"
+    },
+    "http://json-schema.org/draft-06/hyper-schema#/definitions/schemaArray": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/schemaArray"
+            },
+            {
+                "items": {
+                    "ref": "http://json-schema.org/draft-06/hyper-schema#"
+                }
+            }
+        ]
+    },
+    "http://json-schema.org/draft-06/schema#": {
+        "default": {},
+        "properties": {
+            "additionalItems": {
+                "ref": "http://json-schema.org/draft-06/schema#"
+            },
+            "additionalProperties": {
+                "ref": "http://json-schema.org/draft-06/schema#"
+            },
+            "allOf": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/schemaArray"
+            },
+            "anyOf": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/schemaArray"
+            },
+            "const": {},
+            "contains": {
+                "ref": "http://json-schema.org/draft-06/schema#"
+            },
+            "default": {},
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "http://json-schema.org/draft-06/schema#"
+                        },
+                        {
+                            "ref": "http://json-schema.org/draft-06/schema#/definitions/stringArray"
+                        }
+                    ]
+                },
+                "type": "object"
+            },
+            "description": {
+                "type": "string"
+            },
+            "enum": {
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+            },
+            "examples": {
+                "items": {},
+                "type": "array"
+            },
+            "exclusiveMaximum": {
+                "type": "number"
+            },
+            "exclusiveMinimum": {
+                "type": "number"
+            },
+            "format": {
+                "type": "string"
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-06/schema#"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-06/schema#/definitions/schemaArray"
+                    }
+                ],
+                "default": {}
+            },
+            "maxItems": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeInteger"
+            },
+            "maxLength": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeInteger"
+            },
+            "maxProperties": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minItems": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+            },
+            "not": {
+                "ref": "http://json-schema.org/draft-06/schema#"
+            },
+            "oneOf": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/schemaArray"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-06/schema#"
+                },
+                "default": {},
+                "propertyNames": {
+                    "format": "regex"
+                },
+                "type": "object"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-06/schema#"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyNames": {
+                "ref": "http://json-schema.org/draft-06/schema#"
+            },
+            "ref": {
+                "format": "uri-reference",
+                "type": "string"
+            },
+            "required": {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/stringArray"
+            },
+            "title": {
+                "type": "string"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-06/schema#/definitions/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "http://json-schema.org/draft-06/schema#/definitions/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Core schema meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "http://json-schema.org/draft-06/schema#/definitions/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "http://json-schema.org/draft-06/schema#/definitions/nonNegativeIntegerDefault0": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-06/schema#/definitions/nonNegativeInteger"
+            },
+            {
+                "default": 0
+            }
+        ]
+    },
+    "http://json-schema.org/draft-06/schema#/definitions/schemaArray": {
+        "items": {
+            "ref": "http://json-schema.org/draft-06/schema#"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "http://json-schema.org/draft-06/schema#/definitions/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "http://json-schema.org/draft-06/schema#/definitions/stringArray": {
+        "default": [],
+        "items": {
+            "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+    },
+    "http://json-schema.org/draft-07/hyper-schema#": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            }
+        ],
+        "links": [
+            {
+                "href": "{+%24id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "additionalItems": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "additionalProperties": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "allOf": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#/definitions/schemaArray"
+            },
+            "anyOf": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#/definitions/schemaArray"
+            },
+            "base": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "contains": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "http://json-schema.org/draft-07/hyper-schema#"
+                        },
+                        {
+                            "type": "array"
+                        }
+                    ]
+                }
+            },
+            "else": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "if": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-07/hyper-schema#"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-07/hyper-schema#/definitions/schemaArray"
+                    }
+                ]
+            },
+            "links": {
+                "items": {
+                    "ref": "http://json-schema.org/draft-07/links#"
+                },
+                "type": "array"
+            },
+            "not": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "oneOf": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#/definitions/schemaArray"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-07/hyper-schema#"
+                }
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-07/hyper-schema#"
+                }
+            },
+            "propertyNames": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "then": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            }
+        },
+        "title": "JSON Hyper-Schema"
+    },
+    "http://json-schema.org/draft-07/hyper-schema#/definitions/schemaArray": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray"
+            },
+            {
+                "items": {
+                    "ref": "http://json-schema.org/draft-07/hyper-schema#"
+                }
+            }
+        ]
+    },
+    "http://json-schema.org/draft-07/hyper-schema-output": {
+        "items": {
+            "allOf": [
+                {
+                    "ref": "http://json-schema.org/draft-07/links#/definitions/noRequiredFields"
+                }
+            ],
+            "else": {
+                "required": [
+                    "targetUri"
+                ]
+            },
+            "if": {
+                "required": [
+                    "hrefSchema"
+                ]
+            },
+            "properties": {
+                "attachmentPointer": {
+                    "format": "json-pointer",
+                    "type": "string"
+                },
+                "contextPointer": {
+                    "format": "json-pointer",
+                    "type": "string"
+                },
+                "contextUri": {
+                    "format": "uri",
+                    "type": "string"
+                },
+                "hrefInputTemplates": {
+                    "items": {
+                        "format": "uri-template",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "hrefPrepopulatedInput": {
+                    "propertyNames": {
+                        "pattern": "^(?:\\w|(?:%[a-f\\d]{2}))+(?:\\.(?:\\w|(?:%[a-f\\d]{2})))*$"
+                    },
+                    "type": "object"
+                },
+                "rel": {
+                    "type": "string"
+                },
+                "targetUri": {
+                    "format": "uri",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "contextUri",
+                "contextPointer",
+                "rel",
+                "attachmentPointer"
+            ],
+            "then": {
+                "required": [
+                    "hrefInputTemplates",
+                    "hrefPrepopulatedInput"
+                ]
+            },
+            "type": "object"
+        },
+        "type": "array"
+    },
+    "http://json-schema.org/draft-07/links#": {
+        "allOf": [
+            {
+                "required": [
+                    "rel",
+                    "href"
+                ]
+            },
+            {
+                "ref": "http://json-schema.org/draft-07/links#/definitions/noRequiredFields"
+            }
+        ],
+        "title": "Link Description Object"
+    },
+    "http://json-schema.org/draft-07/links#/definitions/noRequiredFields": {
+        "properties": {
+            "anchor": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "anchorPointer": {
+                "anyOf": [
+                    {
+                        "format": "json-pointer"
+                    },
+                    {
+                        "format": "relative-json-pointer"
+                    }
+                ],
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "headerSchema": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "href": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "hrefSchema": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "rel": {
+                "type": "string"
+            },
+            "submissionMediaType": {
+                "default": "application/json",
+                "type": "string"
+            },
+            "submissionSchema": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "targetHints": {},
+            "targetMediaType": {
+                "type": "string"
+            },
+            "targetSchema": {
+                "ref": "http://json-schema.org/draft-07/hyper-schema#"
+            },
+            "templatePointers": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "format": "json-pointer"
+                        },
+                        {
+                            "format": "relative-json-pointer"
+                        }
+                    ],
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "templateRequired": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+            },
+            "title": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    },
+    "http://json-schema.org/draft-07/schema#": {
+        "default": true,
+        "properties": {
+            "additionalItems": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "additionalProperties": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "allOf": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray"
+            },
+            "anyOf": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray"
+            },
+            "const": true,
+            "contains": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "contentEncoding": {
+                "type": "string"
+            },
+            "contentMediaType": {
+                "type": "string"
+            },
+            "default": true,
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "http://json-schema.org/draft-07/schema#"
+                        },
+                        {
+                            "ref": "http://json-schema.org/draft-07/schema#/definitions/stringArray"
+                        }
+                    ]
+                },
+                "type": "object"
+            },
+            "description": {
+                "type": "string"
+            },
+            "else": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "enum": {
+                "items": true,
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+            },
+            "examples": {
+                "items": true,
+                "type": "array"
+            },
+            "exclusiveMaximum": {
+                "type": "number"
+            },
+            "exclusiveMinimum": {
+                "type": "number"
+            },
+            "format": {
+                "type": "string"
+            },
+            "if": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-07/schema#"
+                    },
+                    {
+                        "ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray"
+                    }
+                ],
+                "default": true
+            },
+            "maxItems": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeInteger"
+            },
+            "maxLength": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeInteger"
+            },
+            "maxProperties": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minItems": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+            },
+            "not": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "oneOf": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/schemaArray"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-07/schema#"
+                },
+                "default": {},
+                "propertyNames": {
+                    "format": "regex"
+                },
+                "type": "object"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "http://json-schema.org/draft-07/schema#"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyNames": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "readOnly": {
+                "default": false,
+                "type": "boolean"
+            },
+            "ref": {
+                "format": "uri-reference",
+                "type": "string"
+            },
+            "required": {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/stringArray"
+            },
+            "then": {
+                "ref": "http://json-schema.org/draft-07/schema#"
+            },
+            "title": {
+                "type": "string"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "http://json-schema.org/draft-07/schema#/definitions/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "http://json-schema.org/draft-07/schema#/definitions/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            },
+            "writeOnly": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Core schema meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "http://json-schema.org/draft-07/schema#/definitions/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "http://json-schema.org/draft-07/schema#/definitions/nonNegativeIntegerDefault0": {
+        "allOf": [
+            {
+                "ref": "http://json-schema.org/draft-07/schema#/definitions/nonNegativeInteger"
+            },
+            {
+                "default": 0
+            }
+        ]
+    },
+    "http://json-schema.org/draft-07/schema#/definitions/schemaArray": {
+        "items": {
+            "ref": "http://json-schema.org/draft-07/schema#"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "http://json-schema.org/draft-07/schema#/definitions/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "http://json-schema.org/draft-07/schema#/definitions/stringArray": {
+        "default": [],
+        "items": {
+            "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+    },
+    "https://json-schema.org/draft/2019-09/hyper-schema": {
+        "allOf": [
+            {
+                "ref": "https://json-schema.org/draft/2019-09/schema"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/hyper-schema"
+            }
+        ],
+        "links": [
+            {
+                "href": "{+%24id}",
+                "rel": "self"
+            }
+        ],
+        "title": "JSON Hyper-Schema"
+    },
+    "https://json-schema.org/draft/2019-09/links#/$defs/noRequiredFields": {
+        "properties": {
+            "anchor": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "anchorPointer": {
+                "anyOf": [
+                    {
+                        "format": "json-pointer"
+                    },
+                    {
+                        "format": "relative-json-pointer"
+                    }
+                ],
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "headerSchema": {
+                "default": true,
+                "ref": "https://json-schema.org/draft/2019-09/hyper-schema"
+            },
+            "href": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "hrefSchema": {
+                "default": false,
+                "ref": "https://json-schema.org/draft/2019-09/hyper-schema"
+            },
+            "rel": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "items": {
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                    }
+                ]
+            },
+            "submissionMediaType": {
+                "default": "application/json",
+                "type": "string"
+            },
+            "submissionSchema": {
+                "default": true,
+                "ref": "https://json-schema.org/draft/2019-09/hyper-schema"
+            },
+            "targetHints": {},
+            "targetMediaType": {
+                "type": "string"
+            },
+            "targetSchema": {
+                "default": true,
+                "ref": "https://json-schema.org/draft/2019-09/hyper-schema"
+            },
+            "templatePointers": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "format": "json-pointer"
+                        },
+                        {
+                            "format": "relative-json-pointer"
+                        }
+                    ],
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "templateRequired": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+            },
+            "title": {
+                "type": "string"
+            }
+        },
+        "type": "object"
+    },
+    "https://json-schema.org/draft/2019-09/links": {
+        "allOf": [
+            {
+                "required": [
+                    "rel",
+                    "href"
+                ]
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/links#/$defs/noRequiredFields"
+            }
+        ],
+        "title": "Link Description Object"
+    },
+    "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray": {
+        "items": {
+            "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "https://json-schema.org/draft/2019-09/meta/applicator": {
+        "properties": {
+            "additionalItems": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "additionalProperties": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "allOf": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
+            },
+            "anyOf": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
+            },
+            "contains": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "dependentSchemas": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                },
+                "type": "object"
+            },
+            "else": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "if": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "items": {
+                "anyOf": [
+                    {
+                        "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                    },
+                    {
+                        "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
+                    }
+                ]
+            },
+            "not": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "oneOf": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                },
+                "default": {},
+                "propertyNames": {
+                    "format": "regex"
+                },
+                "type": "object"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyNames": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "then": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "unevaluatedItems": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            "unevaluatedProperties": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            }
+        },
+        "title": "Applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/content": {
+        "properties": {
+            "contentEncoding": {
+                "type": "string"
+            },
+            "contentMediaType": {
+                "type": "string"
+            },
+            "contentSchema": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/content"
+            }
+        },
+        "title": "Content vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/core": {
+        "properties": {
+            "ref": {
+                "format": "uri-reference",
+                "type": "string"
+            }
+        },
+        "title": "Core vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/format": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/hyper-schema": {
+        "links": [
+            {
+                "href": "{+%24id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "base": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "links": {
+                "items": {
+                    "ref": "https://json-schema.org/draft/2019-09/links"
+                },
+                "type": "array"
+            }
+        },
+        "title": "JSON Hyper-Schema Vocabulary Schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/meta-data": {
+        "properties": {
+            "default": true,
+            "deprecated": {
+                "default": false,
+                "type": "boolean"
+            },
+            "description": {
+                "type": "string"
+            },
+            "examples": {
+                "items": true,
+                "type": "array"
+            },
+            "readOnly": {
+                "default": false,
+                "type": "boolean"
+            },
+            "title": {
+                "type": "string"
+            },
+            "writeOnly": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Meta-data vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeIntegerDefault0": {
+        "default": 0,
+        "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger"
+    },
+    "https://json-schema.org/draft/2019-09/meta/validation#/$defs/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/meta/validation#/$defs/stringArray": {
+        "default": [],
+        "items": {
+            "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+    },
+    "https://json-schema.org/draft/2019-09/meta/validation": {
+        "properties": {
+            "const": true,
+            "dependentRequired": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/stringArray"
+                },
+                "type": "object"
+            },
+            "enum": {
+                "items": true,
+                "type": "array"
+            },
+            "exclusiveMaximum": {
+                "type": "number"
+            },
+            "exclusiveMinimum": {
+                "type": "number"
+            },
+            "maxContains": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxItems": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxLength": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxProperties": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minContains": {
+                "default": 1,
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "minItems": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "required": {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/stringArray"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Validation vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/output/hyper-schema": {
+        "items": {
+            "allOf": [
+                {
+                    "ref": "https://json-schema.org/draft/2019-09/links#/$defs/noRequiredFields"
+                }
+            ],
+            "else": {
+                "required": [
+                    "targetUri"
+                ]
+            },
+            "if": {
+                "required": [
+                    "hrefSchema"
+                ]
+            },
+            "properties": {
+                "attachmentPointer": {
+                    "format": "json-pointer",
+                    "type": "string"
+                },
+                "contextPointer": {
+                    "format": "json-pointer",
+                    "type": "string"
+                },
+                "contextUri": {
+                    "format": "uri",
+                    "type": "string"
+                },
+                "hrefInputTemplates": {
+                    "items": {
+                        "format": "uri-template",
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "hrefPrepopulatedInput": {
+                    "propertyNames": {
+                        "pattern": "^(?:\\w|(?:%[a-f\\d]{2}))+(?:\\.(?:\\w|(?:%[a-f\\d]{2})))*$"
+                    },
+                    "type": "object"
+                },
+                "rel": {
+                    "type": "string"
+                },
+                "targetUri": {
+                    "format": "uri",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "contextUri",
+                "contextPointer",
+                "rel",
+                "attachmentPointer"
+            ],
+            "then": {
+                "required": [
+                    "hrefInputTemplates",
+                    "hrefPrepopulatedInput"
+                ]
+            },
+            "type": "object"
+        },
+        "title": "JSON Hyper-Schema Output",
+        "type": "array"
+    },
+    "https://json-schema.org/draft/2019-09/output/schema#/$defs/basic": {
+        "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/2019-09/output/schema#/$defs/detailed": {
+        "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/2019-09/output/schema#/$defs/flag": {
+        "properties": {
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnit": {
+        "allOf": [
+            {
+                "if": {
+                    "properties": {
+                        "valid": {
+                            "const": false
+                        }
+                    }
+                },
+                "then": {
+                    "required": [
+                        "errors"
+                    ]
+                }
+            },
+            {
+                "if": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "keywordLocation": {
+                                    "pattern": "/\\$ref/"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "keywordLocation": {
+                                    "pattern": "/\\$recursiveRef/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "then": {
+                    "required": [
+                        "absoluteKeywordLocation"
+                    ]
+                }
+            }
+        ],
+        "properties": {
+            "absoluteKeywordLocation": {
+                "format": "uri",
+                "type": "string"
+            },
+            "annotations": {
+                "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnitArray"
+            },
+            "errors": {
+                "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnitArray"
+            },
+            "instanceLocation": {
+                "format": "uri-reference",
+                "type": "string"
+            },
+            "keywordLocation": {
+                "format": "uri-reference",
+                "type": "string"
+            },
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid",
+            "keywordLocation",
+            "instanceLocation"
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnitArray": {
+        "items": {
+            "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnit"
+        },
+        "type": "array"
+    },
+    "https://json-schema.org/draft/2019-09/output/schema#/$defs/verbose": {
+        "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/2019-09/output/schema": {
+        "description": "A schema that validates the minimum requirements for validation output",
+        "oneOf": [
+            {
+                "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/flag"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/basic"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/detailed"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/output/schema#/$defs/verbose"
+            }
+        ]
+    },
+    "https://json-schema.org/draft/2019-09/schema": {
+        "allOf": [
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/core"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/validation"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/meta-data"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/format"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2019-09/meta/content"
+            }
+        ],
+        "properties": {
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "https://json-schema.org/draft/2019-09/schema"
+                        },
+                        {
+                            "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/stringArray"
+                        }
+                    ]
+                },
+                "type": "object"
+            }
+        },
+        "title": "Core and Validation specifications meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/hyper-schema": {
+        "allOf": [
+            {
+                "ref": "https://json-schema.org/draft/2020-12/schema"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/hyper-schema"
+            }
+        ],
+        "links": [
+            {
+                "href": "{+%24id}",
+                "rel": "self"
+            }
+        ],
+        "title": "JSON Hyper-Schema"
+    },
+    "https://json-schema.org/draft/2020-12/links": {
+        "properties": {
+            "anchor": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "anchorPointer": {
+                "anyOf": [
+                    {
+                        "format": "json-pointer"
+                    },
+                    {
+                        "format": "relative-json-pointer"
+                    }
+                ],
+                "type": "string"
+            },
+            "description": {
+                "type": "string"
+            },
+            "headerSchema": {
+                "default": true,
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+            },
+            "href": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "hrefSchema": {
+                "default": false,
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+            },
+            "rel": {
+                "anyOf": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "items": {
+                            "type": "string"
+                        },
+                        "minItems": 1,
+                        "type": "array"
+                    }
+                ]
+            },
+            "submissionMediaType": {
+                "default": "application/json",
+                "type": "string"
+            },
+            "submissionSchema": {
+                "default": true,
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+            },
+            "targetHints": {},
+            "targetMediaType": {
+                "type": "string"
+            },
+            "targetSchema": {
+                "default": true,
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+            },
+            "templatePointers": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "format": "json-pointer"
+                        },
+                        {
+                            "format": "relative-json-pointer"
+                        }
+                    ],
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "templateRequired": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+            },
+            "title": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "rel",
+            "href"
+        ],
+        "title": "Link Description Object",
+        "type": "object"
+    },
+    "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray": {
+        "items": {
+            "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "https://json-schema.org/draft/2020-12/meta/applicator": {
+        "properties": {
+            "additionalProperties": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "allOf": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
+            },
+            "anyOf": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
+            },
+            "contains": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "dependentSchemas": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "else": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "if": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "items": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "not": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "oneOf": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                },
+                "default": {},
+                "propertyNames": {
+                    "format": "regex"
+                },
+                "type": "object"
+            },
+            "prefixItems": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyNames": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            "then": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            }
+        },
+        "title": "Applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/content": {
+        "properties": {
+            "contentEncoding": {
+                "type": "string"
+            },
+            "contentMediaType": {
+                "type": "string"
+            },
+            "contentSchema": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/content"
+            }
+        },
+        "title": "Content vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/core#/$defs/anchorString": {
+        "pattern": "^[A-Za-z_][-A-Za-z0-9._]*$",
+        "type": "string"
+    },
+    "https://json-schema.org/draft/2020-12/meta/core#/$defs/uriReferenceString": {
+        "format": "uri-reference",
+        "type": "string"
+    },
+    "https://json-schema.org/draft/2020-12/meta/core#/$defs/uriString": {
+        "format": "uri",
+        "type": "string"
+    },
+    "https://json-schema.org/draft/2020-12/meta/core": {
+        "properties": {
+            "ref": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/core#/$defs/uriReferenceString"
+            }
+        },
+        "title": "Core vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/format-annotation": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema for annotation results",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/format-assertion": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema for assertion results",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/meta-data": {
+        "properties": {
+            "default": true,
+            "deprecated": {
+                "default": false,
+                "type": "boolean"
+            },
+            "description": {
+                "type": "string"
+            },
+            "examples": {
+                "items": true,
+                "type": "array"
+            },
+            "readOnly": {
+                "default": false,
+                "type": "boolean"
+            },
+            "title": {
+                "type": "string"
+            },
+            "writeOnly": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Meta-data vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/unevaluated": {
+        "properties": {
+            "unevaluatedItems": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated"
+            },
+            "unevaluatedProperties": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated"
+            }
+        },
+        "title": "Unevaluated applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeIntegerDefault0": {
+        "default": 0,
+        "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger"
+    },
+    "https://json-schema.org/draft/2020-12/meta/validation#/$defs/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/meta/validation#/$defs/stringArray": {
+        "default": [],
+        "items": {
+            "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+    },
+    "https://json-schema.org/draft/2020-12/meta/validation": {
+        "properties": {
+            "const": true,
+            "dependentRequired": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/stringArray"
+                },
+                "type": "object"
+            },
+            "enum": {
+                "items": true,
+                "type": "array"
+            },
+            "exclusiveMaximum": {
+                "type": "number"
+            },
+            "exclusiveMinimum": {
+                "type": "number"
+            },
+            "maxContains": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxItems": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxLength": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxProperties": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minContains": {
+                "default": 1,
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "minItems": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "required": {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/stringArray"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Validation vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/output/schema#/$defs/basic": {
+        "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/2020-12/output/schema#/$defs/detailed": {
+        "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/2020-12/output/schema#/$defs/flag": {
+        "properties": {
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnit": {
+        "allOf": [
+            {
+                "if": {
+                    "properties": {
+                        "valid": {
+                            "const": false
+                        }
+                    }
+                },
+                "then": {
+                    "anyOf": [
+                        {
+                            "required": [
+                                "error"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "errors"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "if": {
+                    "anyOf": [
+                        {
+                            "properties": {
+                                "keywordLocation": {
+                                    "pattern": "/\\$ref/"
+                                }
+                            }
+                        },
+                        {
+                            "properties": {
+                                "keywordLocation": {
+                                    "pattern": "/\\$dynamicRef/"
+                                }
+                            }
+                        }
+                    ]
+                },
+                "then": {
+                    "required": [
+                        "absoluteKeywordLocation"
+                    ]
+                }
+            }
+        ],
+        "properties": {
+            "absoluteKeywordLocation": {
+                "format": "uri",
+                "type": "string"
+            },
+            "annotations": {
+                "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnitArray"
+            },
+            "error": {
+                "type": "string"
+            },
+            "errors": {
+                "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnitArray"
+            },
+            "instanceLocation": {
+                "format": "json-pointer",
+                "type": "string"
+            },
+            "keywordLocation": {
+                "format": "json-pointer",
+                "type": "string"
+            },
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid",
+            "keywordLocation",
+            "instanceLocation"
+        ]
+    },
+    "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnitArray": {
+        "items": {
+            "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnit"
+        },
+        "type": "array"
+    },
+    "https://json-schema.org/draft/2020-12/output/schema#/$defs/verbose": {
+        "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/2020-12/output/schema": {
+        "anyOf": [
+            {
+                "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/flag"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/basic"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/detailed"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/output/schema#/$defs/verbose"
+            }
+        ],
+        "description": "A schema that validates the minimum requirements for validation output"
+    },
+    "https://json-schema.org/draft/2020-12/schema": {
+        "allOf": [
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/core"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/validation"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/meta-data"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/format-annotation"
+            },
+            {
+                "ref": "https://json-schema.org/draft/2020-12/meta/content"
+            }
+        ],
+        "properties": {
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "https://json-schema.org/draft/2020-12/schema"
+                        },
+                        {
+                            "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/stringArray"
+                        }
+                    ]
+                },
+                "default": {},
+                "deprecated": true,
+                "type": "object"
+            }
+        },
+        "title": "Core and Validation specifications meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/applicator#/$defs/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray": {
+        "items": {
+            "ref": "https://json-schema.org/draft/next/meta/applicator"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "https://json-schema.org/draft/next/meta/applicator": {
+        "properties": {
+            "additionalProperties": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "allOf": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
+            },
+            "anyOf": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
+            },
+            "contains": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "dependentSchemas": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/next/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "else": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "if": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "items": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "maxContains": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/nonNegativeInteger"
+            },
+            "minContains": {
+                "default": 1,
+                "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/nonNegativeInteger"
+            },
+            "not": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "oneOf": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/next/meta/applicator"
+                },
+                "default": {},
+                "propertyNames": {
+                    "format": "regex"
+                },
+                "type": "object"
+            },
+            "prefixItems": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/next/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyDependencies": {
+                "additionalProperties": {
+                    "additionalProperties": {
+                        "ref": "https://json-schema.org/draft/next/meta/applicator"
+                    },
+                    "default": {},
+                    "type": "object"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyNames": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            "then": {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            }
+        },
+        "title": "Applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/content": {
+        "properties": {
+            "contentEncoding": {
+                "type": "string"
+            },
+            "contentMediaType": {
+                "type": "string"
+            },
+            "contentSchema": {
+                "ref": "https://json-schema.org/draft/next/meta/content"
+            }
+        },
+        "title": "Content vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/core#/$defs/anchorString": {
+        "pattern": "^[A-Za-z_][-A-Za-z0-9._]*$",
+        "type": "string"
+    },
+    "https://json-schema.org/draft/next/meta/core#/$defs/iriReferenceString": {
+        "format": "iri-reference",
+        "type": "string"
+    },
+    "https://json-schema.org/draft/next/meta/core#/$defs/iriString": {
+        "format": "iri",
+        "type": "string"
+    },
+    "https://json-schema.org/draft/next/meta/core": {
+        "properties": {
+            "ref": {
+                "ref": "https://json-schema.org/draft/next/meta/core#/$defs/iriReferenceString"
+            }
+        },
+        "title": "Core vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/format-annotation": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema for annotation results",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/format-assertion": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema for assertion results",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/meta-data": {
+        "properties": {
+            "default": true,
+            "deprecated": {
+                "default": false,
+                "type": "boolean"
+            },
+            "description": {
+                "type": "string"
+            },
+            "examples": {
+                "items": true,
+                "type": "array"
+            },
+            "readOnly": {
+                "default": false,
+                "type": "boolean"
+            },
+            "title": {
+                "type": "string"
+            },
+            "writeOnly": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Meta-data vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/unevaluated": {
+        "properties": {
+            "unevaluatedItems": {
+                "ref": "https://json-schema.org/draft/next/meta/unevaluated"
+            },
+            "unevaluatedProperties": {
+                "ref": "https://json-schema.org/draft/next/meta/unevaluated"
+            }
+        },
+        "title": "Unevaluated applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeIntegerDefault0": {
+        "default": 0,
+        "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeInteger"
+    },
+    "https://json-schema.org/draft/next/meta/validation#/$defs/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "https://json-schema.org/draft/next/meta/validation#/$defs/stringArray": {
+        "default": [],
+        "items": {
+            "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+    },
+    "https://json-schema.org/draft/next/meta/validation": {
+        "properties": {
+            "const": true,
+            "dependentRequired": {
+                "additionalProperties": {
+                    "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/stringArray"
+                },
+                "type": "object"
+            },
+            "enum": {
+                "items": true,
+                "type": "array"
+            },
+            "exclusiveMaximum": {
+                "type": "number"
+            },
+            "exclusiveMinimum": {
+                "type": "number"
+            },
+            "maxItems": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxLength": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxProperties": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minItems": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "required": {
+                "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/stringArray"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Validation vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "https://json-schema.org/draft/next/output/schema#/$defs/flag": {
+        "properties": {
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid"
+        ]
+    },
+    "https://json-schema.org/draft/next/output/schema#/$defs/hierarchical": {
+        "ref": "https://json-schema.org/draft/next/output/schema#/$defs/outputUnit"
+    },
+    "https://json-schema.org/draft/next/output/schema#/$defs/list": {
+        "properties": {
+            "nested": {
+                "ref": "https://json-schema.org/draft/next/output/schema#/$defs/outputUnitArray"
+            },
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid",
+            "nested"
+        ]
+    },
+    "https://json-schema.org/draft/next/output/schema#/$defs/outputUnit": {
+        "allOf": [
+            {
+                "if": {
+                    "anyOf": [
+                        {
+                            "required": [
+                                "errors"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "droppedAnnotations"
+                            ]
+                        }
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "valid": {
+                            "const": false
+                        }
+                    }
+                }
+            },
+            {
+                "if": {
+                    "required": [
+                        "annotations"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "valid": {
+                            "const": true
+                        }
+                    }
+                }
+            }
+        ],
+        "properties": {
+            "annotations": {
+                "additionalProperties": true,
+                "type": "object"
+            },
+            "droppedAnnotations": {
+                "additionalProperties": true,
+                "type": "object"
+            },
+            "errors": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "evaluationPath": {
+                "format": "json-pointer",
+                "type": "string"
+            },
+            "instanceLocation": {
+                "format": "json-pointer",
+                "type": "string"
+            },
+            "nested": {
+                "ref": "https://json-schema.org/draft/next/output/schema#/$defs/outputUnitArray"
+            },
+            "schemaLocation": {
+                "format": "uri",
+                "type": "string"
+            },
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid",
+            "evaluationPath",
+            "schemaLocation",
+            "instanceLocation"
+        ]
+    },
+    "https://json-schema.org/draft/next/output/schema#/$defs/outputUnitArray": {
+        "items": {
+            "ref": "https://json-schema.org/draft/next/output/schema#/$defs/outputUnit"
+        },
+        "type": "array"
+    },
+    "https://json-schema.org/draft/next/output/schema": {
+        "anyOf": [
+            {
+                "ref": "https://json-schema.org/draft/next/output/schema#/$defs/flag"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/output/schema#/$defs/list"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/output/schema#/$defs/hierarchical"
+            }
+        ],
+        "description": "A schema that validates the minimum requirements for validation output"
+    },
+    "https://json-schema.org/draft/next/schema": {
+        "allOf": [
+            {
+                "ref": "https://json-schema.org/draft/next/meta/core"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/meta/applicator"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/meta/unevaluated"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/meta/validation"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/meta/meta-data"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/meta/format-annotation"
+            },
+            {
+                "ref": "https://json-schema.org/draft/next/meta/content"
+            }
+        ],
+        "properties": {
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "https://json-schema.org/draft/next/schema"
+                        },
+                        {
+                            "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/stringArray"
+                        }
+                    ]
+                },
+                "default": {},
+                "deprecated": true,
+                "type": "object"
+            }
+        },
+        "title": "Core and Validation specifications meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/applicator#/$defs/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "schema:/meta/applicator#/$defs/schemaArray": {
+        "items": {
+            "ref": "schema:/meta/applicator"
+        },
+        "minItems": 1,
+        "type": "array"
+    },
+    "schema:/meta/applicator": {
+        "properties": {
+            "additionalProperties": {
+                "ref": "schema:/meta/applicator"
+            },
+            "allOf": {
+                "ref": "schema:/meta/applicator#/$defs/schemaArray"
+            },
+            "anyOf": {
+                "ref": "schema:/meta/applicator#/$defs/schemaArray"
+            },
+            "contains": {
+                "ref": "schema:/meta/applicator"
+            },
+            "dependentSchemas": {
+                "additionalProperties": {
+                    "ref": "schema:/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "else": {
+                "ref": "schema:/meta/applicator"
+            },
+            "if": {
+                "ref": "schema:/meta/applicator"
+            },
+            "items": {
+                "ref": "schema:/meta/applicator"
+            },
+            "maxContains": {
+                "ref": "schema:/meta/applicator#/$defs/nonNegativeInteger"
+            },
+            "minContains": {
+                "default": 1,
+                "ref": "schema:/meta/applicator#/$defs/nonNegativeInteger"
+            },
+            "not": {
+                "ref": "schema:/meta/applicator"
+            },
+            "oneOf": {
+                "ref": "schema:/meta/applicator#/$defs/schemaArray"
+            },
+            "patternProperties": {
+                "additionalProperties": {
+                    "ref": "schema:/meta/applicator"
+                },
+                "default": {},
+                "propertyNames": {
+                    "format": "regex"
+                },
+                "type": "object"
+            },
+            "prefixItems": {
+                "ref": "schema:/meta/applicator#/$defs/schemaArray"
+            },
+            "properties": {
+                "additionalProperties": {
+                    "ref": "schema:/meta/applicator"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyDependencies": {
+                "additionalProperties": {
+                    "additionalProperties": {
+                        "ref": "schema:/meta/applicator"
+                    },
+                    "default": {},
+                    "type": "object"
+                },
+                "default": {},
+                "type": "object"
+            },
+            "propertyNames": {
+                "ref": "schema:/meta/applicator"
+            },
+            "then": {
+                "ref": "schema:/meta/applicator"
+            }
+        },
+        "title": "Applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/content": {
+        "properties": {
+            "contentEncoding": {
+                "type": "string"
+            },
+            "contentMediaType": {
+                "type": "string"
+            },
+            "contentSchema": {
+                "ref": "schema:/meta/content"
+            }
+        },
+        "title": "Content vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/core#/$defs/anchorString": {
+        "pattern": "^[A-Za-z_][-A-Za-z0-9._]*$",
+        "type": "string"
+    },
+    "schema:/meta/core#/$defs/iriReferenceString": {
+        "format": "iri-reference",
+        "type": "string"
+    },
+    "schema:/meta/core#/$defs/iriString": {
+        "format": "iri",
+        "type": "string"
+    },
+    "schema:/meta/core": {
+        "properties": {
+            "ref": {
+                "ref": "schema:/meta/core#/$defs/iriReferenceString"
+            }
+        },
+        "title": "Core vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/format-annotation": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema for annotation results",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/format-assertion": {
+        "properties": {
+            "format": {
+                "type": "string"
+            }
+        },
+        "title": "Format vocabulary meta-schema for assertion results",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/meta-data": {
+        "properties": {
+            "default": true,
+            "deprecated": {
+                "default": false,
+                "type": "boolean"
+            },
+            "description": {
+                "type": "string"
+            },
+            "examples": {
+                "items": true,
+                "type": "array"
+            },
+            "readOnly": {
+                "default": false,
+                "type": "boolean"
+            },
+            "title": {
+                "type": "string"
+            },
+            "writeOnly": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Meta-data vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/unevaluated": {
+        "properties": {
+            "unevaluatedItems": {
+                "ref": "schema:/meta/unevaluated"
+            },
+            "unevaluatedProperties": {
+                "ref": "schema:/meta/unevaluated"
+            }
+        },
+        "title": "Unevaluated applicator vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/meta/validation#/$defs/nonNegativeInteger": {
+        "minimum": 0,
+        "type": "integer"
+    },
+    "schema:/meta/validation#/$defs/nonNegativeIntegerDefault0": {
+        "default": 0,
+        "ref": "schema:/meta/validation#/$defs/nonNegativeInteger"
+    },
+    "schema:/meta/validation#/$defs/simpleTypes": {
+        "enum": [
+            "array",
+            "boolean",
+            "integer",
+            "null",
+            "number",
+            "object",
+            "string"
+        ]
+    },
+    "schema:/meta/validation#/$defs/stringArray": {
+        "default": [],
+        "items": {
+            "type": "string"
+        },
+        "type": "array",
+        "uniqueItems": true
+    },
+    "schema:/meta/validation": {
+        "properties": {
+            "const": true,
+            "dependentRequired": {
+                "additionalProperties": {
+                    "ref": "schema:/meta/validation#/$defs/stringArray"
+                },
+                "type": "object"
+            },
+            "enum": {
+                "items": true,
+                "type": "array"
+            },
+            "exclusiveMaximum": {
+                "type": "number"
+            },
+            "exclusiveMinimum": {
+                "type": "number"
+            },
+            "maxItems": {
+                "ref": "schema:/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxLength": {
+                "ref": "schema:/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maxProperties": {
+                "ref": "schema:/meta/validation#/$defs/nonNegativeInteger"
+            },
+            "maximum": {
+                "type": "number"
+            },
+            "minItems": {
+                "ref": "schema:/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minLength": {
+                "ref": "schema:/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minProperties": {
+                "ref": "schema:/meta/validation#/$defs/nonNegativeIntegerDefault0"
+            },
+            "minimum": {
+                "type": "number"
+            },
+            "multipleOf": {
+                "exclusiveMinimum": 0,
+                "type": "number"
+            },
+            "pattern": {
+                "format": "regex",
+                "type": "string"
+            },
+            "required": {
+                "ref": "schema:/meta/validation#/$defs/stringArray"
+            },
+            "type": {
+                "anyOf": [
+                    {
+                        "ref": "schema:/meta/validation#/$defs/simpleTypes"
+                    },
+                    {
+                        "items": {
+                            "ref": "schema:/meta/validation#/$defs/simpleTypes"
+                        },
+                        "minItems": 1,
+                        "type": "array",
+                        "uniqueItems": true
+                    }
+                ]
+            },
+            "uniqueItems": {
+                "default": false,
+                "type": "boolean"
+            }
+        },
+        "title": "Validation vocabulary meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
+    "schema:/output/schema#/$defs/flag": {
+        "properties": {
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid"
+        ]
+    },
+    "schema:/output/schema#/$defs/hierarchical": {
+        "ref": "schema:/output/schema#/$defs/outputUnit"
+    },
+    "schema:/output/schema#/$defs/list": {
+        "properties": {
+            "nested": {
+                "ref": "schema:/output/schema#/$defs/outputUnitArray"
+            },
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid",
+            "nested"
+        ]
+    },
+    "schema:/output/schema#/$defs/outputUnit": {
+        "allOf": [
+            {
+                "if": {
+                    "anyOf": [
+                        {
+                            "required": [
+                                "errors"
+                            ]
+                        },
+                        {
+                            "required": [
+                                "droppedAnnotations"
+                            ]
+                        }
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "valid": {
+                            "const": false
+                        }
+                    }
+                }
+            },
+            {
+                "if": {
+                    "required": [
+                        "annotations"
+                    ]
+                },
+                "then": {
+                    "properties": {
+                        "valid": {
+                            "const": true
+                        }
+                    }
+                }
+            }
+        ],
+        "properties": {
+            "annotations": {
+                "additionalProperties": true,
+                "type": "object"
+            },
+            "droppedAnnotations": {
+                "additionalProperties": true,
+                "type": "object"
+            },
+            "errors": {
+                "additionalProperties": {
+                    "type": "string"
+                },
+                "type": "object"
+            },
+            "evaluationPath": {
+                "format": "json-pointer",
+                "type": "string"
+            },
+            "instanceLocation": {
+                "format": "json-pointer",
+                "type": "string"
+            },
+            "nested": {
+                "ref": "schema:/output/schema#/$defs/outputUnitArray"
+            },
+            "schemaLocation": {
+                "format": "uri",
+                "type": "string"
+            },
+            "valid": {
+                "type": "boolean"
+            }
+        },
+        "required": [
+            "valid",
+            "evaluationPath",
+            "schemaLocation",
+            "instanceLocation"
+        ]
+    },
+    "schema:/output/schema#/$defs/outputUnitArray": {
+        "items": {
+            "ref": "schema:/output/schema#/$defs/outputUnit"
+        },
+        "type": "array"
+    },
+    "schema:/output/schema": {
+        "anyOf": [
+            {
+                "ref": "schema:/output/schema#/$defs/flag"
+            },
+            {
+                "ref": "schema:/output/schema#/$defs/list"
+            },
+            {
+                "ref": "schema:/output/schema#/$defs/hierarchical"
+            }
+        ],
+        "description": "A schema that validates the minimum requirements for validation output"
+    },
+    "schema:/schema": {
+        "allOf": [
+            {
+                "ref": "schema:/meta/core"
+            },
+            {
+                "ref": "schema:/meta/applicator"
+            },
+            {
+                "ref": "schema:/meta/unevaluated"
+            },
+            {
+                "ref": "schema:/meta/validation"
+            },
+            {
+                "ref": "schema:/meta/meta-data"
+            },
+            {
+                "ref": "schema:/meta/format-annotation"
+            },
+            {
+                "ref": "schema:/meta/content"
+            }
+        ],
+        "properties": {
+            "dependencies": {
+                "additionalProperties": {
+                    "anyOf": [
+                        {
+                            "ref": "schema:/schema"
+                        },
+                        {
+                            "ref": "schema:/meta/validation#/$defs/stringArray"
+                        }
+                    ]
+                },
+                "default": {},
+                "deprecated": true,
+                "type": "object"
+            }
+        },
+        "title": "Core and Validation specifications meta-schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    }
+}

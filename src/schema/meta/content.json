@@ -1,0 +1,17 @@
+{
+    "$schema": "schema:/schema",
+    "$id": "schema:/meta/content",
+    "$vocabulary": {
+        "schema:/vocab/content": true
+    },
+    "$dynamicAnchor": "meta",
+
+    "title": "Content vocabulary meta-schema",
+
+    "type": ["object", "boolean"],
+    "properties": {
+        "contentEncoding": { "type": "string" },
+        "contentMediaType": { "type": "string" },
+        "contentSchema": { "$dynamicRef": "#meta" }
+    }
+}

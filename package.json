@@ -1,0 +1,26 @@
+{
+  "name": "json-schema",
+  "version": "0.1.0",
+  "description": "Json Schema",
+  "main": "index.json",
+  "scripts": {
+    "action": "node actions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SorinGFS/json-schema.git"
+  },
+  "keywords": [
+    "json",
+    "schema"
+  ],
+  "author": "SorinGFS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SorinGFS/json-schema/issues"
+  },
+  "homepage": "https://github.com/SorinGFS/json-schema#readme",
+  "dependencies": {
+    "zerodep": "1.1.5"
+  }
+}
