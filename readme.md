@@ -22,7 +22,7 @@ git clone https://github.com/SorinGFS/decentralized-json-schema.git
 ### Build / Rebuild
 
 ```shell
-npm run action build
+npm run action build schema
 ```
 
 ### Test
