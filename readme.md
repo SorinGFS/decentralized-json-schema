@@ -16,7 +16,7 @@ This project is recompiling `json-schema` and `json-schema` based schemas in a d
 ### Install
 
 ```shell
-npm i json-schema
+npm i decenralized-json-schema
 ```
 
 ### Build / Rebuild
@@ -47,7 +47,7 @@ npm run action $verb $subject
 ### Usage
 
 ```js
-const schema = require('json-schema');
+const schema = require('decenralized-json-schema');
 ```
 
 <details>
