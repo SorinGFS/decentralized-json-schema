@@ -45,7 +45,7 @@ npm run action $verb $subject
 **Note:** The available actions can be fount in files in `actions/$verb/$subject`
 
 
-### Install for use the compiled schema in another projects
+### Install for use the compiled schema environment in another projects
 
 ```shell
 npm i decentralized-json-schema
