@@ -13,10 +13,10 @@ This project is recompiling `json-schema` and `json-schema` based schemas in a d
 - document schemas
 - export or serve schemas in various formats
 
-### Install
+### Clone or fork to compile own schemas
 
 ```shell
-npm i decentralized-json-schema
+git clone https://github.com/SorinGFS/decentralized-json-schema.git
 ```
 
 ### Build / Rebuild
@@ -43,6 +43,13 @@ npm run action print schema-references
 npm run action $verb $subject
 ```
 **Note:** The available actions can be fount in files in `actions/$verb/$subject`
+
+
+### Install for use the compiled schema in another projects
+
+```shell
+npm i decentralized-json-schema
+```
 
 ### Usage
 
