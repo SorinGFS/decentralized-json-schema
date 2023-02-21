@@ -3174,6 +3174,31 @@
             "boolean"
         ]
     },
+    "https://json-schema.org/draft/2020-12/meta/hyper-schema": {
+        "links": [
+            {
+                "href": "{+%24id}",
+                "rel": "self"
+            }
+        ],
+        "properties": {
+            "base": {
+                "format": "uri-template",
+                "type": "string"
+            },
+            "links": {
+                "items": {
+                    "ref": "https://json-schema.org/draft/2020-12/links"
+                },
+                "type": "array"
+            }
+        },
+        "title": "JSON Hyper-Schema Vocabulary Schema",
+        "type": [
+            "object",
+            "boolean"
+        ]
+    },
     "https://json-schema.org/draft/2020-12/meta/meta-data": {
         "properties": {
             "default": true,
