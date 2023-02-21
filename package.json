@@ -1,14 +1,14 @@
 {
-  "name": "json-schema",
+  "name": "decenralized-json-schema",
   "version": "0.1.0",
-  "description": "Json Schema",
+  "description": "Decentralized Json Schema",
   "main": "index.json",
   "scripts": {
     "action": "node actions"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SorinGFS/json-schema.git"
+    "url": "git+https://github.com/SorinGFS/decenralized-json-schema.git"
   },
   "keywords": [
     "json",
@@ -17,9 +17,9 @@
   "author": "SorinGFS",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SorinGFS/json-schema/issues"
+    "url": "https://github.com/SorinGFS/decenralized-json-schema/issues"
   },
-  "homepage": "https://github.com/SorinGFS/json-schema#readme",
+  "homepage": "https://github.com/SorinGFS/decenralized-json-schema#readme",
   "dependencies": {
     "zerodep": "1.1.5"
   }
