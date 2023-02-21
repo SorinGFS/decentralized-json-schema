@@ -42,7 +42,7 @@ npm run action print schema-references
 ```shell
 npm run action $verb $subject
 ```
-**Note:** The available actions can be fount in files in `actions/$verb/$subject`
+**Note:** The available actions can be found in files in `actions/$verb/$subject`
 
 
 ### Install for use the compiled schema environment in another projects
