@@ -172,9 +172,9 @@ Detected keyword definitions across versions from draft-00 to draft/next:
 all keywords count: 105
 
 ======= checking invalid references =======
-[ 'https://json-schema.org/draft/2020-12/meta/hyper-schema' ]
+[]
 ============================================
-invalid references count: 1
+invalid references count: 0
 ```
 
 </details>
