@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/SorinGFS/decentralized-json-schema#readme",
   "dependencies": {
-    "zerodep": "1.1.5"
+    "file-uri-to-path": "^2.0.0",
+    "zerodep": "1.2.0"
   }
 }

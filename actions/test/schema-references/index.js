@@ -8,8 +8,8 @@ console.log('======= checking invalid references =======');
 const references = {};
 fn.parseDeepKeyParent(
     'ref',
-    (object, ...refs) => {
-        const target = fn.get(object, ...refs);
+    (...refs) => {
+        const target = fn.get(schema, ...refs);
         if (typeof target.ref === 'string' && !schema[target.ref]) references[target.ref] = {};
     },
     schema

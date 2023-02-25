@@ -10,8 +10,8 @@ console.log('keyword definition footprints:');
 fn.deepKeys(schema).forEach((key) => {
     fn.parseDeepKey(
         key,
-        (object, ...keys) => {
-            const value = fn.get(object, ...keys);
+        (...keys) => {
+            const value = fn.get(schema, ...keys);
             if (typeof value === 'object') {
                 const crc = footprint(value);
                 if (!unique[crc]) {

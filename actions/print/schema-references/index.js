@@ -7,9 +7,9 @@ const references = {};
 console.log('Printing schema references:');
 fn.parseDeepKey(
     'ref',
-    (object, ...keys) => {
-        if (typeof fn.get(object, ...keys) === 'string') {
-            references[fn.get(object, ...keys)] = {};
+    (...keys) => {
+        if (typeof fn.get(schema, ...keys) === 'string') {
+            references[fn.get(schema, ...keys)] = {};
         }
     },
     schema

@@ -79,15 +79,23 @@ const decentralize = (id) => {
 };
 
 // extract id
-fn.assignDeepKeyParent(files, 'id', (parent, parentKey) => {
-    const target = parentKey ? parent[parentKey] : parent;
-    if (typeof target.id === 'string') (schema[target.id] = target) && decentralize(target.id);
-});
+fn.parseDeepKeyParent(
+    'id',
+    (...keys) => {
+        const target = fn.get(files, ...keys);
+        if (typeof target.id === 'string') (schema[target.id] = target) && decentralize(target.id);
+    },
+    files
+);
 
 // extract $id
-fn.assignDeepKeyParent(files, '$id', (parent, parentKey) => {
-    const target = parentKey ? parent[parentKey] : parent;
-    if (typeof target.$id === 'string') (schema[target.$id] = target) && decentralize(target.$id);
-});
+fn.parseDeepKeyParent(
+    '$id',
+    (...keys) => {
+        const target = fn.get(files, ...keys);
+        if (typeof target.$id === 'string') (schema[target.$id] = target) && decentralize(target.$id);
+    },
+    files
+);
 
 module.exports = schema;
