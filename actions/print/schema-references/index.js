@@ -1,7 +1,8 @@
 'use strict';
 // print schema references
 const fn = require('zerodep/node/fn');
-const schema = require('../../../base/schema');
+const files = require('zerodep/node/tree/json')('./src');
+const schema = require(`${process.env.PWD}/base/schema`)(files);
 const references = {};
 
 console.log('Printing schema references:');

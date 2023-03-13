@@ -1,26 +1,29 @@
 {
-  "name": "decentralized-json-schema",
-  "version": "0.1.7",
-  "description": "Decentralized Json Schema",
-  "main": "index.json",
-  "scripts": {
-    "action": "node actions"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SorinGFS/decentralized-json-schema.git"
-  },
-  "keywords": [
-    "json",
-    "schema"
-  ],
-  "author": "SorinGFS",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/SorinGFS/decentralized-json-schema/issues"
-  },
-  "homepage": "https://github.com/SorinGFS/decentralized-json-schema#readme",
-  "dependencies": {
-    "zerodep": "1.2.0"
-  }
+    "name": "decentralized-json-schema",
+    "version": "0.1.7",
+    "description": "Decentralized Json Schema",
+    "main": "index.json",
+    "scripts": {
+        "action": "node actions"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SorinGFS/decentralized-json-schema.git"
+    },
+    "keywords": [
+        "json",
+        "schema"
+    ],
+    "author": "SorinGFS",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/SorinGFS/decentralized-json-schema/issues"
+    },
+    "homepage": "https://github.com/SorinGFS/decentralized-json-schema#readme",
+    "engines": {
+        "node": ">=18.13.0"
+    },
+    "dependencies": {
+        "zerodep": "1.5.6"
+    }
 }

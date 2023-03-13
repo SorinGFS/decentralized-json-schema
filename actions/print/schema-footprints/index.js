@@ -1,7 +1,8 @@
 'use strict';
 // print schema footprints
-const schema = require('../../../base/schema');
-const footprint = require('../../../base/utils/footprint');
+const files = require('zerodep/node/tree/json')('./src');
+const schema = require(`${process.env.PWD}/base/schema`)(files);
+const footprint = require(`${process.env.PWD}/base/utils/footprint`);
 
 console.log('Printing schema footprints:');
 const unique = {};

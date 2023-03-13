@@ -13,16 +13,35 @@ This project is recompiling `json-schema` and `json-schema` based schemas in a d
 - document schemas
 - export or serve schemas in various formats
 
+Multiple `decentralized-json-schema` environments each having own schemas can be merged into a single context, for example in `javascript` this can be like:
+
+```js
+Object.assign(global, workspaces, workspace, workdir, data);
+```
+
 ### Clone or fork to compile own schemas
 
 ```shell
 git clone https://github.com/SorinGFS/decentralized-json-schema.git
 ```
 
+Install dependencies
+```shell
+npm install
+```
+
 ### Build / Rebuild
 
 ```shell
 npm run action build schema
+```
+
+### Add / Remove Schema
+
+```shell
+npm run action add schema $key
+# or
+npm run action remove schema $key
 ```
 
 ### Test
@@ -40,9 +59,11 @@ npm run action print schema-references
 ### General syntax for running actions
 
 ```shell
-npm run action $verb $subject
+npm run action $predicate $subject [...args]
+# or (from project root or from installed actions)
+node actions $predicate $subject [...args]
 ```
-**Note:** The available actions can be found in files in `actions/$verb/$subject`
+**Note:** The available actions can be found in files in `actions/$predicate/$subject`
 
 
 ### Install for use the compiled schema environment in another projects
@@ -54,8 +75,16 @@ npm i decentralized-json-schema
 ### Usage
 
 ```js
-const schema = require('decentralized-json-schema');
+const context = require('decentralized-json-schema');
 ```
+
+### Change Log
+
+See the full list of [changes](changelog.md).
+
+### What's next?
+
+- 
 
 <details>
 <summary>

@@ -1,6 +1,7 @@
 'use strict';
 // print schema keys
-const schema = require('../../../base/schema');
+const files = require('zerodep/node/tree/json')('./src');
+const schema = require(`${process.env.PWD}/base/schema`)(files);
 
 console.log('Printing schema keys:');
 Object.keys(schema).sort().forEach((key) => {
