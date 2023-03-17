@@ -4,7 +4,7 @@
 
 This work starts from the idea that any schema, no matter how complex, can be broken down into smaller schemas in which each keyword is either:
 - based on an RFC
-- refers to another schema that is based on an RFC
+- refers to another schema that is based on RFC
 
 This project is recompiling `json-schema` and `json-schema` based schemas in a decentralized format by exploiting the full potential of the [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) as schema `key|identifier|selector` and is mounting decentralized schemas in a common environment which later can be used to:
 - generate new schemas
@@ -65,7 +65,6 @@ node actions $predicate $subject [...args]
 ```
 **Note:** The available actions can be found in files in `actions/$predicate/$subject`
 
-
 ### Install for use the compiled schema environment in another projects
 
 ```shell
@@ -84,7 +83,7 @@ See the full list of [changes](changelog.md).
 
 ### What's next?
 
-- 
+- Emptying source dir and 
 
 <details>
 <summary>

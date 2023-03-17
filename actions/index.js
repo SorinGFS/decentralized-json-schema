@@ -7,7 +7,7 @@ const workdir = process.argv[1];
 process.argv.shift();
 process.argv.shift();
 // the remaining args are passed to the required script
-const requireDeepest = () => {
+const execDeepest = () => {
     // this is the authoritative level where first arg is the verb and the second is the subject
     if (fs.exists(workdir, ...process.argv.slice(0, 2))) return exec('node', fs.pathResolve(workdir, ...process.argv.slice(0, 2)), ...process.argv.slice(2));
     // this is the global level for the verb and would address all the subjects that doesn't have own authoritative level
@@ -16,5 +16,5 @@ const requireDeepest = () => {
     console.error("FATAL ERROR: Invalid action: '/%s/%s' or '/%s' does not exist in '%s'!", process.argv[0], process.argv[1], process.argv[0], workdir);
     process.exit(1);
 };
-// require next level
-module.exports = requireDeepest();
+
+module.exports = execDeepest();

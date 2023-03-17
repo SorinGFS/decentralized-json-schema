@@ -11,7 +11,8 @@ const pathArgs = fs.filePathResolveArgs({ parser: 'json' }, './src', ...fs.pathR
         fs.mkdir(...pathArgs.slice(0, -1));
         await fs.download(url, ...pathArgs);
         try {
-            JSON.parse(fs.readFile(fs.pathResolve(...pathArgs), { encoding: 'utf-8' }));
+            const json = JSON.parse(fs.readFile(fs.pathResolve(...pathArgs), { encoding: 'utf-8' }));
+            if (!json.id && !json.$id) (json.$id = url) && fs.writeFile(fs.pathResolve(...pathArgs), JSON.stringify(json, false, 4));
             console.log(`Source file '${url}' successfully added.`);
             const exitCode = await exec('node', 'actions', 'add', 'schema', fs.pathResolve(...pathArgs.slice(0, -1)));
             if (exitCode) throw new Error(`Compiling the schema from source file '${url}' failed!`);

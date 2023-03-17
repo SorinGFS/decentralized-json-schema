@@ -2,6 +2,10 @@
 
 ### Changes:
 
+- 0.2.1
+    - enhancement: add retrieval url as id to schemas that do not have an id
+    - dependencies: bump zerodep to 1.5.8
+    
 - 0.2.0
     - enhancement: improved actions API
     - enhancement: added ability to adjust sources and built content one schema at a time and keep them in sync
