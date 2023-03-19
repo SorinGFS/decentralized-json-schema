@@ -1,8 +1,9 @@
 'use strict';
 // proccessing json files into decentralized schema
 const fn = require('zerodep/node/fn');
-// input files must be an object having schemas and their dependent schemas loaded into it
-module.exports = (files) => {
+// input must be directory pathResolve arguments
+module.exports = (...dirPathResolveArgs) => {
+    const files = require('zerodep/node/tree/json')(...dirPathResolveArgs);
     const schema = {};
     // all individual schemas will run through this
     const decentralize = (id) => {
@@ -84,8 +85,8 @@ module.exports = (files) => {
         fn.replaceDeepKey('properties', (properties) => (Object.keys(properties).length === 0 ? [] : undefined), schema[id]); // emptied properties
 
         // decentralize definitions
-        if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[`${id}/definitions/${key}`] = schema[id].definitions[key]));
-        if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[`${id}#/$defs/${key}`] = schema[id].$defs[key]));
+        if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[`${id}#/definitions/${key}`.replaceAll('##', '#')] = schema[id].definitions[key]));
+        if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[`${id}#/$defs/${key}`.replaceAll('##', '#')] = schema[id].$defs[key]));
         fn.replaceDeepKey('definitions', () => [], schema[id]);
         fn.replaceDeepKey('$defs', () => [], schema[id]);
     };
@@ -100,3 +101,4 @@ module.exports = (files) => {
     fn.parseDeepKeyParent('$id', parser, files);
     return schema;
 };
+

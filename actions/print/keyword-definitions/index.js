@@ -1,8 +1,7 @@
 'use strict';
 // print keyword definitions
 const fn = require('zerodep/node/fn');
-const files = require('zerodep/node/tree/json')('./src');
-const schema = require(`${process.env.PWD}/base/schema`)(files);
+const schema = require(`${process.env.PWD}/base/schema`)(process.argv[2] || './src');
 
 let count = 0;
 console.log('Printing keyword definitions:');

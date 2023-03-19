@@ -9,21 +9,26 @@ const pathArgs = fs.filePathResolveArgs({ parser: 'json' }, './src', ...fs.pathR
 (async () => {
     if (!fs.isFile(...pathArgs)) {
         fs.mkdir(...pathArgs.slice(0, -1));
-        await fs.download(url, ...pathArgs);
         try {
+            await fs.download(url, ...pathArgs);
             const json = JSON.parse(fs.readFile(fs.pathResolve(...pathArgs), { encoding: 'utf-8' }));
             if (!json.id && !json.$id) (json.$id = url) && fs.writeFile(fs.pathResolve(...pathArgs), JSON.stringify(json, false, 4));
-            console.log(`Source file '${url}' successfully added.`);
-            const exitCode = await exec('node', 'actions', 'add', 'schema', fs.pathResolve(...pathArgs.slice(0, -1)));
-            if (exitCode) throw new Error(`Compiling the schema from source file '${url}' failed!`);
+            console.log(`Source url '${url}' successfully added.`);
+            let exitCode = await exec('node', 'actions', 'add', 'schema', fs.pathResolve(...pathArgs.slice(0, -1)));
+            if (exitCode) throw new Error(`Compiling the schema from source url '${url}' failed!`);
+            const missingSources = require(`${process.env.PWD}/base/schema/sources/missing`)(...pathArgs.slice(0, -1));
+            missingSources.forEach(async (url) => {
+                exitCode = await exec('node', 'actions', 'add', 'source', url);
+                if (exitCode) throw new Error(`Compiling the schema from source url '${url}' failed!`);
+            });
         } catch (err) {
             fs.removeFile(fs.pathResolve(...pathArgs));
             if (!fs.entries(...pathArgs.slice(0, -1)).length) fs.removeDir(...pathArgs.slice(0, -1));
-            console.error(`Invalid source file: '${url}'\n\t${err.message}`);
+            console.error(`Invalid source url: '${url}'\n\t${err.message}`);
             process.exit(1);
         }
     } else {
-        console.error(`Source file '${url}' already exists. If you want to renew first remove it from source then add it again!`);
+        console.error(`Source url '${url}' already exists. If you want to renew first remove it from source then add it again!`);
         process.exit(1);
     }
 })();

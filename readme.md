@@ -33,27 +33,37 @@ npm install
 ### Build / Rebuild
 
 ```shell
-npm run action build schema
+node actions build schema [dirPath (starting with ./src)]
 ```
 
 ### Add / Remove Schema
 
 ```shell
-npm run action add schema $key
+node actions add schema $dirPath # (starting with ./src)
 # or
-npm run action remove schema $key
+node actions remove schema $uri
 ```
+
+### Add / Remove Source
+
+```shell
+node actions add source $uri
+# or
+node actions remove source $uri
+```
+**Note:** this automatically adds / removes built schema
+
 
 ### Test
 
 ```shell
-npm run action test schema-references
+node actions test load-time 
 ```
 
 ### Print
 
 ```shell
-npm run action print schema-references
+node actions print schema-references [dirPath (starting with ./src)]
 ```
 
 ### General syntax for running actions
@@ -83,7 +93,7 @@ See the full list of [changes](changelog.md).
 
 ### What's next?
 
-- Emptying source dir and 
+- 
 
 <details>
 <summary>

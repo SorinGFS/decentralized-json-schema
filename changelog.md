@@ -2,6 +2,11 @@
 
 ### Changes:
 
+- 0.2.2
+    - enhancement: automatically download schemas contained within manually added sources
+    - enhancement: automatically remove schemas contained within manually removed sources
+    - dependencies: bump zerodep to 1.5.9
+
 - 0.2.1
     - enhancement: add retrieval url as id to schemas that do not have an id
     - dependencies: bump zerodep to 1.5.8

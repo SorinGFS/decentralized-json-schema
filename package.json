@@ -24,6 +24,6 @@
         "node": ">=18.13.0"
     },
     "dependencies": {
-        "zerodep": "1.5.8"
+        "zerodep": "1.5.9"
     }
 }
