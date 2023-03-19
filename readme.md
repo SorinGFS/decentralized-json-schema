@@ -57,7 +57,7 @@ node actions remove source $uri
 ### Test
 
 ```shell
-node actions test load-time 
+node actions test load-time [dirPath (starting with ./src)]
 ```
 
 ### Print
