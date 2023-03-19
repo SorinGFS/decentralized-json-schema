@@ -39,7 +39,7 @@ node actions build schema [dirPath (starting with ./src)]
 ### Add / Remove Schema
 
 ```shell
-node actions add schema $dirPath # (starting with ./src)
+node actions add schema [dirPath (starting with ./src)]
 # or
 node actions remove schema $uri
 ```
