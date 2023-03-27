@@ -1,6 +1,6 @@
 {
     "name": "decentralized-json-schema",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "Decentralized Json Schema",
     "main": "index.json",
     "scripts": {
