@@ -2,6 +2,11 @@
 
 ### Changes:
 
+- 0.2.3
+    - enhancement: decentralizing nested schemas
+    - enhancement: added ability to set global vars in .env file using `dotenv`
+    - dependencies: bump zerodep to 1.6.1
+
 - 0.2.2
     - enhancement: automatically download schemas contained within manually added sources
     - enhancement: automatically remove schemas contained within manually removed sources

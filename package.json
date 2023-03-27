@@ -24,6 +24,9 @@
         "node": ">=18.13.0"
     },
     "dependencies": {
-        "zerodep": "1.5.9"
+        "zerodep": "1.6.1"
+    },
+    "devDependencies": {
+        "dotenv": "^16.0.3"
     }
 }

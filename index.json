@@ -1,4 +1,62 @@
 {
+    "http://example.com/schemas/address#/definitions/state": {
+        "enum": [
+            "CA",
+            "NY",
+            "... etc ..."
+        ]
+    },
+    "http://example.com/schemas/address": {
+        "properties": {
+            "city": {
+                "type": "string"
+            },
+            "state": {
+                "ref": "http://example.com/schemas/address#/definitions/state"
+            },
+            "street_address": {
+                "type": "string"
+            },
+            "street_number": {
+                "ref": "http://example2.com/foo/bar"
+            }
+        },
+        "required": [
+            "street_address",
+            "city",
+            "state"
+        ],
+        "type": "object"
+    },
+    "http://example.com/schemas/customer#/$defs/address": {
+        "ref": "http://example.com/schemas/address"
+    },
+    "http://example.com/schemas/customer": {
+        "properties": {
+            "billing_address": {
+                "ref": "http://example.com/schemas/address"
+            },
+            "first_name": {
+                "type": "string"
+            },
+            "last_name": {
+                "type": "string"
+            },
+            "shipping_address": {
+                "ref": "http://example.com/schemas/address"
+            }
+        },
+        "required": [
+            "first_name",
+            "last_name",
+            "shipping_address",
+            "billing_address"
+        ],
+        "type": "object"
+    },
+    "http://example2.com/foo/bar": {
+        "type": "number"
+    },
     "http://json-schema.org/draft-00/hyper-schema#": {
         "extends": {
             "ref": "http://json-schema.org/draft-00/schema#"

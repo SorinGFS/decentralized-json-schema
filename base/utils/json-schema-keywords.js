@@ -14,7 +14,7 @@ module.exports = (schema) => {
         versions.forEach((version) => {
             if (key.indexOf(version) > 0) {
                 let versionKeywords = [];
-                fn.parseDeep((object, ...refs) => {
+                fn.parseDeep((...refs) => {
                     versionKeywords.push(...refs);
                 }, schema[key]);
                 versionKeywords = fn.uniqueArray(String(versionKeywords).split(',')).sort();

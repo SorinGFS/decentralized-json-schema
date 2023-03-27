@@ -9,7 +9,7 @@ if (built[url]) {
         if (key.indexOf(url) === 0) delete built[key];
     });
     fs.writeFile('index.json', JSON.stringify(built, false, 4));
-    console.log(`Schema key '${url}' successfully removed!`);
+    console.log(`Schema key '${url}' successfully removed.`);
 } else {
     console.error(`Schema key '${url}' does not exist in schema built!`);
     process.exit(1);
