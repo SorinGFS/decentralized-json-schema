@@ -2,6 +2,10 @@
 
 ### Changes:
 
+- 0.2.4
+    - enhancement: preprocessing static and dynamic anchors as static references
+    - enhancement: now dynamic references can only be resolved at runtime
+
 - 0.2.3
     - enhancement: decentralizing nested schemas
     - enhancement: added ability to set global vars in .env file using `dotenv`

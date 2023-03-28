@@ -31,50 +31,38 @@ module.exports = (...dirPathResolveArgs) => {
     };
     // all individual schemas will run through this
     const decentralize = (id) => {
-        // re-reference
+        // anchors to simple ref
         fn.replaceDeepKey(
-            '$ref',
-            (ref) => {
-                if (typeof ref === 'string') return { ref: new URL(ref, id).href.replaceAll('##', '#') };
-                else return { ref };
+            /^(\$anchor|\$recursiveAnchor|\$dynamicAnchor)$/,
+            (anchor) => {
+                if (typeof anchor === 'string') return { ref: `#${anchor}` };
+                if (typeof anchor === 'boolean') return { ref: `#` };
             },
             schema[id]
         );
+        // re-reference
         fn.replaceDeepKey(
-            /\$recursiveRef|\$dynamicRef/,
-            (ref) => {
-                if (typeof ref === 'string') {
-                    let url;
-                    if (ref.indexOf('http') === 0) {
-                        if (ref.indexOf('#') > 0) {
-                            url = new URL(`${ref.substring(0, ref.indexOf('#'))}`);
-                        } else {
-                            url = new URL(`${ref}`);
-                        }
-                    } else if (ref.indexOf('#') === 0) {
-                        url = new URL(`${id}`);
-                    } else {
-                        url = new URL(`${id}/----unexpected-case----${ref}`);
-                    }
-                    return { ref: url.href.replace('##', '#') };
-                    // return { ref: new URL(ref, id).href.replace('##', '#') };
-                } else {
-                    return []; // remove definition object
-                }
+            /^(\$ref|\$recursiveRef|\$dynamicRef)$/,
+            (ref, key) => {
+                if (typeof ref === 'string') return { ref: new URL(ref, id).href.replaceAll('##', '#') };
+                if (typeof ref === 'object' && key === '$ref') return { ref }
             },
             schema[id]
         );
         // no longer needed, remove
         fn.replaceDeepKey('id', () => [], schema[id]);
         fn.replaceDeepKey('$id', () => [], schema[id]);
-        fn.replaceDeepKey('$schema', () => [], schema[id]);
+        fn.replaceDeepKey('$ref', () => [], schema[id]);
         fn.replaceDeepKey('$anchor', () => [], schema[id]);
+        fn.replaceDeepKey('$schema', () => [], schema[id]);
         fn.replaceDeepKey('$comment', () => [], schema[id]);
         fn.replaceDeepKey('$vocabulary', () => [], schema[id]);
+        fn.replaceDeepKey('$dynamicRef', () => [], schema[id]);
         fn.replaceDeepKey('$dynamicAnchor', () => [], schema[id]);
+        fn.replaceDeepKey('$recursiveRef', () => [], schema[id]);
         fn.replaceDeepKey('$recursiveAnchor', () => [], schema[id]);
-        fn.replaceDeepKey('properties', (properties) => (Object.keys(properties).length === 0 ? [] : undefined), schema[id]); // emptied properties
-
+        // remove emptied properties
+        fn.replaceDeepKey('properties', (properties) => (Object.keys(properties).length === 0 ? [] : undefined), schema[id]);
         // decentralize definitions
         if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[`${id}#/definitions/${key}`.replaceAll('##', '#')] = schema[id].definitions[key]));
         if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[`${id}#/$defs/${key}`.replaceAll('##', '#')] = schema[id].$defs[key]));

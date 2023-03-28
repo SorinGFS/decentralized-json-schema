@@ -2349,6 +2349,7 @@
                 "rel": "self"
             }
         ],
+        "ref": "#",
         "title": "JSON Hyper-Schema"
     },
     "https://json-schema.org/draft/2019-09/links#/$defs/noRequiredFields": {
@@ -2456,7 +2457,7 @@
     },
     "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray": {
         "items": {
-            "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+            "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
         },
         "minItems": 1,
         "type": "array"
@@ -2464,10 +2465,10 @@
     "https://json-schema.org/draft/2019-09/meta/applicator": {
         "properties": {
             "additionalItems": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "additionalProperties": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "allOf": {
                 "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
@@ -2476,24 +2477,24 @@
                 "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
             },
             "contains": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "dependentSchemas": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
                 },
                 "type": "object"
             },
             "else": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "if": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "items": {
                 "anyOf": [
                     {
-                        "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                        "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
                     },
                     {
                         "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
@@ -2501,14 +2502,14 @@
                 ]
             },
             "not": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "oneOf": {
                 "ref": "https://json-schema.org/draft/2019-09/meta/applicator#/$defs/schemaArray"
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
                 },
                 "default": {},
                 "propertyNames": {
@@ -2518,24 +2519,25 @@
             },
             "properties": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                    "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
                 },
                 "default": {},
                 "type": "object"
             },
             "propertyNames": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "then": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "unevaluatedItems": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             },
             "unevaluatedProperties": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/applicator"
+                "ref": "https://json-schema.org/draft/2019-09/meta/applicator#"
             }
         },
+        "ref": "#",
         "title": "Applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -2551,9 +2553,10 @@
                 "type": "string"
             },
             "contentSchema": {
-                "ref": "https://json-schema.org/draft/2019-09/meta/content"
+                "ref": "https://json-schema.org/draft/2019-09/meta/content#"
             }
         },
+        "ref": "#",
         "title": "Content vocabulary meta-schema",
         "type": [
             "object",
@@ -2567,6 +2570,7 @@
                 "type": "string"
             }
         },
+        "ref": "#",
         "title": "Core vocabulary meta-schema",
         "type": [
             "object",
@@ -2579,6 +2583,7 @@
                 "type": "string"
             }
         },
+        "ref": "#",
         "title": "Format vocabulary meta-schema",
         "type": [
             "object",
@@ -2604,6 +2609,7 @@
                 "type": "array"
             }
         },
+        "ref": "#",
         "title": "JSON Hyper-Schema Vocabulary Schema",
         "type": [
             "object",
@@ -2636,6 +2642,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#",
         "title": "Meta-data vocabulary meta-schema",
         "type": [
             "object",
@@ -2750,6 +2757,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#",
         "title": "Validation vocabulary meta-schema",
         "type": [
             "object",
@@ -2963,7 +2971,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "ref": "https://json-schema.org/draft/2019-09/schema"
+                            "ref": "https://json-schema.org/draft/2019-09/schema#"
                         },
                         {
                             "ref": "https://json-schema.org/draft/2019-09/meta/validation#/$defs/stringArray"
@@ -2973,6 +2981,7 @@
                 "type": "object"
             }
         },
+        "ref": "#",
         "title": "Core and Validation specifications meta-schema",
         "type": [
             "object",
@@ -2994,6 +3003,7 @@
                 "rel": "self"
             }
         ],
+        "ref": "#meta",
         "title": "JSON Hyper-Schema"
     },
     "https://json-schema.org/draft/2020-12/links": {
@@ -3018,7 +3028,7 @@
             },
             "headerSchema": {
                 "default": true,
-                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema#meta"
             },
             "href": {
                 "format": "uri-template",
@@ -3026,7 +3036,7 @@
             },
             "hrefSchema": {
                 "default": false,
-                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema#meta"
             },
             "rel": {
                 "anyOf": [
@@ -3048,7 +3058,7 @@
             },
             "submissionSchema": {
                 "default": true,
-                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema#meta"
             },
             "targetHints": {},
             "targetMediaType": {
@@ -3056,7 +3066,7 @@
             },
             "targetSchema": {
                 "default": true,
-                "ref": "https://json-schema.org/draft/2020-12/hyper-schema"
+                "ref": "https://json-schema.org/draft/2020-12/hyper-schema#meta"
             },
             "templatePointers": {
                 "additionalProperties": {
@@ -3092,7 +3102,7 @@
     },
     "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray": {
         "items": {
-            "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+            "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
         },
         "minItems": 1,
         "type": "array"
@@ -3100,7 +3110,7 @@
     "https://json-schema.org/draft/2020-12/meta/applicator": {
         "properties": {
             "additionalProperties": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "allOf": {
                 "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
@@ -3109,33 +3119,33 @@
                 "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
             },
             "contains": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "dependentSchemas": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "else": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "if": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "items": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "not": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "oneOf": {
                 "ref": "https://json-schema.org/draft/2020-12/meta/applicator#/$defs/schemaArray"
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
                 },
                 "default": {},
                 "propertyNames": {
@@ -3148,18 +3158,19 @@
             },
             "properties": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                    "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "propertyNames": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             },
             "then": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/applicator"
+                "ref": "https://json-schema.org/draft/2020-12/meta/applicator#meta"
             }
         },
+        "ref": "#meta",
         "title": "Applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -3175,9 +3186,10 @@
                 "type": "string"
             },
             "contentSchema": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/content"
+                "ref": "https://json-schema.org/draft/2020-12/meta/content#meta"
             }
         },
+        "ref": "#meta",
         "title": "Content vocabulary meta-schema",
         "type": [
             "object",
@@ -3202,6 +3214,7 @@
                 "ref": "https://json-schema.org/draft/2020-12/meta/core#/$defs/uriReferenceString"
             }
         },
+        "ref": "#meta",
         "title": "Core vocabulary meta-schema",
         "type": [
             "object",
@@ -3214,6 +3227,7 @@
                 "type": "string"
             }
         },
+        "ref": "#meta",
         "title": "Format vocabulary meta-schema for annotation results",
         "type": [
             "object",
@@ -3226,6 +3240,7 @@
                 "type": "string"
             }
         },
+        "ref": "#meta",
         "title": "Format vocabulary meta-schema for assertion results",
         "type": [
             "object",
@@ -3251,6 +3266,7 @@
                 "type": "array"
             }
         },
+        "ref": "#meta",
         "title": "JSON Hyper-Schema Vocabulary Schema",
         "type": [
             "object",
@@ -3283,6 +3299,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#meta",
         "title": "Meta-data vocabulary meta-schema",
         "type": [
             "object",
@@ -3292,12 +3309,13 @@
     "https://json-schema.org/draft/2020-12/meta/unevaluated": {
         "properties": {
             "unevaluatedItems": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated"
+                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated#meta"
             },
             "unevaluatedProperties": {
-                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated"
+                "ref": "https://json-schema.org/draft/2020-12/meta/unevaluated#meta"
             }
         },
+        "ref": "#meta",
         "title": "Unevaluated applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -3412,6 +3430,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#meta",
         "title": "Validation vocabulary meta-schema",
         "type": [
             "object",
@@ -3572,7 +3591,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "ref": "https://json-schema.org/draft/2020-12/schema"
+                            "ref": "https://json-schema.org/draft/2020-12/schema#meta"
                         },
                         {
                             "ref": "https://json-schema.org/draft/2020-12/meta/validation#/$defs/stringArray"
@@ -3584,6 +3603,7 @@
                 "type": "object"
             }
         },
+        "ref": "#meta",
         "title": "Core and Validation specifications meta-schema",
         "type": [
             "object",
@@ -3596,7 +3616,7 @@
     },
     "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray": {
         "items": {
-            "ref": "https://json-schema.org/draft/next/meta/applicator"
+            "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
         },
         "minItems": 1,
         "type": "array"
@@ -3604,7 +3624,7 @@
     "https://json-schema.org/draft/next/meta/applicator": {
         "properties": {
             "additionalProperties": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "allOf": {
                 "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
@@ -3613,23 +3633,23 @@
                 "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
             },
             "contains": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "dependentSchemas": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/next/meta/applicator"
+                    "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "else": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "if": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "items": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "maxContains": {
                 "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/nonNegativeInteger"
@@ -3639,14 +3659,14 @@
                 "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/nonNegativeInteger"
             },
             "not": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "oneOf": {
                 "ref": "https://json-schema.org/draft/next/meta/applicator#/$defs/schemaArray"
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/next/meta/applicator"
+                    "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
                 },
                 "default": {},
                 "propertyNames": {
@@ -3659,7 +3679,7 @@
             },
             "properties": {
                 "additionalProperties": {
-                    "ref": "https://json-schema.org/draft/next/meta/applicator"
+                    "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
                 },
                 "default": {},
                 "type": "object"
@@ -3667,7 +3687,7 @@
             "propertyDependencies": {
                 "additionalProperties": {
                     "additionalProperties": {
-                        "ref": "https://json-schema.org/draft/next/meta/applicator"
+                        "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
                     },
                     "default": {},
                     "type": "object"
@@ -3676,12 +3696,13 @@
                 "type": "object"
             },
             "propertyNames": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             },
             "then": {
-                "ref": "https://json-schema.org/draft/next/meta/applicator"
+                "ref": "https://json-schema.org/draft/next/meta/applicator#meta"
             }
         },
+        "ref": "#meta",
         "title": "Applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -3697,9 +3718,10 @@
                 "type": "string"
             },
             "contentSchema": {
-                "ref": "https://json-schema.org/draft/next/meta/content"
+                "ref": "https://json-schema.org/draft/next/meta/content#meta"
             }
         },
+        "ref": "#meta",
         "title": "Content vocabulary meta-schema",
         "type": [
             "object",
@@ -3724,6 +3746,7 @@
                 "ref": "https://json-schema.org/draft/next/meta/core#/$defs/iriReferenceString"
             }
         },
+        "ref": "#meta",
         "title": "Core vocabulary meta-schema",
         "type": [
             "object",
@@ -3736,6 +3759,7 @@
                 "type": "string"
             }
         },
+        "ref": "#meta",
         "title": "Format vocabulary meta-schema for annotation results",
         "type": [
             "object",
@@ -3748,6 +3772,7 @@
                 "type": "string"
             }
         },
+        "ref": "#meta",
         "title": "Format vocabulary meta-schema for assertion results",
         "type": [
             "object",
@@ -3780,6 +3805,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#meta",
         "title": "Meta-data vocabulary meta-schema",
         "type": [
             "object",
@@ -3789,12 +3815,13 @@
     "https://json-schema.org/draft/next/meta/unevaluated": {
         "properties": {
             "unevaluatedItems": {
-                "ref": "https://json-schema.org/draft/next/meta/unevaluated"
+                "ref": "https://json-schema.org/draft/next/meta/unevaluated#meta"
             },
             "unevaluatedProperties": {
-                "ref": "https://json-schema.org/draft/next/meta/unevaluated"
+                "ref": "https://json-schema.org/draft/next/meta/unevaluated#meta"
             }
         },
+        "ref": "#meta",
         "title": "Unevaluated applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -3902,6 +3929,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#meta",
         "title": "Validation vocabulary meta-schema",
         "type": [
             "object",
@@ -4065,7 +4093,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "ref": "https://json-schema.org/draft/next/schema"
+                            "ref": "https://json-schema.org/draft/next/schema#meta"
                         },
                         {
                             "ref": "https://json-schema.org/draft/next/meta/validation#/$defs/stringArray"
@@ -4077,6 +4105,7 @@
                 "type": "object"
             }
         },
+        "ref": "#meta",
         "title": "Core and Validation specifications meta-schema",
         "type": [
             "object",
@@ -4089,7 +4118,7 @@
     },
     "schema:/meta/applicator#/$defs/schemaArray": {
         "items": {
-            "ref": "schema:/meta/applicator"
+            "ref": "schema:/meta/applicator#meta"
         },
         "minItems": 1,
         "type": "array"
@@ -4097,7 +4126,7 @@
     "schema:/meta/applicator": {
         "properties": {
             "additionalProperties": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "allOf": {
                 "ref": "schema:/meta/applicator#/$defs/schemaArray"
@@ -4106,23 +4135,23 @@
                 "ref": "schema:/meta/applicator#/$defs/schemaArray"
             },
             "contains": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "dependentSchemas": {
                 "additionalProperties": {
-                    "ref": "schema:/meta/applicator"
+                    "ref": "schema:/meta/applicator#meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "else": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "if": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "items": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "maxContains": {
                 "ref": "schema:/meta/applicator#/$defs/nonNegativeInteger"
@@ -4132,14 +4161,14 @@
                 "ref": "schema:/meta/applicator#/$defs/nonNegativeInteger"
             },
             "not": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "oneOf": {
                 "ref": "schema:/meta/applicator#/$defs/schemaArray"
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "ref": "schema:/meta/applicator"
+                    "ref": "schema:/meta/applicator#meta"
                 },
                 "default": {},
                 "propertyNames": {
@@ -4152,7 +4181,7 @@
             },
             "properties": {
                 "additionalProperties": {
-                    "ref": "schema:/meta/applicator"
+                    "ref": "schema:/meta/applicator#meta"
                 },
                 "default": {},
                 "type": "object"
@@ -4160,7 +4189,7 @@
             "propertyDependencies": {
                 "additionalProperties": {
                     "additionalProperties": {
-                        "ref": "schema:/meta/applicator"
+                        "ref": "schema:/meta/applicator#meta"
                     },
                     "default": {},
                     "type": "object"
@@ -4169,12 +4198,13 @@
                 "type": "object"
             },
             "propertyNames": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             },
             "then": {
-                "ref": "schema:/meta/applicator"
+                "ref": "schema:/meta/applicator#meta"
             }
         },
+        "ref": "#meta",
         "title": "Applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -4190,9 +4220,10 @@
                 "type": "string"
             },
             "contentSchema": {
-                "ref": "schema:/meta/content"
+                "ref": "schema:/meta/content#meta"
             }
         },
+        "ref": "#meta",
         "title": "Content vocabulary meta-schema",
         "type": [
             "object",
@@ -4217,6 +4248,7 @@
                 "ref": "schema:/meta/core#/$defs/iriReferenceString"
             }
         },
+        "ref": "#meta",
         "title": "Core vocabulary meta-schema",
         "type": [
             "object",
@@ -4229,6 +4261,7 @@
                 "type": "string"
             }
         },
+        "ref": "#meta",
         "title": "Format vocabulary meta-schema for annotation results",
         "type": [
             "object",
@@ -4241,6 +4274,7 @@
                 "type": "string"
             }
         },
+        "ref": "#meta",
         "title": "Format vocabulary meta-schema for assertion results",
         "type": [
             "object",
@@ -4273,6 +4307,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#meta",
         "title": "Meta-data vocabulary meta-schema",
         "type": [
             "object",
@@ -4282,12 +4317,13 @@
     "schema:/meta/unevaluated": {
         "properties": {
             "unevaluatedItems": {
-                "ref": "schema:/meta/unevaluated"
+                "ref": "schema:/meta/unevaluated#meta"
             },
             "unevaluatedProperties": {
-                "ref": "schema:/meta/unevaluated"
+                "ref": "schema:/meta/unevaluated#meta"
             }
         },
+        "ref": "#meta",
         "title": "Unevaluated applicator vocabulary meta-schema",
         "type": [
             "object",
@@ -4395,6 +4431,7 @@
                 "type": "boolean"
             }
         },
+        "ref": "#meta",
         "title": "Validation vocabulary meta-schema",
         "type": [
             "object",
@@ -4558,7 +4595,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "ref": "schema:/schema"
+                            "ref": "schema:/schema#meta"
                         },
                         {
                             "ref": "schema:/meta/validation#/$defs/stringArray"
@@ -4570,6 +4607,7 @@
                 "type": "object"
             }
         },
+        "ref": "#meta",
         "title": "Core and Validation specifications meta-schema",
         "type": [
             "object",
