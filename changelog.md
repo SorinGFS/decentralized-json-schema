@@ -2,6 +2,11 @@
 
 ### Changes:
 
+- 0.2.5
+    - bug: preprocessing static and dynamic anchors into schema keys instead of static references
+    - bug: fix resolving dynamic references
+    - enhancement: passing default sourcePath = ./src into .env file (now available in actions)
+
 - 0.2.4
     - enhancement: preprocessing static and dynamic anchors as static references
     - enhancement: now dynamic references can only be resolved at runtime
