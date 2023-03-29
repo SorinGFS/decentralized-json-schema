@@ -1,6 +1,6 @@
 'use strict';
 // print schema keys
-const schema = require(`${process.env.PWD}/base/schema`)(process.argv[2] || './src');
+const schema = require(`${process.env.PWD}/base/schema`)(process.argv[2] || process.env.sourcePath);
 
 console.log('Printing schema keys:');
 Object.keys(schema).sort().forEach((key) => {

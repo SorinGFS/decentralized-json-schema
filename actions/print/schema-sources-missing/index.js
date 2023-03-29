@@ -1,6 +1,6 @@
 'use strict';
 // get schema missing keys for the given directory
-const missingKeys = require(`${process.env.PWD}/base/schema/sources/missing`)(process.argv[2] || './src');
+const missingKeys = require(`${process.env.PWD}/base/schema/sources/missing`)(process.argv[2] || process.env.sourcePath);
 // print
 console.log('======= printing missing schema keys =======');
 console.log(missingKeys);
