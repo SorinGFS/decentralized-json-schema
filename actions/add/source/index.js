@@ -4,7 +4,7 @@ const fs = require('zerodep/node/fs');
 const exec = require('zerodep/node/exec');
 // argument must be an url
 const url = process.argv[2];
-const pathArgs = fs.filePathResolveArgs({ parser: 'json' }, './src', ...fs.pathResolveArgsFromUri(url, { pathOnly: false, subdomainsNested: true }));
+const pathArgs = fs.filePathResolveArgs({ parser: 'json' }, process.env.sourcePath, ...fs.pathResolveArgsFromUri(url, { pathOnly: false, subdomainsNested: true }));
 // run async
 (async () => {
     if (!fs.isFile(...pathArgs)) {

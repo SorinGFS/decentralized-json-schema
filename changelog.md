@@ -2,10 +2,16 @@
 
 ### Changes:
 
+- 0.3.0
+    - feature: added default `buildRefType=jsonPointer` into .env file (if removed build ref type would be URL)
+    - enhancement: preprocessing dynamic anchors into schema keys by adding `_` prefix
+    - enhancement: preprocessing dynamic references into `$ref`by adding `_` prefix
+    - dependencies: bump zerodep to 1.6.5
+
 - 0.2.5
     - bug: preprocessing static and dynamic anchors into schema keys instead of static references
     - bug: fix resolving dynamic references
-    - enhancement: passing default sourcePath = ./src into .env file (now available in actions)
+    - enhancement: passing default `sourcePath=./src` into .env file (now available in actions)
 
 - 0.2.4
     - enhancement: preprocessing static and dynamic anchors as static references
