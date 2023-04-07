@@ -2,6 +2,9 @@
 
 ### Changes:
 
+- 0.3.1
+    - enhancement: minor refactoring, no functional changes
+
 - 0.3.0
     - feature: added default `buildRefType=jsonPointer` into .env file (if removed build ref type would be URL)
     - enhancement: preprocessing dynamic anchors into schema keys by adding `_` prefix

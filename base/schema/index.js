@@ -5,7 +5,7 @@ const fn = require('zerodep/node/fn');
 module.exports = (...dirPathResolveArgs) => {
     const files = require('zerodep/node/tree/json')(...dirPathResolveArgs);
     const schema = {};
-    // recursively extract schemas
+    // recursively extract schemas by referencing the extraction point (this will generate new ids)
     const extractSchema = (target, base) => {
         fn.assignDeepKeyParent(
             /^(\$id|id)$/,
@@ -34,8 +34,15 @@ module.exports = (...dirPathResolveArgs) => {
             schema[id]
         );
     };
-    // all individual schemas will run through this
-    const decentralize = (id) => {
+    // extract definitions and remove their extraction point (this will generate new ids)
+    const extractDefinitions = (id) => {
+        if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[new URL(`#definitions/${key}`, id).href] = schema[id].definitions[key]));
+        if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[new URL(`#$defs/${key}`, id).href] = schema[id].$defs[key]));
+        // remove extracted definitions
+        fn.replaceDeepKey(/^(definitions|\$defs)$/, () => [], schema[id]);
+    };
+    // reset references in decentralized ids (as absolute URL or global jsonPointer)
+    const resetReferences = (id) => {
         // combine all reference types into $ref, dynamic references will be recognized by their _ prefix
         fn.assignDeepKey(
             /^(\$ref|\$recursiveRef|\$dynamicRef)$/,
@@ -47,20 +54,19 @@ module.exports = (...dirPathResolveArgs) => {
         );
         // switch between URL / global jsonPointer reference
         if (process.env.buildRefType === 'jsonPointer') fn.assignDeepKey('$ref', (ref) => (typeof ref === 'string' ? { $ref: fn.jsonPointer('#', ref) } : undefined), schema[id]);
-        // remove no longer needed keyword definitions
-        fn.replaceDeepKey(/^(id|\$id|\$schema|\$anchor|\$comment|\$vocabulary|\$dynamicAnchor|\$recursiveAnchor|\$recursiveRef|\$dynamicRef)$/, () => [], schema[id]);
+        // remove transformed keywords and their definitions
+        fn.replaceDeepKey(/^(id|\$id|\$schema|\$anchor|\$dynamicAnchor|\$recursiveAnchor|\$recursiveRef|\$dynamicRef|\$comment|\$vocabulary)$/, () => [], schema[id]);
         // remove emptied properties
         fn.replaceDeepKey('properties', (properties) => (Object.keys(properties).length === 0 ? [] : undefined), schema[id]);
-        // decentralize definitions
-        if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[new URL(`#definitions/${key}`, id).href] = schema[id].definitions[key]));
-        if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[new URL(`#$defs/${key}`, id).href] = schema[id].$defs[key]));
-        fn.replaceDeepKey(/^(definitions|\$defs)$/, () => [], schema[id]);
     };
-    // extract individual schemas (base schemas, then schemas nested inside of them)
+    // extract schemas as decentralized ids (base schemas, then schemas nested inside of them)
     extractSchema(files);
-    // extract anchors as individual ids
+    // extract anchors as decentralized ids
     Object.keys(schema).forEach((id) => extractAnchors(id));
-    // decentralize schemas
-    Object.keys(schema).forEach((id) => decentralize(id));
+    // extract definitions as decentralized ids
+    Object.keys(schema).forEach((id) => extractDefinitions(id));
+    // reset references in decentralized ids
+    Object.keys(schema).forEach((id) => resetReferences(id));
+    // return decentralized schema for passed files
     return schema;
 };
