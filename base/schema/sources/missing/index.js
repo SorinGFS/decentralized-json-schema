@@ -4,20 +4,18 @@ const fn = require('zerodep/node/fn');
 // input must be directory pathResolve arguments
 module.exports = (...dirPathResolveArgs) => {
     const schema = require('../..')(...dirPathResolveArgs);
-    const keys = Object.keys(schema).sort();
     const sources = [];
     fn.parseDeepKeyParent(
-        'ref',
+        '$ref',
         (...refs) => {
             const target = fn.get(schema, ...refs);
-            if (typeof target.ref === 'string') {
-                const ref = new URL(target.ref, 'schema:/');
-                if (!keys.includes(ref.href)) {
-                    if (ref.href.indexOf('#') > 0) sources.push(target.ref);
-                    ref.hash = '';
-                    if (!keys.find((key) => key.indexOf(ref.href) === 0)) {
-                        sources.push(target.ref);
-                    }
+            if (typeof target.$ref === 'string') {
+                const ref = new URL(process.env.buildRefType === 'jsonPointer' ? fn.jsonPointerKeys(target.$ref.replace('#/', '')).join('/') : target.$ref, 'schema:/').href;
+                if (!schema[ref]) {
+                    const key = Object.keys(schema)
+                        .filter((id) => ref.indexOf(id) === 0)
+                        .find((id) => fn.get(schema, id, ...fn.jsonPointerKeys(fn.relativeUriReference(ref, id))));
+                    if (!key) sources.push(target.$ref);
                 }
             }
         },

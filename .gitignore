@@ -209,7 +209,6 @@ config/**/enabled/**
 # drafts folder
 zzz-drafts
 # temporary ignore
-[Cc]ontent/
 web/
 
 # ignore actions/build

@@ -2,6 +2,12 @@
 
 ### Changes:
 
+- 0.4.0
+    - enhancement: removing drafts 00-03
+    - enhancement: removing non spec related sources (for this version only)
+    - enhancement: proccessing references before anchor extraction
+    - dependencies: bump zerodep to 1.6.9
+
 - 0.3.1
     - enhancement: minor refactoring, no functional changes
 
