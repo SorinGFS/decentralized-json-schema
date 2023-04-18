@@ -2,10 +2,13 @@
 
 ### Changes:
 
+- 0.5.0
+    - enhancement: added option `buildType=compact` into .env file (default only in this version as example)
+
 - 0.4.0
     - enhancement: removing drafts 00-03
     - enhancement: removing non spec related sources (for this version only)
-    - enhancement: proccessing references before anchor extraction
+    - enhancement: processing references before anchor extraction
     - dependencies: bump zerodep to 1.6.9
 
 - 0.3.1

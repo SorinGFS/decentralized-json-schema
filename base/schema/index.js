@@ -77,6 +77,30 @@ module.exports = (...dirPathResolveArgs) => {
         // remove emptied properties
         fn.replaceDeepKey('properties', (properties) => (Object.keys(properties).length === 0 ? [] : undefined), schema[id]);
     };
+    // compact schema if config .env buildType=compact
+    const compactSchema = (schema) => {
+        // wrap the schema because deepKeyParent fns cannot read first level object keys (parent would be the object itself)
+        const context = { container: schema };
+        // spread key segments into own keys and merge their values into the context
+        fn.assignDeepKeyParent(
+            /\//,
+            (target, parentKey, key) => {
+                if (key.indexOf('/') >= 0) {
+                    const branch = {};
+                    const keys = key.split('/');
+                    const value = target[key];
+                    delete target[key];
+                    fn.set(value, branch, ...keys);
+                    return { [parentKey]: fn.mergeDeep(target, branch) };
+                }
+            },
+            context
+        );
+        // spread jsonPointer keys
+        fn.assignDeepKey('$ref', (ref) => [{ $ref: fn.jsonPointerKeys(ref).join('/') }], context);
+        // return compact schema
+        return context.container;
+    };
     // extract schemas as decentralized ids (base schemas, then schemas nested inside of them)
     extractSchema(files);
     // globalize references
@@ -88,5 +112,5 @@ module.exports = (...dirPathResolveArgs) => {
     // reset references in decentralized ids
     Object.keys(schema).forEach((id) => resetReferences(id));
     // return decentralized schema for passed files
-    return schema;
+    return process.env.buildType === 'compact' ? compactSchema(schema) : schema;
 };
