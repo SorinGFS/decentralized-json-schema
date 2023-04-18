@@ -257,7 +257,10 @@
                     "schema#": {
                         "default": {},
                         "properties": {
-                            "$ref": "[object Object]",
+                            "$ref": {
+                                "format": "uri-reference",
+                                "type": "string"
+                            },
                             "additionalItems": {
                                 "$ref": "#/http://json-schema.org/draft-06/schema#"
                             },
@@ -457,7 +460,10 @@
                     "schema#": {
                         "default": true,
                         "properties": {
-                            "$ref": "[object Object]",
+                            "$ref": {
+                                "format": "uri-reference",
+                                "type": "string"
+                            },
                             "additionalItems": {
                                 "$ref": "#/http://json-schema.org/draft-07/schema#"
                             },
@@ -763,7 +769,10 @@
                             },
                             "core": {
                                 "properties": {
-                                    "$ref": "[object Object]"
+                                    "$ref": {
+                                        "format": "uri-reference",
+                                        "type": "string"
+                                    }
                                 },
                                 "title": "Core vocabulary meta-schema",
                                 "type": [
@@ -1110,7 +1119,9 @@
                                     }
                                 },
                                 "properties": {
-                                    "$ref": "[object Object]"
+                                    "$ref": {
+                                        "$ref": "#/https://json-schema.org/draft/2020-12/meta/core/$defs/uriReferenceString"
+                                    }
                                 },
                                 "title": "Core vocabulary meta-schema",
                                 "type": [
@@ -1517,7 +1528,9 @@
                                     }
                                 },
                                 "properties": {
-                                    "$ref": "[object Object]"
+                                    "$ref": {
+                                        "$ref": "#/https://json-schema.org/draft/next/meta/core/$defs/iriReferenceString"
+                                    }
                                 },
                                 "title": "Core vocabulary meta-schema",
                                 "type": [

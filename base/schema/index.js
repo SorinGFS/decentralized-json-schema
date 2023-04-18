@@ -97,7 +97,7 @@ module.exports = (...dirPathResolveArgs) => {
             context
         );
         // spread jsonPointer keys
-        fn.assignDeepKey('$ref', (ref) => [{ $ref: fn.jsonPointerKeys(ref).join('/') }], context);
+        fn.assignDeepKey('$ref', (ref) => typeof ref === 'string' && [{ $ref: fn.jsonPointerKeys(ref).join('/') }], context);
         // return compact schema
         return context.container;
     };

@@ -2,6 +2,9 @@
 
 ### Changes:
 
+- 0.5.1
+    - bug: fix `$ref` definitions being tampered
+
 - 0.5.0
     - enhancement: added option `buildType=compact` into .env file (default only in this version as example)
 
