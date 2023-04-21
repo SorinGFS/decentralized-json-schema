@@ -10,13 +10,8 @@ module.exports = (...dirPathResolveArgs) => {
         (...refs) => {
             const target = fn.get(schema, ...refs);
             if (typeof target.$ref === 'string') {
-                const ref = new URL(fn.jsonPointerKeys(target.$ref.replace('#/', '')).join('/'), 'schema:/').href;
-                if (!schema[ref]) {
-                    const key = Object.keys(schema)
-                        .filter((id) => ref.indexOf(id) === 0)
-                        .find((id) => fn.get(schema, id, ...fn.jsonPointerKeys(fn.relativeUriReference(ref, id))));
-                    if (!key) sources.push(target.$ref);
-                }
+                const keys = fn.jsonPointerKeys(target.$ref.replace('#/', ''));
+                if (!Object.keys(schema).find((id) => fn.get(schema, id, ...keys.slice(1)))) sources.push(target.$ref);
             }
         },
         schema
