@@ -10,7 +10,7 @@ module.exports = (...dirPathResolveArgs) => {
         (...refs) => {
             const target = fn.get(schema, ...refs);
             if (typeof target.$ref === 'string') {
-                const ref = new URL(process.env.buildRefType === 'jsonPointer' ? fn.jsonPointerKeys(target.$ref.replace('#/', '')).join('/') : target.$ref, 'schema:/').href;
+                const ref = new URL(fn.jsonPointerKeys(target.$ref.replace('#/', '')).join('/'), 'schema:/').href;
                 if (!schema[ref]) {
                     const key = Object.keys(schema)
                         .filter((id) => ref.indexOf(id) === 0)

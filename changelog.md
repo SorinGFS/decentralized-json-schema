@@ -2,6 +2,10 @@
 
 ### Changes:
 
+- 0.5.2
+    - enhancement: removing option `buildRefType` from .env file
+    - enhancement: references are set as `jsonPointer` (conversion from `jsonPointer` to `URL` is trivial)
+
 - 0.5.1
     - bug: fix `$ref` definitions being tampered
 

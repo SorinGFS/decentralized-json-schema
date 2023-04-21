@@ -11,7 +11,7 @@ module.exports = (...dirPathResolveArgs) => {
             /^(\$id|id)$/,
             (target, parentKey, key) => {
                 if (typeof target[key] === 'string') {
-                    let id = new URL(target[key], base).href;
+                    const id = new URL(target[key], base).href;
                     schema[id] = target;
                     if (fn.deepKeys(target).find((key) => /^(\$id|id)$/.test(key))) extractSchema(target, id);
                     return { [parentKey]: { $ref: id } };
@@ -55,23 +55,27 @@ module.exports = (...dirPathResolveArgs) => {
         // remove extracted definitions
         fn.replaceDeepKey(/^(definitions|\$defs)$/, () => [], schema[id]);
     };
-    // reset references in decentralized ids (as absolute URL or global jsonPointer)
+    // reset references in decentralized ids as global jsonPointer (conversion to absolute URL is trivial)
     const resetReferences = (id) => {
-        if (process.env.buildRefType === 'jsonPointer') {
-            fn.assignDeepKey(
-                '$ref',
-                (ref) => {
-                    if (typeof ref === 'string' && schema[ref]) return { $ref: fn.jsonPointer('#', ref) };
-                    if (typeof ref === 'string') {
-                        const key = Object.keys(schema)
-                            .filter((id) => ref.indexOf(id) === 0)
-                            .find((id) => fn.get(schema, id, ...fn.jsonPointerKeys(fn.relativeUriReference(ref, id))));
-                        if (key) return { $ref: fn.jsonPointer('#', key, ...fn.jsonPointerKeys(fn.relativeUriReference(ref, id))) };
-                    }
-                },
-                schema[id]
-            );
-        }
+        fn.assignDeepKey(
+            '$ref',
+            (ref) => {
+                if (typeof ref === 'string' && schema[ref]) return { $ref: fn.jsonPointer('#', ref) };
+                if (typeof ref === 'string') {
+                    let keys;
+                    return {
+                        $ref: fn.jsonPointer(
+                            '#',
+                            Object.keys(schema)
+                                .filter((id) => ref.indexOf(id) === 0)
+                                .find((id) => (keys = fn.jsonPointerKeys(fn.relativeUriReference(ref, id))) && fn.get(schema, id, ...keys)),
+                            ...keys
+                        ),
+                    };
+                }
+            },
+            schema[id]
+        );
         // remove transformed keywords and their definitions
         fn.replaceDeepKey(/^(id|\$id|\$schema|\$anchor|\$recursiveAnchor|\$dynamicAnchor|\$recursiveRef|\$dynamicRef|\$comment|\$vocabulary)$/, () => [], schema[id]);
         // remove emptied properties
