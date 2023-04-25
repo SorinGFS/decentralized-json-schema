@@ -214,3 +214,6 @@ web/
 # ignore actions/build
 !actions/build
 zzz-draft
+src*
+actions/dev
+*copy*

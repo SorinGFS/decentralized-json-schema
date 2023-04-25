@@ -11,7 +11,7 @@ module.exports = (...dirPathResolveArgs) => {
             /^(\$id|id)$/,
             (target, parentKey, key) => {
                 if (typeof target[key] === 'string') {
-                    const id = new URL(target[key], base).href;
+                    const id = new URL(target[key].replace(/#$/, '/#'), base).href;
                     schema[id] = target;
                     if (fn.deepKeys(target).find((key) => /^(\$id|id)$/.test(key))) extractSchema(target, id);
                     return { [parentKey]: { $ref: id } };
@@ -25,14 +25,23 @@ module.exports = (...dirPathResolveArgs) => {
         fn.assignDeepKey(
             /^(\$ref|\$recursiveRef|\$dynamicRef)$/,
             (ref, key) => {
-                if (typeof ref === 'string' && ref === '#' && key === '$ref') return { $ref: id };
-                if (typeof ref === 'string' && ref.indexOf('#/') === 0) return { $ref: new URL(ref.replace('#/', './'), id + '/').href };
-                if (typeof ref === 'string' && ref.indexOf('#/') > 0) return { $ref: new URL(ref.replace('#/', '/'), id).href };
-                if (typeof ref === 'string' && key === '$ref') return { $ref: new URL(ref, id).href };
-                if (typeof ref === 'string') return { $ref: new URL(ref.replace('#', '#_'), id).href };
+                if (typeof ref === 'string') {
+                    const dot = ref.indexOf('#') === 0 ? '.' : '';
+                    const base = dot ? id + '/' : id;
+                    const delim = ref === '#' ? '' : '/';
+                    const _ = key !== '$ref' ? '/_' : '';
+                    return { $ref: new URL(dot + ref.replace(/#/g, '/#' + delim + _).replace(/([^:\/])\/+/g, '$1/'), base).href };
+                }
             },
             schema[id]
         );
+    };
+    // extract definitions and remove their extraction point (this will generate new ids)
+    const extractDefinitions = (id) => {
+        if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[new URL(`./#/definitions/${key}`, id + '/').href] = schema[id].definitions[key]));
+        if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[new URL(`./#/$defs/${key}`, id + '/').href] = schema[id].$defs[key]));
+        // remove extracted definitions
+        fn.replaceDeepKey(/^(definitions|\$defs)$/, () => [], schema[id]);
     };
     // extract anchors by referencing the extraction point (this will generate new ids)
     const extractAnchors = (id) => {
@@ -41,19 +50,12 @@ module.exports = (...dirPathResolveArgs) => {
             (...keys) => {
                 const anchor = fn.get(schema, id, ...keys);
                 const ref = keys.slice(0, -1).length ? { $ref: new URL(keys.slice(0, -1).join('/'), id + '/').href } : { $ref: id };
-                if (typeof anchor === 'string' && String(keys.slice(-1)) === '$anchor') schema[new URL(`#${anchor}`, id).href] = ref;
-                if (typeof anchor === 'string' && String(keys.slice(-1)) === '$dynamicAnchor') schema[new URL(`#_${anchor}`, id).href] = ref;
-                if (anchor === true && String(keys.slice(-1)) === '$recursiveAnchor') schema[new URL(`#_`, id).href] = ref;
+                if (typeof anchor === 'string' && String(keys.slice(-1)) === '$anchor') schema[new URL(`./#/${anchor}`, id + '/').href] = ref;
+                if (typeof anchor === 'string' && String(keys.slice(-1)) === '$dynamicAnchor') schema[new URL(`./#/_${anchor}`, id + '/').href] = ref;
+                if (anchor === true && String(keys.slice(-1)) === '$recursiveAnchor') schema[new URL(`./#/_`, id + '/').href] = ref;
             },
             schema[id]
         );
-    };
-    // extract definitions and remove their extraction point (this will generate new ids)
-    const extractDefinitions = (id) => {
-        if (schema[id].definitions) Object.keys(schema[id].definitions).forEach((key) => (schema[new URL(`definitions/${key}`, id + '/').href] = schema[id].definitions[key]));
-        if (schema[id].$defs) Object.keys(schema[id].$defs).forEach((key) => (schema[new URL(`$defs/${key}`, id + '/').href] = schema[id].$defs[key]));
-        // remove extracted definitions
-        fn.replaceDeepKey(/^(definitions|\$defs)$/, () => [], schema[id]);
     };
     // reset references in decentralized ids as global jsonPointer (conversion to absolute URL is trivial)
     const resetReferences = (id) => {
@@ -63,21 +65,20 @@ module.exports = (...dirPathResolveArgs) => {
                 if (typeof ref === 'string' && schema[ref]) return { $ref: fn.jsonPointer('#', ref) };
                 if (typeof ref === 'string') {
                     let keys;
-                    return {
-                        $ref: fn.jsonPointer(
-                            '#',
-                            Object.keys(schema)
-                                .filter((id) => ref.indexOf(id) === 0)
-                                .find((id) => (keys = fn.jsonPointerKeys(fn.relativeUriReference(ref, id))) && fn.get(schema, id, ...keys)),
-                            ...keys
-                        ),
-                    };
+                    const key = Object.keys(schema)
+                        .filter((id) => ref.indexOf(id) === 0)
+                        .find((id) => (keys = fn.jsonPointerKeys(fn.relativeUriReference(ref.replaceAll('#', '_'), id.replaceAll('#', '_')))) && fn.get(schema, id, ...keys));
+                    if (key) return { $ref: fn.jsonPointer('#', key, ...keys) };
                 }
             },
             schema[id]
         );
         // remove transformed keywords and their definitions
-        fn.replaceDeepKey(/^(id|\$id|\$schema|\$anchor|\$recursiveAnchor|\$dynamicAnchor|\$recursiveRef|\$dynamicRef|\$comment|\$vocabulary)$/, () => [], schema[id]);
+        fn.replaceDeepKey(/^(id|\$id|\$schema|\$anchor|\$recursiveAnchor|\$dynamicAnchor|\$recursiveRef|\$dynamicRef)$/, () => [], schema[id]);
+        // remove $comment keyword if not enabled in .env file
+        if (process.env.buildComment === 'false') fn.replaceDeepKey('$comment', () => [], schema[id]);
+        // disable $vocabulary support if not enabled in .env file
+        if (process.env.buildVocabulary === 'false') fn.replaceDeepKey('$vocabulary', () => [], schema[id]);
         // remove emptied properties
         fn.replaceDeepKey('properties', (properties) => (Object.keys(properties).length === 0 ? [] : undefined), schema[id]);
     };
@@ -109,10 +110,10 @@ module.exports = (...dirPathResolveArgs) => {
     extractSchema(files);
     // globalize references
     Object.keys(schema).forEach((id) => globalizeReferences(id));
-    // extract anchors as decentralized ids
-    Object.keys(schema).forEach((id) => extractAnchors(id));
     // extract definitions as decentralized ids
     Object.keys(schema).forEach((id) => extractDefinitions(id));
+    // extract anchors as decentralized ids
+    Object.keys(schema).forEach((id) => extractAnchors(id));
     // reset references in decentralized ids
     Object.keys(schema).forEach((id) => resetReferences(id));
     // return decentralized schema for passed files
