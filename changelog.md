@@ -2,13 +2,18 @@
 
 ### Changes:
 
+- 0.6.1
+    - enhancement: decode URI before setting keys
+    - enhancement: avoiding the alteration of references whose targets have not been extracted into `#`
+    - dependencies: bump zerodep to 1.6.10
+
 - 0.6.0
     - feature: added default `buildVocabulary=false` into .env file (if removed build will preserve `$vocabulary`)
     - feature: added default `buildComment=false` into .env file (if removed build will preserve `$comment`)
     - enhancement: placing referenced items (defs, anchors) inside own key `#` which later can be ignored by the parsers
     - enhancement: adapt schema/sources/missing to return the original location of missing source
     - enhancement: allow add/remove source to specified path
-    - note: default `buildType=compact` is mantained into .env file for better content view, will be removed soon
+    - note: default `buildType=compact` is maintained into .env file for better content view, will be removed soon
 
 - 0.5.3
     - enhancement: adapt schema/sources/missing for `buildType=compact`
