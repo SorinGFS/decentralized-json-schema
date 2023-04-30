@@ -5,7 +5,6 @@
                 "draft-04": {
                     "schema": {
                         "#": {
-                            "default": {},
                             "definitions": {
                                 "positiveInteger": {
                                     "minimum": 0,
@@ -23,7 +22,7 @@
                                 },
                                 "schemaArray": {
                                     "items": {
-                                        "$ref": "#/http://json-schema.org/draft-04/schema/#"
+                                        "$ref": "#/http://json-schema.org/draft-04/schema"
                                     },
                                     "minItems": 1,
                                     "type": "array"
@@ -47,176 +46,176 @@
                                     "type": "array",
                                     "uniqueItems": true
                                 }
-                            },
-                            "dependencies": {
-                                "exclusiveMaximum": [
-                                    "maximum"
+                            }
+                        },
+                        "default": {},
+                        "dependencies": {
+                            "exclusiveMaximum": [
+                                "maximum"
+                            ],
+                            "exclusiveMinimum": [
+                                "minimum"
+                            ]
+                        },
+                        "description": "Core schema meta-schema",
+                        "properties": {
+                            "additionalItems": {
+                                "anyOf": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-04/schema"
+                                    }
                                 ],
-                                "exclusiveMinimum": [
-                                    "minimum"
-                                ]
+                                "default": {}
                             },
-                            "description": "Core schema meta-schema",
-                            "properties": {
-                                "additionalItems": {
-                                    "anyOf": [
-                                        {
-                                            "type": "boolean"
-                                        },
-                                        {
-                                            "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                        }
-                                    ],
-                                    "default": {}
-                                },
+                            "additionalProperties": {
+                                "anyOf": [
+                                    {
+                                        "type": "boolean"
+                                    },
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-04/schema"
+                                    }
+                                ],
+                                "default": {}
+                            },
+                            "allOf": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
+                            },
+                            "anyOf": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
+                            },
+                            "default": {},
+                            "dependencies": {
                                 "additionalProperties": {
                                     "anyOf": [
                                         {
-                                            "type": "boolean"
+                                            "$ref": "#/http://json-schema.org/draft-04/schema"
                                         },
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                        }
-                                    ],
-                                    "default": {}
-                                },
-                                "allOf": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
-                                },
-                                "anyOf": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
-                                },
-                                "default": {},
-                                "dependencies": {
-                                    "additionalProperties": {
-                                        "anyOf": [
-                                            {
-                                                "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                            },
-                                            {
-                                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/stringArray"
-                                            }
-                                        ]
-                                    },
-                                    "type": "object"
-                                },
-                                "description": {
-                                    "type": "string"
-                                },
-                                "enum": {
-                                    "minItems": 1,
-                                    "type": "array",
-                                    "uniqueItems": true
-                                },
-                                "exclusiveMaximum": {
-                                    "default": false,
-                                    "type": "boolean"
-                                },
-                                "exclusiveMinimum": {
-                                    "default": false,
-                                    "type": "boolean"
-                                },
-                                "format": {
-                                    "type": "string"
-                                },
-                                "items": {
-                                    "anyOf": [
-                                        {
-                                            "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                        },
-                                        {
-                                            "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
-                                        }
-                                    ],
-                                    "default": {}
-                                },
-                                "maxItems": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveInteger"
-                                },
-                                "maxLength": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveInteger"
-                                },
-                                "maxProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveInteger"
-                                },
-                                "maximum": {
-                                    "type": "number"
-                                },
-                                "minItems": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveIntegerDefault0"
-                                },
-                                "minLength": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveIntegerDefault0"
-                                },
-                                "minProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveIntegerDefault0"
-                                },
-                                "minimum": {
-                                    "type": "number"
-                                },
-                                "multipleOf": {
-                                    "exclusiveMinimum": true,
-                                    "minimum": 0,
-                                    "type": "number"
-                                },
-                                "not": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                },
-                                "oneOf": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
-                                },
-                                "pattern": {
-                                    "format": "regex",
-                                    "type": "string"
-                                },
-                                "patternProperties": {
-                                    "additionalProperties": {
-                                        "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                    },
-                                    "default": {},
-                                    "type": "object"
-                                },
-                                "properties": {
-                                    "additionalProperties": {
-                                        "$ref": "#/http://json-schema.org/draft-04/schema/#"
-                                    },
-                                    "default": {},
-                                    "type": "object"
-                                },
-                                "required": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/stringArray"
-                                },
-                                "title": {
-                                    "type": "string"
-                                },
-                                "type": {
-                                    "anyOf": [
-                                        {
-                                            "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/simpleTypes"
-                                        },
-                                        {
-                                            "items": {
-                                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/simpleTypes"
-                                            },
-                                            "minItems": 1,
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/stringArray"
                                         }
                                     ]
                                 },
-                                "uniqueItems": {
-                                    "default": false,
-                                    "type": "boolean"
-                                }
+                                "type": "object"
                             },
-                            "type": "object"
-                        }
+                            "description": {
+                                "type": "string"
+                            },
+                            "enum": {
+                                "minItems": 1,
+                                "type": "array",
+                                "uniqueItems": true
+                            },
+                            "exclusiveMaximum": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "exclusiveMinimum": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "format": {
+                                "type": "string"
+                            },
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-04/schema"
+                                    },
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
+                                    }
+                                ],
+                                "default": {}
+                            },
+                            "maxItems": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveInteger"
+                            },
+                            "maxLength": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveInteger"
+                            },
+                            "maxProperties": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveInteger"
+                            },
+                            "maximum": {
+                                "type": "number"
+                            },
+                            "minItems": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveIntegerDefault0"
+                            },
+                            "minLength": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveIntegerDefault0"
+                            },
+                            "minProperties": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/positiveIntegerDefault0"
+                            },
+                            "minimum": {
+                                "type": "number"
+                            },
+                            "multipleOf": {
+                                "exclusiveMinimum": true,
+                                "minimum": 0,
+                                "type": "number"
+                            },
+                            "not": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema"
+                            },
+                            "oneOf": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
+                            },
+                            "pattern": {
+                                "format": "regex",
+                                "type": "string"
+                            },
+                            "patternProperties": {
+                                "additionalProperties": {
+                                    "$ref": "#/http://json-schema.org/draft-04/schema"
+                                },
+                                "default": {},
+                                "type": "object"
+                            },
+                            "properties": {
+                                "additionalProperties": {
+                                    "$ref": "#/http://json-schema.org/draft-04/schema"
+                                },
+                                "default": {},
+                                "type": "object"
+                            },
+                            "required": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/stringArray"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/simpleTypes"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/simpleTypes"
+                                        },
+                                        "minItems": 1,
+                                        "type": "array",
+                                        "uniqueItems": true
+                                    }
+                                ]
+                            },
+                            "uniqueItems": {
+                                "default": false,
+                                "type": "boolean"
+                            }
+                        },
+                        "type": "object"
                     }
                 },
                 "draft-06": {
                     "schema": {
                         "#": {
-                            "default": {},
                             "definitions": {
                                 "nonNegativeInteger": {
                                     "minimum": 0,
@@ -234,7 +233,7 @@
                                 },
                                 "schemaArray": {
                                     "items": {
-                                        "$ref": "#/http://json-schema.org/draft-06/schema/#"
+                                        "$ref": "#/http://json-schema.org/draft-06/schema"
                                     },
                                     "minItems": 1,
                                     "type": "array"
@@ -258,170 +257,170 @@
                                     "type": "array",
                                     "uniqueItems": true
                                 }
+                            }
+                        },
+                        "default": {},
+                        "properties": {
+                            "$ref": {
+                                "format": "uri-reference",
+                                "type": "string"
                             },
-                            "properties": {
-                                "$ref": {
-                                    "format": "uri-reference",
-                                    "type": "string"
-                                },
-                                "additionalItems": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                },
+                            "additionalItems": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                            },
+                            "additionalProperties": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                            },
+                            "allOf": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
+                            },
+                            "anyOf": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
+                            },
+                            "const": {},
+                            "contains": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                            },
+                            "default": {},
+                            "dependencies": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                },
-                                "allOf": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
-                                },
-                                "anyOf": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
-                                },
-                                "const": {},
-                                "contains": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                },
-                                "default": {},
-                                "dependencies": {
-                                    "additionalProperties": {
-                                        "anyOf": [
-                                            {
-                                                "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                            },
-                                            {
-                                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/stringArray"
-                                            }
-                                        ]
-                                    },
-                                    "type": "object"
-                                },
-                                "description": {
-                                    "type": "string"
-                                },
-                                "enum": {
-                                    "minItems": 1,
-                                    "type": "array",
-                                    "uniqueItems": true
-                                },
-                                "examples": {
-                                    "items": {},
-                                    "type": "array"
-                                },
-                                "exclusiveMaximum": {
-                                    "type": "number"
-                                },
-                                "exclusiveMinimum": {
-                                    "type": "number"
-                                },
-                                "format": {
-                                    "type": "string"
-                                },
-                                "items": {
                                     "anyOf": [
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-06/schema/#"
+                                            "$ref": "#/http://json-schema.org/draft-06/schema"
                                         },
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
-                                        }
-                                    ],
-                                    "default": {}
-                                },
-                                "maxItems": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeInteger"
-                                },
-                                "maxLength": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeInteger"
-                                },
-                                "maxProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeInteger"
-                                },
-                                "maximum": {
-                                    "type": "number"
-                                },
-                                "minItems": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeIntegerDefault0"
-                                },
-                                "minLength": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeIntegerDefault0"
-                                },
-                                "minProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeIntegerDefault0"
-                                },
-                                "minimum": {
-                                    "type": "number"
-                                },
-                                "multipleOf": {
-                                    "exclusiveMinimum": 0,
-                                    "type": "number"
-                                },
-                                "not": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                },
-                                "oneOf": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
-                                },
-                                "pattern": {
-                                    "format": "regex",
-                                    "type": "string"
-                                },
-                                "patternProperties": {
-                                    "additionalProperties": {
-                                        "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                    },
-                                    "default": {},
-                                    "propertyNames": {
-                                        "format": "regex"
-                                    },
-                                    "type": "object"
-                                },
-                                "properties": {
-                                    "additionalProperties": {
-                                        "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                    },
-                                    "default": {},
-                                    "type": "object"
-                                },
-                                "propertyNames": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#"
-                                },
-                                "required": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/stringArray"
-                                },
-                                "title": {
-                                    "type": "string"
-                                },
-                                "type": {
-                                    "anyOf": [
-                                        {
-                                            "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/simpleTypes"
-                                        },
-                                        {
-                                            "items": {
-                                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/simpleTypes"
-                                            },
-                                            "minItems": 1,
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/stringArray"
                                         }
                                     ]
                                 },
-                                "uniqueItems": {
-                                    "default": false,
-                                    "type": "boolean"
-                                }
+                                "type": "object"
                             },
-                            "title": "Core schema meta-schema",
-                            "type": [
-                                "object",
-                                "boolean"
-                            ]
-                        }
+                            "description": {
+                                "type": "string"
+                            },
+                            "enum": {
+                                "minItems": 1,
+                                "type": "array",
+                                "uniqueItems": true
+                            },
+                            "examples": {
+                                "items": {},
+                                "type": "array"
+                            },
+                            "exclusiveMaximum": {
+                                "type": "number"
+                            },
+                            "exclusiveMinimum": {
+                                "type": "number"
+                            },
+                            "format": {
+                                "type": "string"
+                            },
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-06/schema"
+                                    },
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
+                                    }
+                                ],
+                                "default": {}
+                            },
+                            "maxItems": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeInteger"
+                            },
+                            "maxLength": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeInteger"
+                            },
+                            "maxProperties": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeInteger"
+                            },
+                            "maximum": {
+                                "type": "number"
+                            },
+                            "minItems": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeIntegerDefault0"
+                            },
+                            "minLength": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeIntegerDefault0"
+                            },
+                            "minProperties": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/nonNegativeIntegerDefault0"
+                            },
+                            "minimum": {
+                                "type": "number"
+                            },
+                            "multipleOf": {
+                                "exclusiveMinimum": 0,
+                                "type": "number"
+                            },
+                            "not": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                            },
+                            "oneOf": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
+                            },
+                            "pattern": {
+                                "format": "regex",
+                                "type": "string"
+                            },
+                            "patternProperties": {
+                                "additionalProperties": {
+                                    "$ref": "#/http://json-schema.org/draft-06/schema"
+                                },
+                                "default": {},
+                                "propertyNames": {
+                                    "format": "regex"
+                                },
+                                "type": "object"
+                            },
+                            "properties": {
+                                "additionalProperties": {
+                                    "$ref": "#/http://json-schema.org/draft-06/schema"
+                                },
+                                "default": {},
+                                "type": "object"
+                            },
+                            "propertyNames": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                            },
+                            "required": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/stringArray"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/simpleTypes"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/simpleTypes"
+                                        },
+                                        "minItems": 1,
+                                        "type": "array",
+                                        "uniqueItems": true
+                                    }
+                                ]
+                            },
+                            "uniqueItems": {
+                                "default": false,
+                                "type": "boolean"
+                            }
+                        },
+                        "title": "Core schema meta-schema",
+                        "type": [
+                            "object",
+                            "boolean"
+                        ]
                     }
                 },
                 "draft-07": {
                     "schema": {
                         "#": {
-                            "default": true,
                             "definitions": {
                                 "nonNegativeInteger": {
                                     "minimum": 0,
@@ -439,7 +438,7 @@
                                 },
                                 "schemaArray": {
                                     "items": {
-                                        "$ref": "#/http://json-schema.org/draft-07/schema/#"
+                                        "$ref": "#/http://json-schema.org/draft-07/schema"
                                     },
                                     "minItems": 1,
                                     "type": "array"
@@ -463,188 +462,189 @@
                                     "type": "array",
                                     "uniqueItems": true
                                 }
+                            }
+                        },
+                        "default": true,
+                        "properties": {
+                            "$ref": {
+                                "format": "uri-reference",
+                                "type": "string"
                             },
-                            "properties": {
-                                "$ref": {
-                                    "format": "uri-reference",
-                                    "type": "string"
-                                },
-                                "additionalItems": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
+                            "additionalItems": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "additionalProperties": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "allOf": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
+                            },
+                            "anyOf": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
+                            },
+                            "const": true,
+                            "contains": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "contentEncoding": {
+                                "type": "string"
+                            },
+                            "contentMediaType": {
+                                "type": "string"
+                            },
+                            "default": true,
+                            "dependencies": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "allOf": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
-                                },
-                                "anyOf": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
-                                },
-                                "const": true,
-                                "contains": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "contentEncoding": {
-                                    "type": "string"
-                                },
-                                "contentMediaType": {
-                                    "type": "string"
-                                },
-                                "default": true,
-                                "dependencies": {
-                                    "additionalProperties": {
-                                        "anyOf": [
-                                            {
-                                                "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                            },
-                                            {
-                                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/stringArray"
-                                            }
-                                        ]
-                                    },
-                                    "type": "object"
-                                },
-                                "description": {
-                                    "type": "string"
-                                },
-                                "else": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "enum": {
-                                    "items": true,
-                                    "minItems": 1,
-                                    "type": "array",
-                                    "uniqueItems": true
-                                },
-                                "examples": {
-                                    "items": true,
-                                    "type": "array"
-                                },
-                                "exclusiveMaximum": {
-                                    "type": "number"
-                                },
-                                "exclusiveMinimum": {
-                                    "type": "number"
-                                },
-                                "format": {
-                                    "type": "string"
-                                },
-                                "if": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "items": {
                                     "anyOf": [
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-07/schema/#"
+                                            "$ref": "#/http://json-schema.org/draft-07/schema"
                                         },
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
-                                        }
-                                    ],
-                                    "default": true
-                                },
-                                "maxItems": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeInteger"
-                                },
-                                "maxLength": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeInteger"
-                                },
-                                "maxProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeInteger"
-                                },
-                                "maximum": {
-                                    "type": "number"
-                                },
-                                "minItems": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeIntegerDefault0"
-                                },
-                                "minLength": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeIntegerDefault0"
-                                },
-                                "minProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeIntegerDefault0"
-                                },
-                                "minimum": {
-                                    "type": "number"
-                                },
-                                "multipleOf": {
-                                    "exclusiveMinimum": 0,
-                                    "type": "number"
-                                },
-                                "not": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "oneOf": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
-                                },
-                                "pattern": {
-                                    "format": "regex",
-                                    "type": "string"
-                                },
-                                "patternProperties": {
-                                    "additionalProperties": {
-                                        "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                    },
-                                    "default": {},
-                                    "propertyNames": {
-                                        "format": "regex"
-                                    },
-                                    "type": "object"
-                                },
-                                "properties": {
-                                    "additionalProperties": {
-                                        "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                    },
-                                    "default": {},
-                                    "type": "object"
-                                },
-                                "propertyNames": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "readOnly": {
-                                    "default": false,
-                                    "type": "boolean"
-                                },
-                                "required": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/stringArray"
-                                },
-                                "then": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema/#"
-                                },
-                                "title": {
-                                    "type": "string"
-                                },
-                                "type": {
-                                    "anyOf": [
-                                        {
-                                            "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/simpleTypes"
-                                        },
-                                        {
-                                            "items": {
-                                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/simpleTypes"
-                                            },
-                                            "minItems": 1,
-                                            "type": "array",
-                                            "uniqueItems": true
+                                            "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/stringArray"
                                         }
                                     ]
                                 },
-                                "uniqueItems": {
-                                    "default": false,
-                                    "type": "boolean"
-                                },
-                                "writeOnly": {
-                                    "default": false,
-                                    "type": "boolean"
-                                }
+                                "type": "object"
                             },
-                            "title": "Core schema meta-schema",
-                            "type": [
-                                "object",
-                                "boolean"
-                            ]
-                        }
+                            "description": {
+                                "type": "string"
+                            },
+                            "else": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "enum": {
+                                "items": true,
+                                "minItems": 1,
+                                "type": "array",
+                                "uniqueItems": true
+                            },
+                            "examples": {
+                                "items": true,
+                                "type": "array"
+                            },
+                            "exclusiveMaximum": {
+                                "type": "number"
+                            },
+                            "exclusiveMinimum": {
+                                "type": "number"
+                            },
+                            "format": {
+                                "type": "string"
+                            },
+                            "if": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "items": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-07/schema"
+                                    },
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
+                                    }
+                                ],
+                                "default": true
+                            },
+                            "maxItems": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeInteger"
+                            },
+                            "maxLength": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeInteger"
+                            },
+                            "maxProperties": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeInteger"
+                            },
+                            "maximum": {
+                                "type": "number"
+                            },
+                            "minItems": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeIntegerDefault0"
+                            },
+                            "minLength": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeIntegerDefault0"
+                            },
+                            "minProperties": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/nonNegativeIntegerDefault0"
+                            },
+                            "minimum": {
+                                "type": "number"
+                            },
+                            "multipleOf": {
+                                "exclusiveMinimum": 0,
+                                "type": "number"
+                            },
+                            "not": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "oneOf": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
+                            },
+                            "pattern": {
+                                "format": "regex",
+                                "type": "string"
+                            },
+                            "patternProperties": {
+                                "additionalProperties": {
+                                    "$ref": "#/http://json-schema.org/draft-07/schema"
+                                },
+                                "default": {},
+                                "propertyNames": {
+                                    "format": "regex"
+                                },
+                                "type": "object"
+                            },
+                            "properties": {
+                                "additionalProperties": {
+                                    "$ref": "#/http://json-schema.org/draft-07/schema"
+                                },
+                                "default": {},
+                                "type": "object"
+                            },
+                            "propertyNames": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "readOnly": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "required": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/stringArray"
+                            },
+                            "then": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
+                            "title": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "anyOf": [
+                                    {
+                                        "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/simpleTypes"
+                                    },
+                                    {
+                                        "items": {
+                                            "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/simpleTypes"
+                                        },
+                                        "minItems": 1,
+                                        "type": "array",
+                                        "uniqueItems": true
+                                    }
+                                ]
+                            },
+                            "uniqueItems": {
+                                "default": false,
+                                "type": "boolean"
+                            },
+                            "writeOnly": {
+                                "default": false,
+                                "type": "boolean"
+                            }
+                        },
+                        "title": "Core schema meta-schema",
+                        "type": [
+                            "object",
+                            "boolean"
+                        ]
                     }
                 }
             }

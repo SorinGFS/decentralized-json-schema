@@ -35,6 +35,6 @@ const pathArgs = fs.filePathResolveArgs({ parser: 'json' }, sourcePath, ...fs.pa
         }
     } else {
         console.error(`Source url '${url}' already exists. If you want to renew first remove it from source path then add it again!`);
-        process.exit(1);
+        // process.exit(1);
     }
 })();

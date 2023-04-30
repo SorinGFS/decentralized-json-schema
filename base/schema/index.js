@@ -6,18 +6,33 @@ module.exports = (...dirPathResolveArgs) => {
     const files = require('zerodep/node/tree/json')(...dirPathResolveArgs);
     const schema = {};
     // recursively extract schemas by referencing the extraction point (this will generate new ids)
-    const extractSchema = (target, base) => {
+    const extractSchemas = () => {
+        fn.assignDeepKeyParent(
+            /^(\$id|id)$/,
+            (target, parentKey, key) => {
+                if (target.$schema && typeof target[key] === 'string') {
+                    try {
+                        const id = decodeURI(new URL(target[key].replace(/#$/, '')).href.replace(/\.json(\/|$)/g, '$1'));
+                        return (schema[id] = target) && { [parentKey]: { $ref: id } };
+                    } catch (error) {}
+                }
+            },
+            files
+        );
+    };
+    // recursively extract ids by referencing the extraction point (this will generate new ids)
+    const extractIds = (base) => {
         fn.assignDeepKeyParent(
             /^(\$id|id)$/,
             (target, parentKey, key) => {
                 if (typeof target[key] === 'string') {
-                    const id = decodeURI(new URL(target[key].replace(/#$/, '/#'), base).href);
-                    schema[id] = target;
-                    if (fn.deepKeys(target).find((key) => /^(\$id|id)$/.test(key))) extractSchema(target, id);
-                    return { [parentKey]: { $ref: id } };
+                    try {
+                        const id = decodeURI(new URL(target[key], base).href.replace(/\.json(\/|$)/g, '$1'));
+                        return (schema[id] = target) && { [parentKey]: { $ref: id } };
+                    } catch (error) {}
                 }
             },
-            target
+            schema[base]
         );
     };
     // globalize and combine all reference types into $ref, dynamic references will be recognized by their _ prefix
@@ -26,12 +41,11 @@ module.exports = (...dirPathResolveArgs) => {
             /^(\$ref|\$recursiveRef|\$dynamicRef)$/,
             (ref, key) => {
                 if (typeof ref === 'string') {
-                    const dot = ref.indexOf('#') === 0 ? '.' : '';
+                    const dot = ref.indexOf('#') === 0 && (ref !== '#' || key !== '$ref') ? '.' : '';
                     const base = dot ? id + '/' : id;
-                    const hash = /#(\/\$defs|\/definitions|[^\/]|$)/.test(ref) ? '/#' : '';
-                    const delim = ref === '#' ? '' : '/';
+                    const hash = (key !== '$ref' && /#([^\/]|$)/.test(ref)) || /#(\/\$defs|\/definitions|[^\/])/.test(ref) ? '/#' : '';
                     const _ = key !== '$ref' ? '/_' : '';
-                    return { $ref: decodeURI(new URL(dot + ref.replace(/#/g, hash + delim + _), base).href.replace(/([^:\/])\/+/g, '$1/')) };
+                    return { $ref: decodeURI(new URL(dot + ref.replace(/#/, hash + _), base).href.replace(/([^:\/])\/+/g, '$1/').replace(/\.json(\/|$)/g, '$1')) };
                 }
             },
             schema[id]
@@ -103,8 +117,10 @@ module.exports = (...dirPathResolveArgs) => {
         // return compact schema
         return context.container;
     };
-    // extract schemas as decentralized ids (base schemas, then schemas nested inside of them)
-    extractSchema(files);
+    // extract schemas as decentralized ids (base schemas)
+    extractSchemas();
+    // extract ids as decentralized ids (ids nested inside of schemas)
+    Object.keys(schema).forEach((id) => extractIds(id));
     // globalize references
     Object.keys(schema).forEach((id) => globalizeReferences(id));
     // extract definitions as decentralized ids

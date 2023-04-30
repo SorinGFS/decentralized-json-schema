@@ -2,6 +2,12 @@
 
 ### Changes:
 
+- 0.6.2
+    - enhancement: remove `.json` extension from ids and references
+    - enhancement: split schema extraction in 2 parts to avoid processing dependent schemas before their base
+    - bug: fix `draft-04/draft-07` keywords being placed inside fragment `#`
+    - dependencies: bump zerodep to 1.6.11
+
 - 0.6.1
     - enhancement: decode URI before setting keys
     - enhancement: avoiding the alteration of references whose targets have not been extracted into `#`
