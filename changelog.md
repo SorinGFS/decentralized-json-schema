@@ -2,6 +2,10 @@
 
 ### Changes:
 
+- 0.6.3
+    - refactoring: `buildType` become `buildMode` to avoid confusion with `json-schema`keyword `type`
+    - enhancement: add schema source dependencies by reading base source instead of compiled schema
+
 - 0.6.2
     - enhancement: remove `.json` extension from ids and references
     - enhancement: split schema extraction in 2 parts to avoid processing dependent schemas before their base

@@ -95,7 +95,7 @@ module.exports = (...dirPathResolveArgs) => {
         // disable $vocabulary support if not enabled in .env file
         if (process.env.buildVocabulary === 'false') fn.replaceDeepKey('$vocabulary', () => [], schema[id]);
     };
-    // compact schema if config .env buildType=compact
+    // compact schema if config .env buildMode=compact
     const compactSchema = (schema) => {
         // wrap the schema because deepKeyParent fns cannot read first level object keys (parent would be the object itself)
         const context = { container: schema };
@@ -130,5 +130,5 @@ module.exports = (...dirPathResolveArgs) => {
     // reset references in decentralized ids
     Object.keys(schema).forEach((id) => resetReferences(id));
     // return decentralized schema for passed files
-    return process.env.buildType === 'compact' ? compactSchema(schema) : schema;
+    return process.env.buildMode === 'compact' ? compactSchema(schema) : schema;
 };
