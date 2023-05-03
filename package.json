@@ -27,6 +27,6 @@
         "dotenv": "^16.0.3"
     },
     "dependencies": {
-        "zerodep": "1.6.11"
+        "zerodep": "1.6.12"
     }
 }

@@ -2,6 +2,9 @@
 
 ### Changes:
 
+- 0.6.4
+    - dependencies: bump zerodep to 1.6.12
+
 - 0.6.3
     - refactoring: `buildType` become `buildMode` to avoid confusion with `json-schema`keyword `type`
     - enhancement: add schema source dependencies by reading base source instead of compiled schema
