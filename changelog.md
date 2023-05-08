@@ -2,6 +2,9 @@
 
 ### Changes:
 
+- 0.6.5
+    - enhancement: transform dependencies into dependentRequired and dependentSchemas in third party schemas
+
 - 0.6.4
     - dependencies: bump zerodep to 1.6.12
 

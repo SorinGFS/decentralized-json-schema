@@ -95,6 +95,22 @@ module.exports = (...dirPathResolveArgs) => {
         // disable $vocabulary support if not enabled in .env file
         if (process.env.buildVocabulary === 'false') fn.replaceDeepKey('$vocabulary', () => [], schema[id]);
     };
+    // transform dependencies into dependentRequired and dependentSchemas in third party schemas
+    const transformDependencies = (id) => {
+        fn.replaceDeepKeyParent(
+            'dependencies',
+            (target, parentKey, key) => {
+                if (typeof target[key] === 'object' && id.indexOf('json-schema.org') === -1) {
+                    if (Object.keys(target[key]).every((subkey) => Array.isArray(target[key][subkey]))) {
+                        return { [parentKey]: { dependentRequired: target[key] } };
+                    } else {
+                        return { [parentKey]: { dependentSchemas: target[key] } };
+                    }
+                }
+            },
+            schema[id]
+        );
+    };
     // compact schema if config .env buildMode=compact
     const compactSchema = (schema) => {
         // wrap the schema because deepKeyParent fns cannot read first level object keys (parent would be the object itself)
@@ -129,6 +145,8 @@ module.exports = (...dirPathResolveArgs) => {
     Object.keys(schema).forEach((id) => extractAnchors(id));
     // reset references in decentralized ids
     Object.keys(schema).forEach((id) => resetReferences(id));
+    // transform dependencies in decentralized ids
+    Object.keys(schema).forEach((id) => transformDependencies(id));
     // return decentralized schema for passed files
     return process.env.buildMode === 'compact' ? compactSchema(schema) : schema;
 };
