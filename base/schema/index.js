@@ -22,10 +22,10 @@ module.exports = (...dirPathResolveArgs) => {
     };
     // recursively extract ids by referencing the extraction point (this will generate new ids)
     const extractIds = (base) => {
-        fn.assignDeepKeyParent(
+        fn.replaceDeepKeyParent(
             /^(\$id|id)$/,
             (target, parentKey, key) => {
-                if (typeof target[key] === 'string') {
+                if (typeof target[key] === 'string' && !/^#/.test(target[key])) {
                     try {
                         const id = decodeURI(new URL(target[key], base).href.replace(/\.json(\/|$)/g, '$1'));
                         return (schema[id] = target) && { [parentKey]: { $ref: id } };
@@ -44,7 +44,7 @@ module.exports = (...dirPathResolveArgs) => {
                     const dot = ref.indexOf('#') === 0 && (ref !== '#' || key !== '$ref') ? '.' : '';
                     const base = dot ? id + '/' : id;
                     const hash = (key !== '$ref' && /#([^\/]|$)/.test(ref)) || /#(\/\$defs|\/definitions|[^\/])/.test(ref) ? '/#' : '';
-                    const _ = key !== '$ref' ? '/_' : '';
+                    const _ = key === '$ref' ? '' : key === '$recursiveRef' ? '/_meta' : '/_';
                     return { $ref: decodeURI(new URL(dot + ref.replace(/#/, hash + _), base).href.replace(/([^:\/])\/+/g, '$1/').replace(/\.json(\/|$)/g, '$1')) };
                 }
             },
@@ -67,7 +67,36 @@ module.exports = (...dirPathResolveArgs) => {
                 const ref = keys.slice(0, -1).length ? { $ref: decodeURI(new URL(keys.slice(0, -1).join('/'), id + '/').href) } : { $ref: id };
                 if (typeof anchor === 'string' && String(keys.slice(-1)) === '$anchor') schema[decodeURI(new URL(`./#/${anchor}`, id + '/').href)] = ref;
                 if (typeof anchor === 'string' && String(keys.slice(-1)) === '$dynamicAnchor') schema[decodeURI(new URL(`./#/_${anchor}`, id + '/').href)] = ref;
-                if (anchor === true && String(keys.slice(-1)) === '$recursiveAnchor') schema[decodeURI(new URL(`./#/_`, id + '/').href)] = ref;
+                if (anchor === true && String(keys.slice(-1)) === '$recursiveAnchor') schema[decodeURI(new URL(`./#/_meta`, id + '/').href)] = ref;
+            },
+            schema[id]
+        );
+    };
+    // transform references that would trigger infinite loop into dynamic references
+    const transformReferences = (id) => {
+        fn.parseDeepKey(
+            '$ref',
+            (...keys) => {
+                const ref = fn.get(schema, id, ...keys);
+                if (typeof ref === 'string') {
+                    if ([id, ...keys.slice(0, -1)].join('/').indexOf(ref) === 0 && [id, ...keys.slice(0, -1)].join('/').indexOf(ref + '/#') === -1 && ref.indexOf('#/$defs') === -1 && ref.indexOf('#/definitions') === -1) {
+                        schema[ref + '/#/_meta'] = { $ref: ref };
+                        fn.set(ref + '/#/_meta', schema, id, ...keys);
+                    }
+                }
+            },
+            schema[id]
+        );
+    };
+    // transform dependencies into dependentRequired and dependentSchemas in third party schemas
+    const transformDependencies = (id) => {
+        fn.replaceDeepKey(
+            'dependencies',
+            (target) => {
+                if (typeof target === 'object') {
+                    if (Object.keys(target).every((key) => Array.isArray(target[key]))) return { dependentRequired: target };
+                    else return { dependentSchemas: target };
+                }
             },
             schema[id]
         );
@@ -94,22 +123,6 @@ module.exports = (...dirPathResolveArgs) => {
         if (process.env.buildComment === 'false') fn.replaceDeepKey('$comment', () => [], schema[id]);
         // disable $vocabulary support if not enabled in .env file
         if (process.env.buildVocabulary === 'false') fn.replaceDeepKey('$vocabulary', () => [], schema[id]);
-    };
-    // transform dependencies into dependentRequired and dependentSchemas in third party schemas
-    const transformDependencies = (id) => {
-        fn.replaceDeepKeyParent(
-            'dependencies',
-            (target, parentKey, key) => {
-                if (typeof target[key] === 'object' && id.indexOf('json-schema.org') === -1) {
-                    if (Object.keys(target[key]).every((subkey) => Array.isArray(target[key][subkey]))) {
-                        return { [parentKey]: { dependentRequired: target[key] } };
-                    } else {
-                        return { [parentKey]: { dependentSchemas: target[key] } };
-                    }
-                }
-            },
-            schema[id]
-        );
     };
     // compact schema if config .env buildMode=compact
     const compactSchema = (schema) => {
@@ -143,10 +156,12 @@ module.exports = (...dirPathResolveArgs) => {
     Object.keys(schema).forEach((id) => extractDefinitions(id));
     // extract anchors as decentralized ids
     Object.keys(schema).forEach((id) => extractAnchors(id));
-    // reset references in decentralized ids
-    Object.keys(schema).forEach((id) => resetReferences(id));
+    // transform references in decentralized ids
+    Object.keys(schema).forEach((id) => transformReferences(id));
     // transform dependencies in decentralized ids
     Object.keys(schema).forEach((id) => transformDependencies(id));
+    // reset references in decentralized ids
+    Object.keys(schema).forEach((id) => resetReferences(id));
     // return decentralized schema for passed files
     return process.env.buildMode === 'compact' ? compactSchema(schema) : schema;
 };

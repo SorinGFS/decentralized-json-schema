@@ -5,6 +5,9 @@
                 "draft-04": {
                     "schema": {
                         "#": {
+                            "_meta": {
+                                "$ref": "#/http://json-schema.org/draft-04/schema"
+                            },
                             "definitions": {
                                 "positiveInteger": {
                                     "minimum": 0,
@@ -49,7 +52,7 @@
                             }
                         },
                         "default": {},
-                        "dependencies": {
+                        "dependentRequired": {
                             "exclusiveMaximum": [
                                 "maximum"
                             ],
@@ -65,7 +68,7 @@
                                         "type": "boolean"
                                     },
                                     {
-                                        "$ref": "#/http://json-schema.org/draft-04/schema"
+                                        "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                                     }
                                 ],
                                 "default": {}
@@ -76,7 +79,7 @@
                                         "type": "boolean"
                                     },
                                     {
-                                        "$ref": "#/http://json-schema.org/draft-04/schema"
+                                        "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                                     }
                                 ],
                                 "default": {}
@@ -88,11 +91,11 @@
                                 "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
                             },
                             "default": {},
-                            "dependencies": {
+                            "dependentSchemas": {
                                 "additionalProperties": {
                                     "anyOf": [
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-04/schema"
+                                            "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                                         },
                                         {
                                             "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/stringArray"
@@ -123,7 +126,7 @@
                             "items": {
                                 "anyOf": [
                                     {
-                                        "$ref": "#/http://json-schema.org/draft-04/schema"
+                                        "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                                     },
                                     {
                                         "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
@@ -161,7 +164,7 @@
                                 "type": "number"
                             },
                             "not": {
-                                "$ref": "#/http://json-schema.org/draft-04/schema"
+                                "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                             },
                             "oneOf": {
                                 "$ref": "#/http://json-schema.org/draft-04/schema/#/definitions/schemaArray"
@@ -172,14 +175,14 @@
                             },
                             "patternProperties": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema"
+                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                                 },
                                 "default": {},
                                 "type": "object"
                             },
                             "properties": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-04/schema"
+                                    "$ref": "#/http://json-schema.org/draft-04/schema/#/_meta"
                                 },
                                 "default": {},
                                 "type": "object"
@@ -216,6 +219,9 @@
                 "draft-06": {
                     "schema": {
                         "#": {
+                            "_meta": {
+                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                            },
                             "definitions": {
                                 "nonNegativeInteger": {
                                     "minimum": 0,
@@ -266,10 +272,10 @@
                                 "type": "string"
                             },
                             "additionalItems": {
-                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                             },
                             "additionalProperties": {
-                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                             },
                             "allOf": {
                                 "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
@@ -279,14 +285,14 @@
                             },
                             "const": {},
                             "contains": {
-                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                             },
                             "default": {},
-                            "dependencies": {
+                            "dependentSchemas": {
                                 "additionalProperties": {
                                     "anyOf": [
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-06/schema"
+                                            "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                                         },
                                         {
                                             "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/stringArray"
@@ -319,7 +325,7 @@
                             "items": {
                                 "anyOf": [
                                     {
-                                        "$ref": "#/http://json-schema.org/draft-06/schema"
+                                        "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                                     },
                                     {
                                         "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
@@ -356,7 +362,7 @@
                                 "type": "number"
                             },
                             "not": {
-                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                             },
                             "oneOf": {
                                 "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/schemaArray"
@@ -367,7 +373,7 @@
                             },
                             "patternProperties": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema"
+                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                                 },
                                 "default": {},
                                 "propertyNames": {
@@ -377,13 +383,13 @@
                             },
                             "properties": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-06/schema"
+                                    "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                                 },
                                 "default": {},
                                 "type": "object"
                             },
                             "propertyNames": {
-                                "$ref": "#/http://json-schema.org/draft-06/schema"
+                                "$ref": "#/http://json-schema.org/draft-06/schema/#/_meta"
                             },
                             "required": {
                                 "$ref": "#/http://json-schema.org/draft-06/schema/#/definitions/stringArray"
@@ -421,6 +427,9 @@
                 "draft-07": {
                     "schema": {
                         "#": {
+                            "_meta": {
+                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                            },
                             "definitions": {
                                 "nonNegativeInteger": {
                                     "minimum": 0,
@@ -471,10 +480,10 @@
                                 "type": "string"
                             },
                             "additionalItems": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "additionalProperties": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "allOf": {
                                 "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
@@ -484,7 +493,7 @@
                             },
                             "const": true,
                             "contains": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "contentEncoding": {
                                 "type": "string"
@@ -493,11 +502,11 @@
                                 "type": "string"
                             },
                             "default": true,
-                            "dependencies": {
+                            "dependentSchemas": {
                                 "additionalProperties": {
                                     "anyOf": [
                                         {
-                                            "$ref": "#/http://json-schema.org/draft-07/schema"
+                                            "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                                         },
                                         {
                                             "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/stringArray"
@@ -510,7 +519,7 @@
                                 "type": "string"
                             },
                             "else": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "enum": {
                                 "items": true,
@@ -532,12 +541,12 @@
                                 "type": "string"
                             },
                             "if": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "items": {
                                 "anyOf": [
                                     {
-                                        "$ref": "#/http://json-schema.org/draft-07/schema"
+                                        "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                                     },
                                     {
                                         "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
@@ -574,7 +583,7 @@
                                 "type": "number"
                             },
                             "not": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "oneOf": {
                                 "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/schemaArray"
@@ -585,7 +594,7 @@
                             },
                             "patternProperties": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema"
+                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                                 },
                                 "default": {},
                                 "propertyNames": {
@@ -595,13 +604,13 @@
                             },
                             "properties": {
                                 "additionalProperties": {
-                                    "$ref": "#/http://json-schema.org/draft-07/schema"
+                                    "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                                 },
                                 "default": {},
                                 "type": "object"
                             },
                             "propertyNames": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "readOnly": {
                                 "default": false,
@@ -611,7 +620,7 @@
                                 "$ref": "#/http://json-schema.org/draft-07/schema/#/definitions/stringArray"
                             },
                             "then": {
-                                "$ref": "#/http://json-schema.org/draft-07/schema"
+                                "$ref": "#/http://json-schema.org/draft-07/schema/#/_meta"
                             },
                             "title": {
                                 "type": "string"
@@ -661,22 +670,22 @@
                                     "$defs": {
                                         "schemaArray": {
                                             "items": {
-                                                "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                                "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                             },
                                             "minItems": 1,
                                             "type": "array"
                                         }
                                     },
-                                    "_": {
+                                    "_meta": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator"
                                     }
                                 },
                                 "properties": {
                                     "additionalItems": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "additionalProperties": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "allOf": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/$defs/schemaArray"
@@ -685,24 +694,24 @@
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/$defs/schemaArray"
                                     },
                                     "contains": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "dependentSchemas": {
                                         "additionalProperties": {
-                                            "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                            "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                         },
                                         "type": "object"
                                     },
                                     "else": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "if": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "items": {
                                         "anyOf": [
                                             {
-                                                "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                                "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                             },
                                             {
                                                 "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/$defs/schemaArray"
@@ -710,14 +719,14 @@
                                         ]
                                     },
                                     "not": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "oneOf": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/$defs/schemaArray"
                                     },
                                     "patternProperties": {
                                         "additionalProperties": {
-                                            "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                            "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                         },
                                         "default": {},
                                         "propertyNames": {
@@ -727,22 +736,22 @@
                                     },
                                     "properties": {
                                         "additionalProperties": {
-                                            "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                            "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                         },
                                         "default": {},
                                         "type": "object"
                                     },
                                     "propertyNames": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "then": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "unevaluatedItems": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     },
                                     "unevaluatedProperties": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/applicator/#/_meta"
                                     }
                                 },
                                 "title": "Applicator vocabulary meta-schema",
@@ -753,7 +762,7 @@
                             },
                             "content": {
                                 "#": {
-                                    "_": {
+                                    "_meta": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/content"
                                     }
                                 },
@@ -765,7 +774,7 @@
                                         "type": "string"
                                     },
                                     "contentSchema": {
-                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/content/#/_"
+                                        "$ref": "#/https://json-schema.org/draft/2019-09/meta/content/#/_meta"
                                     }
                                 },
                                 "title": "Content vocabulary meta-schema",
@@ -776,7 +785,7 @@
                             },
                             "core": {
                                 "#": {
-                                    "_": {
+                                    "_meta": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/core"
                                     }
                                 },
@@ -794,7 +803,7 @@
                             },
                             "format": {
                                 "#": {
-                                    "_": {
+                                    "_meta": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/format"
                                     }
                                 },
@@ -811,7 +820,7 @@
                             },
                             "meta-data": {
                                 "#": {
-                                    "_": {
+                                    "_meta": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/meta-data"
                                     }
                                 },
@@ -877,7 +886,7 @@
                                             "uniqueItems": true
                                         }
                                     },
-                                    "_": {
+                                    "_meta": {
                                         "$ref": "#/https://json-schema.org/draft/2019-09/meta/validation"
                                     }
                                 },
@@ -970,7 +979,7 @@
                         },
                         "schema": {
                             "#": {
-                                "_": {
+                                "_meta": {
                                     "$ref": "#/https://json-schema.org/draft/2019-09/schema"
                                 }
                             },
@@ -995,11 +1004,11 @@
                                 }
                             ],
                             "properties": {
-                                "dependencies": {
+                                "dependentSchemas": {
                                     "additionalProperties": {
                                         "anyOf": [
                                             {
-                                                "$ref": "#/https://json-schema.org/draft/2019-09/schema/#/_"
+                                                "$ref": "#/https://json-schema.org/draft/2019-09/schema/#/_meta"
                                             },
                                             {
                                                 "$ref": "#/https://json-schema.org/draft/2019-09/meta/validation/#/$defs/stringArray"
@@ -1398,7 +1407,7 @@
                                 }
                             ],
                             "properties": {
-                                "dependencies": {
+                                "dependentSchemas": {
                                     "additionalProperties": {
                                         "anyOf": [
                                             {
@@ -1952,7 +1961,7 @@
                                 }
                             ],
                             "properties": {
-                                "dependencies": {
+                                "dependentSchemas": {
                                     "additionalProperties": {
                                         "anyOf": [
                                             {

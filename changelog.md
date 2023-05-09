@@ -2,6 +2,12 @@
 
 ### Changes:
 
+- 0.6.6
+    - bug: fix transform dependencies into dependentRequired and dependentSchemas in third party schemas
+    - enhancement: avoid ids referencing fragments when recursively extracting ids
+    - enhancement: transform references that would trigger infinite loop into dynamic references
+    - enhancement: normalize dynamic references in drafts prior to `draft/2020-12` as `_meta`
+
 - 0.6.5
     - enhancement: transform dependencies into dependentRequired and dependentSchemas in third party schemas
 
