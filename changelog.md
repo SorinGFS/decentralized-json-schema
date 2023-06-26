@@ -2,6 +2,10 @@
 
 ### Changes:
 
+- 0.6.7
+    - enhancement: removing the `subdomainsNested` when saving schemas for consistency accross installs
+    - dependencies: bump zerodep to 1.7.1
+
 - 0.6.6
     - bug: fix transform dependencies into dependentRequired and dependentSchemas in third party schemas
     - enhancement: avoid ids referencing fragments when recursively extracting ids
