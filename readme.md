@@ -6,18 +6,34 @@ This work starts from the idea that any schema, no matter how complex, can be br
 - based on an RFC
 - refers to another schema that is based on RFC
 
-This project is recompiling `json-schema` and `json-schema` based schemas in a decentralized format by exploiting the full potential of the [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) as schema `key|identifier|selector` and is mounting decentralized schemas in a common environment which later can be used to:
+This project is recompiling `json-schema` and `json-schema` based schemas in a decentralized format by exploiting the full potential of [IRI](https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier) (internationalized [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) as schema `key|identifier|selector` and is mounting decentralized schemas in a common environment which later can be used to:
 - generate new schemas
 - edit schemas
 - manage schemas
 - document schemas
 - export or serve schemas in various formats
 
-Multiple `decentralized-json-schema` environments each having own schemas can be merged into a single context, for example in `javascript` this can be like:
+Resulted `decentralized-json-schema` (in short `DJS`) is a normalized version of the previous drafts of `json-schema` in which original intents are mapped to unique internal keywords which are the latest version of the `json-schema` keywords represented by their corresponding intent.
+
+`DJS` can be transposed in 3 views: decentralized (as built), compact, or fully expanded (in the future). Regardless of which way it is transposed, the emergence of multiple `DJS` is done without data loss. The structure of `DJS` makes it universally shareable no matter if contains full schemas or small portion of them. No matter how source schemas were written, `DJS` internally stores the links as absolute `json-pointer`, so third parties can safely share their schemas. Even inside the same project, the idea of decentralizing schemas allows us to place small chunks of schema right where they belong. Multiple `DJS` environments each having own schemas can be merged into a single context, for example in `javascript` this can be like:
 
 ```js
 Object.assign(global, workspaces, workspace, workdir, data);
 ```
+
+### How it works
+
+For an easier understanding of what `DJS` is, imagine a map of the universal resources that exist on the web or in the local environment. All resources on the planet can be referenced by `IRI` without risk of collision, and that's exactly what `DJS` is: a database of resources some of which have been linked to others by their authors. Any `DJS` at the beginning is an empty object, it is everyone's choice what to put in it. Can be links to other schemas, or can be local schemas that are completely independent. This is because `DJS` alone does precisely ... nothing! It is a matter of everyone's choice: how to link several `DJS` together (or use just one), how to use `DJS` in their own projects or to share them on the web or a combination of the 2 options.
+
+A `DJS` source can be any valid schema based on `json-schema` drafts starting with `draft-04` to the latest. Sources must be added to a local store using command line, and if added sources contin references to other source they will be automatically added to the same store. This way, if the original source's `IRI` or its content changes the author will have the option to decide if he want to update the source or to keep the initial source.
+
+Keeping the schema sources in a local store has two important advantages: compilation performance and avoiding to deal with `Content Security Policy` if a compiled schema is used on a website.
+
+The schemas added to a local store are just files sitting on the disk. Also, their corresponding part in the compiled schema is just extra weight. Their role come into play when they are linked or cloned somewhere in a project, an output and an output response handler is set.
+
+The compiled `DJS` will be a `JSON` object having the first level keys considered `IRI` protocols (without `:`) and by joining the subsequent keys to the deepest key by `/` will always result valid `IRI`'s.
+
+**Note:** the `json-schema` files currently present in the `./src` directory are there just as files to work with, to generate some compilation example. They will be removed in the future since `DJS` should start as empty object. Of course, they could be added back later by schema authors.
 
 ### Clone or fork to compile own schemas
 
@@ -33,13 +49,13 @@ npm install
 ### Build / Rebuild
 
 ```shell
-node actions build schema [dirPath (starting with ./src)]
+node actions build schema [dirPath (default ./src)]
 ```
 
 ### Add / Remove Schema
 
 ```shell
-node actions add schema [dirPath (starting with ./src)]
+node actions add schema [dirPath (default ./src)]
 # or
 node actions remove schema $uri
 ```
@@ -53,17 +69,22 @@ node actions remove source $uri
 ```
 **Note:** this automatically adds / removes built schema
 
+### Output Compact Schema
+
+```shell
+node actions output compact-schema [filePath (default ./compact.json)]
+```
 
 ### Test
 
 ```shell
-node actions test load-time [dirPath (starting with ./src)]
+node actions test load-time [dirPath (default ./src)]
 ```
 
 ### Print
 
 ```shell
-node actions print schema-references [dirPath (starting with ./src)]
+node actions print schema-references [dirPath (default ./src)]
 ```
 
 ### General syntax for running actions
@@ -80,12 +101,14 @@ node actions $predicate $subject [...args]
 ```shell
 npm i decentralized-json-schema
 ```
+... work in progress
 
 ### Usage
 
 ```js
 const context = require('decentralized-json-schema');
 ```
+... work in progress
 
 ### Change Log
 
@@ -179,7 +202,7 @@ invalid references count: 0
 
 <details>
 <summary>
-Generated schema keys:
+Generated schema keys for `json-schema` files will look like this:
 </summary>
 
 ```shell

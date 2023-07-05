@@ -2,6 +2,13 @@
 
 ### Changes:
 
+- 0.7.0
+    - bug: fix add schema while the built schema `./index.json` file was previously deleted (starting new build)
+    - enhancement: etract `compactSchema` as utility function and removing `buildType` option from `.env` file
+    - enhancement: transform `items` and `additionalItems` into `prefixItems` and `items`
+    - enhancement: clarify docs about how `DJS` is supposed to work
+    - feature: action `output compact-schema` to save the compact view of the compiled schema to desired location
+
 - 0.6.7
     - enhancement: removing the `subdomainsNested` when saving schemas for consistency accross installs
     - dependencies: bump zerodep to 1.7.1
