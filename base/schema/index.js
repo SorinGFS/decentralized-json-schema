@@ -88,7 +88,7 @@ module.exports = (...dirPathResolveArgs) => {
             schema[id]
         );
     };
-    // transform dependencies into dependentRequired and dependentSchemas in third party schemas
+    // transform dependencies into dependentRequired and dependentSchemas
     const transformDependencies = (id) => {
         fn.replaceDeepKey(
             'dependencies',
@@ -100,6 +100,11 @@ module.exports = (...dirPathResolveArgs) => {
             },
             schema[id]
         );
+    };
+    // transform items and additionalItems into prefixItems and items
+    const transformItems = (id) => {
+        fn.replaceDeepKey('items', (value) => (Array.isArray(value) ? { prefixItems: value } : undefined), schema[id]);
+        fn.replaceDeepKey('additionalItems', (value) => [{ items: value }], schema[id]);
     };
     // reset references in decentralized ids as global jsonPointer (conversion to absolute URL is trivial)
     const resetReferences = (id) => {
@@ -124,28 +129,6 @@ module.exports = (...dirPathResolveArgs) => {
         // disable $vocabulary support if not enabled in .env file
         if (process.env.buildVocabulary === 'false') fn.replaceDeepKey('$vocabulary', () => [], schema[id]);
     };
-    // compact schema if config .env buildMode=compact
-    const compactSchema = (schema) => {
-        // wrap the schema because deepKeyParent fns cannot read first level object keys (parent would be the object itself)
-        const context = { container: schema };
-        // spread key segments into own keys and merge their values into the context
-        fn.assignDeepKeyParent(
-            /\//,
-            (target, parentKey, key) => {
-                const branch = {};
-                const keys = key.split('/');
-                const value = target[key];
-                delete target[key];
-                fn.set(value, branch, ...keys);
-                return { [parentKey]: fn.mergeDeep(target, branch) };
-            },
-            context
-        );
-        // spread jsonPointer keys
-        fn.assignDeepKey('$ref', (ref) => typeof ref === 'string' && [{ $ref: fn.jsonPointerKeys(ref).join('/') }], context);
-        // return compact schema
-        return context.container;
-    };
     // extract schemas as decentralized ids (base schemas)
     extractSchemas();
     // extract ids as decentralized ids (ids nested inside of schemas)
@@ -160,8 +143,10 @@ module.exports = (...dirPathResolveArgs) => {
     Object.keys(schema).forEach((id) => transformReferences(id));
     // transform dependencies in decentralized ids
     Object.keys(schema).forEach((id) => transformDependencies(id));
+    // transform items in decentralized ids
+    Object.keys(schema).forEach((id) => transformItems(id));
     // reset references in decentralized ids
     Object.keys(schema).forEach((id) => resetReferences(id));
     // return decentralized schema for passed files
-    return process.env.buildMode === 'compact' ? compactSchema(schema) : schema;
+    return schema;
 };
