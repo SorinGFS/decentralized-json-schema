@@ -25,7 +25,7 @@ Object.assign(global, workspaces, workspace, workdir, data);
 
 For an easier understanding of what `DJS` is, imagine a map of the universal resources that exist on the web or in the local environment. All resources on the planet can be referenced by `IRI` without risk of collision, and that's exactly what `DJS` is: a database of resources some of which have been linked to others by their authors. Any `DJS` at the beginning is an empty object, it is everyone's choice what to put in it. Can be links to other schemas, or can be local schemas that are completely independent. This is because `DJS` alone does precisely ... nothing! It is a matter of everyone's choice: how to link several `DJS` together (or use just one), how to use `DJS` in their own projects or to share them on the web or a combination of the 2 options.
 
-A `DJS` source can be any valid schema based on `json-schema` drafts starting with `draft-04` to the latest. Sources must be added to a local store using command line, and if added sources contin references to other source they will be automatically added to the same store. This way, if the original source's `IRI` or its content changes the author will have the option to decide if he want to update the source or to keep the initial source.
+A `DJS` source can be any valid schema based on `json-schema` drafts starting with `draft-04` to the latest. Sources must be added to a local store using command line, and if added sources contain references to other sources they will be automatically added to the same store. This way, if the original source's `IRI` or its content changes the author will have the option to decide if he want to update the source or to keep the initial source.
 
 Keeping the schema sources in a local store has two important advantages: compilation performance and avoiding to deal with `Content Security Policy` if a compiled schema is used on a website.
 
@@ -67,10 +67,11 @@ node actions add source $uri
 # or
 node actions remove source $uri
 ```
-**Note:** this automatically adds / removes built schema
+**Note:** this automatically adds / removes schema
 
 ### Output Compact Schema
 
+This command will output the compact view of the compiled `DJS` in the desired file (default`./compact.json`).
 ```shell
 node actions output compact-schema [filePath (default ./compact.json)]
 ```
@@ -116,6 +117,8 @@ See the full list of [changes](changelog.md).
 
 ### What's next?
 
+- validator
+- watcher
 - introduce `$include`
 
 <details>

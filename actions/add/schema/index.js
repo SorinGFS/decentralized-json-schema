@@ -2,7 +2,7 @@
 // adding schema from specified files only (to avoid recompile the whole ./src directory)
 const fs = require('zerodep/node/fs');
 const fn = require('zerodep/node/fn');
-// arg must be directory pathResolve arg
+// arg can be file or directory path
 const schema = require(`${process.env.PWD}/base/schema`)(process.argv[2]);
 try {
     const built = require(`${process.env.PWD}/index.json`);

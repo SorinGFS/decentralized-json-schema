@@ -5,13 +5,14 @@ const fn = require('zerodep/node/fn');
 module.exports = (...dirPathResolveArgs) => {
     const schema = require('../..')(...dirPathResolveArgs);
     const sources = [];
-    fn.parseDeepKeyParent(
+    fn.parseDeepKey(
         '$ref',
         (...refs) => {
             const target = fn.get(schema, ...refs);
-            if (typeof target.$ref === 'string') {
-                const keys = fn.jsonPointerKeys(target.$ref.startsWith('#/') ? target.$ref.replace('#/', '') : target.$ref);
-                if (!Object.keys(schema).find((id) => fn.get(schema, id, ...keys.slice(1)))) sources.push(new URL('', keys.join('/').replace('/#/', '#/')).href);
+            if (typeof target === 'string' && target.indexOf('#/') !== 0) sources.push('Not Found: ' + target);
+            if (typeof target === 'string' && target.indexOf('#/') === 0) {
+                const keys = fn.jsonPointerKeys(target.replace(/^(#\/)/, ''));
+                if (!Object.keys(schema).find((id) => fn.get(schema, id, ...keys.slice(1)))) sources.push('Wrong Found: ' + target);
             }
         },
         schema

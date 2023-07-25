@@ -2,9 +2,19 @@
 
 ### Changes:
 
+- 0.8.0
+    - enhancement: security check for json problematic characters in downloaded schemas
+    - enhancement: removing option to build `$vocabulary`, in `DJS` unknown keywords are ignored
+    - enhancement: transform all schema id's and references to use `schema:` protocol
+    - enhancement: transform `dependencies`into `dependentRequired` and `dependentSchemas`
+    - enhancement: transform `draft-04 exclusive*` to their corresponding numeric value in `minimum` or `maximum`
+    - enhancement: transform `definitions` into `$defs`
+    - feature: support to compile even a single source file not just a directory
+    - dependencies: bump zerodep to 1.7.9
+
 - 0.7.0
     - bug: fix add schema while the built schema `./index.json` file was previously deleted (starting new build)
-    - enhancement: etract `compactSchema` as utility function and removing `buildType` option from `.env` file
+    - enhancement: extract `compactSchema` as utility function and removing `buildType` option from `.env` file
     - enhancement: transform `items` and `additionalItems` into `prefixItems` and `items`
     - enhancement: clarify docs about how `DJS` is supposed to work
     - feature: action `output compact-schema` to save the compact view of the compiled schema to desired location
