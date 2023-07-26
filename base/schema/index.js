@@ -125,7 +125,7 @@ module.exports = (...dirPathResolveArgs) => {
             schema[id]
         );
     };
-    // transform references that would trigger infinite loop into dynamic references, and definitions into $defs
+    // transform references that would trigger infinite loop into dynamic references (this will generate new ids)
     const transformReferences = (id) => {
         fn.parseDeepKey(
             '$ref',
@@ -134,8 +134,7 @@ module.exports = (...dirPathResolveArgs) => {
                 if (typeof ref === 'string') {
                     // by eliminating last two conditions would add dynamic refs even inside the deepest definition
                     if ([id, ...keys.slice(0, -1)].join('/').indexOf(ref) === 0 && [id, ...keys.slice(0, -1)].join('/').indexOf(ref + '/#') === -1 && ref.indexOf('#/$defs') === -1) {
-                        if (!schema[ref]['#']) schema[ref]['#'] = {};
-                        if (!schema[ref]['#']['_meta']) schema[ref]['#']['_meta'] = { $ref: ref };
+                        schema[ref + '/#/_meta'] = { $ref: ref };
                         fn.set(ref + '/#/_meta', schema, id, ...keys);
                     }
                 }
@@ -177,13 +176,13 @@ module.exports = (...dirPathResolveArgs) => {
     Object.keys(schema).forEach((id) => transformItems(id));
     // transform draft-04 exclusive* before extracting definitions
     Object.keys(schema).forEach((id) => transformExclusive(id));
-    // extract anchors as decentralized ids
+    // extract anchors in decentralized ids
     Object.keys(schema).forEach((id) => extractAnchors(id));
-    // extract definitions as decentralized ids
+    // extract definitions in decentralized ids
     Object.keys(schema).forEach((id) => extractDefinitions(id));
     // globalize references in decentralized ids
     Object.keys(schema).forEach((id) => globalizeReferences(id));
-    // transform references in decentralized ids
+    // transform references as decentralized ids
     Object.keys(schema).forEach((id) => transformReferences(id));
     // remove transformed keywords in decentralized ids
     Object.keys(schema).forEach((id) => removeTransformedKeywords(id));

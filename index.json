@@ -42,9 +42,6 @@
                     "type": "array",
                     "uniqueItems": true
                 }
-            },
-            "_meta": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema"
             }
         },
         "default": {},
@@ -64,7 +61,7 @@
                         "type": "boolean"
                     },
                     {
-                        "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                        "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
                     }
                 ],
                 "default": {}
@@ -78,7 +75,7 @@
             "default": {},
             "definitions": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
@@ -87,7 +84,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                            "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
                         },
                         {
                             "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/$defs/stringArray"
@@ -124,7 +121,7 @@
                         "type": "boolean"
                     },
                     {
-                        "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                        "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
                     }
                 ],
                 "default": {}
@@ -158,7 +155,7 @@
                 "type": "number"
             },
             "not": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
             },
             "oneOf": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/$defs/schemaArray"
@@ -169,14 +166,14 @@
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "properties": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
@@ -208,6 +205,9 @@
             }
         },
         "type": "object"
+    },
+    "schema://json-schema.org/draft-04/schema/#/_meta": {
+        "$ref": "#/schema:~1~1json-schema.org~1draft-04~1schema"
     },
     "schema://json-schema.org/draft-06/schema": {
         "#": {
@@ -252,9 +252,6 @@
                     "type": "array",
                     "uniqueItems": true
                 }
-            },
-            "_meta": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema"
             }
         },
         "default": {},
@@ -264,7 +261,7 @@
                 "type": "string"
             },
             "additionalProperties": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
             },
             "allOf": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/$defs/schemaArray"
@@ -274,12 +271,12 @@
             },
             "const": {},
             "contains": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
             },
             "default": {},
             "definitions": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
@@ -288,7 +285,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                            "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
                         },
                         {
                             "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/$defs/stringArray"
@@ -319,7 +316,7 @@
                 "type": "string"
             },
             "items": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
             },
             "maxItems": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/$defs/nonNegativeInteger"
@@ -350,7 +347,7 @@
                 "type": "number"
             },
             "not": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
             },
             "oneOf": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/$defs/schemaArray"
@@ -361,7 +358,7 @@
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
                 },
                 "default": {},
                 "propertyNames": {
@@ -371,13 +368,13 @@
             },
             "properties": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "propertyNames": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema~1#~1_meta"
             },
             "required": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema/#/$defs/stringArray"
@@ -410,6 +407,9 @@
             "object",
             "boolean"
         ]
+    },
+    "schema://json-schema.org/draft-06/schema/#/_meta": {
+        "$ref": "#/schema:~1~1json-schema.org~1draft-06~1schema"
     },
     "schema://json-schema.org/draft-07/schema": {
         "#": {
@@ -454,9 +454,6 @@
                     "type": "array",
                     "uniqueItems": true
                 }
-            },
-            "_meta": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema"
             }
         },
         "default": true,
@@ -469,7 +466,7 @@
                 "type": "string"
             },
             "additionalProperties": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "allOf": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/$defs/schemaArray"
@@ -479,7 +476,7 @@
             },
             "const": true,
             "contains": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "contentEncoding": {
                 "type": "string"
@@ -490,7 +487,7 @@
             "default": true,
             "definitions": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
@@ -499,7 +496,7 @@
                 "additionalProperties": {
                     "anyOf": [
                         {
-                            "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                            "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
                         },
                         {
                             "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/$defs/stringArray"
@@ -512,7 +509,7 @@
                 "type": "string"
             },
             "else": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "enum": {
                 "items": true,
@@ -534,10 +531,10 @@
                 "type": "string"
             },
             "if": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "items": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "maxItems": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/$defs/nonNegativeInteger"
@@ -568,7 +565,7 @@
                 "type": "number"
             },
             "not": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "oneOf": {
                 "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/$defs/schemaArray"
@@ -579,7 +576,7 @@
             },
             "patternProperties": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
                 },
                 "default": {},
                 "propertyNames": {
@@ -589,13 +586,13 @@
             },
             "properties": {
                 "additionalProperties": {
-                    "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                    "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
                 },
                 "default": {},
                 "type": "object"
             },
             "propertyNames": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "readOnly": {
                 "default": false,
@@ -605,7 +602,7 @@
                 "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/$defs/stringArray"
             },
             "then": {
-                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema/#/_meta"
+                "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema~1#~1_meta"
             },
             "title": {
                 "type": "string"
@@ -639,6 +636,9 @@
             "object",
             "boolean"
         ]
+    },
+    "schema://json-schema.org/draft-07/schema/#/_meta": {
+        "$ref": "#/schema:~1~1json-schema.org~1draft-07~1schema"
     },
     "schema://json-schema.org/draft/2019-09/meta/applicator": {
         "#": {

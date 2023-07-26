@@ -2,6 +2,9 @@
 
 ### Changes:
 
+- 0.8.1
+    - bug: fix `transformReferences` for the case when `resetReferences` cannot find the relative uri
+
 - 0.8.0
     - enhancement: security check for json problematic characters in downloaded schemas
     - enhancement: removing option to build `$vocabulary`, in `DJS` unknown keywords are ignored
