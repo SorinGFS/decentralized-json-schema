@@ -20,7 +20,7 @@ module.exports = (...dirPathResolveArgs) => {
         fn.assignDeepKeyParent(
             /^(\$id|id)$/,
             (target, parentKey, key) => {
-                if (target.$schema && typeof target[key] === 'string') {
+                if (typeof target[key] === 'string' && target.$schema) {
                     try {
                         const id = transformURI(decodeURI(new URL(target[key].replace(/#$/, '')).href));
                         return (schema[id] = target) && { [parentKey]: { $ref: id } };

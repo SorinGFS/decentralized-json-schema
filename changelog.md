@@ -2,10 +2,14 @@
 
 ### Changes:
 
+- 0.8.2
+    - enhancement: 
+
 - 0.8.1
     - bug: fix `transformReferences` for the case when `resetReferences` cannot find the relative uri
 
 - 0.8.0
+    - enhancement: add source allowed only over `https`, `http` is redirected, other protocols are triggering error
     - enhancement: security check for json problematic characters in downloaded schemas
     - enhancement: removing option to build `$vocabulary`, in `DJS` unknown keywords are ignored
     - enhancement: transform all schema id's and references to use `schema:` protocol
