@@ -3,7 +3,8 @@
 ### Changes:
 
 - 0.8.2
-    - enhancement: 
+    - enhancement: improve `compact-schema` function to avoid splitting escaped `\\/` and `patternProperties` content
+    - dependencies: bump zerodep to 1.7.16
 
 - 0.8.1
     - bug: fix `transformReferences` for the case when `resetReferences` cannot find the relative uri
