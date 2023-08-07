@@ -5,7 +5,7 @@ const fn = require('zerodep/node/fn');
 const exec = require('zerodep/node/exec');
 // argument must be an url
 const url = !process.argv[2].startsWith('http') ? process.exit(0) : process.argv[2].replace(/^http:/, 'https:');
-const sourcePath = process.argv[3] || process.env.sourcePath;
+const sourcePath = process.argv[3] || './src';
 const pathArgs = fs.filePathResolveArgs({ parser: 'json' }, sourcePath, ...fs.pathResolveArgsFromUri(url.replace(/^(.*?):/, 'schema:'), { pathOnly: false }));
 // run async
 (async () => {

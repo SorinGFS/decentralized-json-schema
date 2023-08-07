@@ -2,7 +2,7 @@
 // print keyword definition footprints
 console.time('execution time')
 const fn = require('zerodep/node/fn');
-const schema = require(`${process.env.PWD}/base/schema`)(process.argv[2] || process.env.sourcePath);
+const schema = require(`${process.env.PWD}/base/schema`)(process.argv[2] || './src');
 const footprint = require(`${process.env.PWD}/base/utils/footprint`);
 
 const unique = {};

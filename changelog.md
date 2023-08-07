@@ -2,6 +2,10 @@
 
 ### Changes:
 
+- 0.8.3
+    - refctoring: removing `.env` vars from `config`, `DJS` will have a `config` based on a `schema` which will be builded into `DJS`itself. This will allow each schema to be configured differently (having own global links, output schema, build options, so on...)
+    - dependencies: removing `dotenv` dependency
+
 - 0.8.2
     - enhancement: improve `compact-schema` function to avoid splitting escaped `\\/` and `patternProperties` content
     - dependencies: bump zerodep to 1.7.16

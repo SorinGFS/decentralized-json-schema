@@ -146,8 +146,6 @@ module.exports = (...dirPathResolveArgs) => {
     const removeTransformedKeywords = (id) => {
         fn.replaceDeepKey(/^(\$id|\$schema|\$anchor|\$recursiveAnchor|\$dynamicAnchor|\$recursiveRef|\$dynamicRef|\$vocabulary)$/, () => [], schema[id]);
         delete schema[id].id;
-        // remove $comment keyword if not enabled in .env file
-        if (process.env.buildComment === 'false') fn.replaceDeepKey('$comment', () => [], schema[id]);
     };
     // reset references in decentralized ids as absolute jsonPointer (conversion to absolute URL is trivial)
     const resetReferences = (id) => {

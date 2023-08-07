@@ -1,6 +1,5 @@
 'use strict';
 // define vars
-const env = require('../config/env');
 const fs = require('zerodep/node/fs');
 const exec = require('zerodep/node/exec');
 const workdir = process.argv[1];
